@@ -477,19 +477,6 @@ button[disabled] {
     font-weight: normal;
     font-size: 12px;
 }
-.header-account-info{
-    display: block;
-}
-.header-account-info-icon{
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    vertical-align: middle;
-    border-radius: 50%;
-    border: none;
-    background:url('../img/account-logo.png') no-repeat #fff;
-    background-size: 30px;
-}
 
 .g-header .nav-title {
     font-size: 18px;
