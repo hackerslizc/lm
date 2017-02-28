@@ -491,10 +491,8 @@ button[disabled] {
     width: 22px;
     height: 22px;
     margin-top: 12px;
-    background-image: url('../img/sp-icons.png');
-    
-    background-position: 0 -72px;
-    background-size: 22px;
+    background-image: url('../img/back.png');
+    background-size: 19px;
     text-indent: -999em;
 }
 
@@ -591,8 +589,6 @@ button[disabled] {
     width: 22px;
     height: 21px;
     display: inline-block;
-    background: url('../img/icons.png') no-repeat  0px -139px;
-    background-size: 23px 160px;
     vertical-align: middle;
     margin-right: 10px;
     margin-top: -2px;

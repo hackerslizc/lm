@@ -16,33 +16,41 @@ class Input extends Component{
         this.changeHandler = this.changeHandler.bind(this);
     }
 
-    renderTemp(){
-        const opt = this.props.opt,
-              wrapclass = opt.pagename == 'bind' ? 'clearfix flex-box formItem bind' : 'clearfix flex-box formItem',
-              _type = (opt.type === 'mobile' || opt.type === 'captcha') ? 'number' : 'text',
-              id = opt.id;
-
-        if (opt.type === 'text'|| opt.type === 'mobile' ) {
-            return (<div className={wrapclass}>
-                    <label className="clearfix label">{opt.label}</label>
-                    <p className="clearfix flex-1"><input type={_type} id={id} onChange={this.changeHandler}/></p>
-                </div>)
-        } else if (opt.type === 'captcha') {
-            return (<div className={wrapclass}>
-                    <label className="clearfix label">opt.label</label>
-                    <p className="clearfix flex-1"><input type={_type} id={id} onChange={this.changeHandler} maxLength="6"/></p>
-                </div>)
-        } else {
-            return null
-        }
-        
-    }
-
     changeHandler(e){
         let data = {};
         data['name'] = e.target.id;
         data['value'] = e.target.value;
         this.props.opt.callbackFn(data)
+    }
+
+    renderTemp(){
+        const opt = this.props.opt,
+              wrapclass = opt.pagename == 'bind' ? 'clearfix flex-box formItem bind' : 'clearfix flex-box formItem',
+              _type = (opt.type === 'mobile' || opt.type === 'captcha') ? 'tel' : 'text',
+              id = opt.id;
+        let inputTemp = (<input type={_type} id={id} onChange={this.changeHandler}/>);
+
+        if (opt.type === 'text' || opt.type === 'mobile' ) {
+            if( opt.type === 'mobile' ){
+                inputTemp = (<input type={_type} id={id} maxLength='11' onChange={this.changeHandler}/>)
+            }
+            return (<div className={wrapclass}>
+                    <label className="clearfix label">{opt.label}</label>
+                    <p className="clearfix flex-1">
+                        {inputTemp}
+                    </p>
+                </div>)
+        } else if (opt.type === 'captcha') {
+            return (<div className={wrapclass}>
+                    <label className="clearfix label">{opt.label}</label>
+                    <p className="clearfix flex-1">
+                        <input type={_type} id={id}  maxLength="6" onChange={this.changeHandler}/>
+                    </p>
+                </div>)
+        } else {
+            return null
+        }
+        
     }
 
     render(){

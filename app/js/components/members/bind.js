@@ -53,7 +53,7 @@ class BindUser extends Component{
                         callbackFn:_this.callbackFn}}>
                     </Input>
                     <Input opt={{
-                        id:'',
+                        id:'captcha',
                         margint: true,
                         pagename:'bind',
                         type: 'captcha',
@@ -67,6 +67,10 @@ class BindUser extends Component{
                         component="buttom">
                         确定
                     </Tappable>
+                    <div className="bind-qr-code">
+                        <img src="http://www.zyue.com/upload/addr/er_20140725105541.png"/>
+                        <p>请保存此图片  ，该图片可用于快捷取件</p>
+                    </div>
                 </div>
             </div>
         )

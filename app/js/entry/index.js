@@ -16,6 +16,7 @@ import MemberCenter from '../components/members/index';
 
 import NoContent from '../components/nocontent.js';
 import BindUser from '../components/members/bind';
+import List from '../components/plist/list';
 // import PayStatus from '../components/pay-status.js';
 
 const store = configureStore();
@@ -45,6 +46,9 @@ class App extends Component {
                     </Route>
                     <Route path="/bind" 
                         component={BindUser}>
+                    </Route>
+                    <Route path="/list" 
+                        component={List}>
                     </Route>
                 </Router>
             </Provider>
