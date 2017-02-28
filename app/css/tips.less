@@ -1,0 +1,108 @@
+@import 'ani.less';
+
+@loadingUrl: '../img/loading.gif';
+@alertUrl: '../img/sp-alert.png';
+.g-loading {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: url(@loadingUrl) no-repeat;
+    background-size: 30px;
+}
+
+
+.g-tip {
+    position: fixed;
+    width: 100%;
+    top: 45%;
+    text-align: center;
+    z-index: 999;
+}
+
+.g-tip-mask,
+.g-modal-mask {
+    .flex-box();
+
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 998;
+    background: rgba(0,0,0,.4);
+
+    /* 子元素 垂直居中对齐 */
+      -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center;
+
+    /* 子元素 水平居中对齐 */
+           -webkit-box-pack: center;
+    -webkit-justify-content: center;
+            justify-content: center;    
+}
+
+.g-tip {
+    position: fixed;
+    width: 100%;
+    top: 45%;
+    text-align: center;
+    z-index: 999;
+}
+
+.g-tip-mask {
+    background: rgba(0,0,0,.3);
+    top: 0;
+}
+
+.g-tip-inner {
+    display: inline-block;
+    color: #fff;
+    max-width: 300px;
+    box-sizing: border-box;
+    text-align: left;
+    background: rgba(0,0,0,.8);
+    line-height: 1.5;
+    padding: 8px 20px;
+    border-radius: 3px;
+    opacity: 1;
+
+}
+
+.g-status-title {
+    font-size: 18px;
+    vertical-align: middle;
+}
+
+.g-status-desc {
+    color: #999;
+    margin-top: 5px;
+}
+
+.g-status::before {
+    display: inline-block;
+    content: '\20';
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+    margin-right: 10px;
+    background: url(@alertUrl) 0 0;
+    background-size: 40px;
+}
+
+.g-status-error::before {
+    background-position: 0 -42px;   
+}
+
+.g-status-warn::before {
+    background-position: 0 -84px;   
+}
+
+.g-status-unknown::before {
+    background-position: 0 -126px;  
+}
+
+.g-status-info::before {
+    background-position: 0 -168px;  
+}

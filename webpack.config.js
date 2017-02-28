@@ -15,9 +15,13 @@ var publicPath = path.resolve(rootPath, 'public');
 
 var currentTarget = process.env.npm_lifecycle_event;
 
+var env = process.env.NODE_ENV ? 'production' : 'dev';
+console.log(env);
+
+
 module.exports = {
     //页面入口配置文件
-    entry: ['./app/js/main.js'],
+    entry: ['./app/js/entry/index.js'],
 
     //设置导出路径
     output: {
@@ -47,9 +51,14 @@ module.exports = {
                 loader: ExtractTextPlugin.extract("style-loader", "css-loader")
             },
 
+            { 
+                test: /\.less$/, 
+                loader: 'style-loader!css-loader!less-loader' 
+            },
+
             //.img 文件使用 style-loader 和 css-loader 来处理
             {
-                test: [/\.png/, /\.jpg/],
+                test: [/\.png/, /\.jpg/, /\.gif/],
                 loader: 'file-loader?name=images/[name].[ext]&limit=1024'
             }
         ]
@@ -82,7 +91,7 @@ module.exports = {
         new webpack.NoErrorsPlugin(),
         //配置webpack传递的参数
         new webpack.DefinePlugin({
-          'process.env.NODE_ENV': JSON.stringify('production')
+          'process.env.NODE_ENV': JSON.stringify(env)
         }),
 
         //代码压缩
