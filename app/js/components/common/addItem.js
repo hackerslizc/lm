@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import {hashHistory,Link} from 'react-router';
-
 import Tappable from 'react-tappable';
 
 /**
@@ -42,7 +41,7 @@ class ListItem extends Component{
         const opt = this.props.opt,
               idx = opt.idx,
               id = opt.id,
-              isSelect = this.state.isSelect ? 'list-order-select on' : 'list-order-select',
+              isSelect = this.state.isSelect ? 'list-order-setDefault fl on' : 'list-order-setDefault fl',
               iconsrc = opt.iconsrc,
               takeDelivery = opt.takeDelivery,
               date = opt.date,
@@ -54,36 +53,38 @@ class ListItem extends Component{
             <div className="list-order-warp clear">
                 <div className="list-order-top flex-box">
                     <div className="list-lm-icon flex-1"></div>
-                    <Tappable
-                        id={id}
-                        onTap={this.deleteFn}
-                        className="list-order-delet"
-                        component="a">
-                    </Tappable>
                 </div>
-                <Tappable
-                    id={id}
-                    onTap={this.godetailHandler}
-                    className="list-order-center clearfix"
-                    component="div">
-                    <div className="list-express-icon">
-                        <img src={iconsrc}/>
+                <div className="list-order-center address clearfix">
+                    <div className="flex-box ">
+                        <p className="flex-1">{opt.name}</p>
+                        <p className="flex-3">{opt.mobile}</p>
                     </div>
-                    <div className="list-order-info">
-                        <p>订单编号：{orderId}</p>
-                        <p>提  货  号：{takeDelivery}</p>
-                        <p>到站日期：{date}</p>
+                    <div className="list-order-address">
+                        {opt.address}
                     </div>
-                </Tappable>
+                </div>
                 <div className="list-order-foot clearfix">
                     <Tappable
                         id={id}
+                        onTap={this.deleteFn}
+                        className="list-order-edit"
+                        component="a">
+                        编辑
+                    </Tappable>
+                    <Tappable
+                        id={id}
                         onTap={this.selectFn}
+                        className="list-order-delete"
+                        component="a">
+                        删除
+                    </Tappable>
+                    <Tappable
+                        id={id}
+                        onTap={this.deleteFn}
                         className={isSelect}
                         component="a">
+                        设为默认
                     </Tappable>
-                    <label className="list-order-status">{status}</label>
-                    <label className="list-order-length">共 {count} 件包裹  </label>
                 </div>
             </div>
         )

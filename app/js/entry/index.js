@@ -17,6 +17,8 @@ import MemberCenter from '../components/members/index';
 import NoContent from '../components/nocontent.js';
 import BindUser from '../components/members/bind';
 import List from '../components/plist/list';
+import AddressList from '../components/alist/list';
+
 // import PayStatus from '../components/pay-status.js';
 
 const store = configureStore();
@@ -49,6 +51,9 @@ class App extends Component {
                     </Route>
                     <Route path="/list" 
                         component={List}>
+                    </Route>
+                    <Route path="/address-list" 
+                        component={AddressList}>
                     </Route>
                 </Router>
             </Provider>

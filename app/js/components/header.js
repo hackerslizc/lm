@@ -50,7 +50,7 @@ class Header extends Component{
     }
 
     clickHancler(){
-        
+
     }
 
     render(){
@@ -78,15 +78,18 @@ class Header extends Component{
                             {opt.title ? opt.title : "邻米"}
                         </h1>
                     </div>
-                    <div className="nav-more">
-                        <Tappable
-                            onTap={this.clickHancler}
-                            className="header-trade-record white-col"
-                            component="a">
-                            <i className="header-trade-record-icon"></i>
-                            <label>账单1</label>
-                        </Tappable>
-                    </div>
+                    {
+                        false && (<div className="nav-more">
+                            <Tappable
+                                onTap={this.clickHancler}
+                                className="header-trade-record white-col"
+                                component="a">
+                                <i className="header-trade-record-icon"></i>
+                                <label>账单1</label>
+                            </Tappable>
+                        </div>)
+                    }
+                    
                 </div>
             </header>
         )

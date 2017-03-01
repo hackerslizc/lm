@@ -95,11 +95,11 @@ module.exports = {
         }),
 
         //代码压缩
-        new webpack.optimize.UglifyJsPlugin({
-          compress: {
-            warnings: false
-          }
-        })
+        // new webpack.optimize.UglifyJsPlugin({
+        //   compress: {
+        //     warnings: false
+        //   }
+        // })
     ],
 
     //热更新

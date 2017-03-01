@@ -6,10 +6,10 @@ import {Promise} from 'es6-promise';
 import Tappable from 'react-tappable';
 
 import Header from '../header';
-import ListItem from '../common/listItem';
+import ListItem from '../common/addItem';
 /**
  *
- * @param  {列表}
+ * @param  {地址列表}
  *
  **/
 class List extends Component{
@@ -62,14 +62,17 @@ class List extends Component{
         for (var i = 0; i < 10; i++){
             const opt = {
                 id: new Date().getTime()+i,
-                iconsrc: 'http://static.sto.cn/www/images/logo.png',
-                orderId: '12321321d',
-                takeDelivery: '',
-                date: '2017-03-01',
-                status: '未付款',
-                count: '12'
+                name: '张女士',
+                mobile: '15982316112',
+                address: '成都市成华区八里桥路水武街75号',
+                isDefault: false,
             };
-            eleArr.push(<ListItem opt={opt} key={i} selectFn={_this.selectFn} deleteFn={_this.deleteFn}></ListItem>)
+            eleArr.push(<ListItem opt={opt} 
+                key={i} 
+                defaultFn={_this.selectFn} 
+                selectFn={_this.selectFn} 
+                deleteFn={_this.deleteFn}>
+            </ListItem>)
         }
 
         return (eleArr)
@@ -86,8 +89,8 @@ class List extends Component{
     render(){
         let _this = this,
             headerOpt = {
-                title:'邻米',
-                name:"index",
+                title:'新增地址',
+                name:"address",
                 pathname:'index'
              };
         console.log(this.state)
@@ -104,17 +107,10 @@ class List extends Component{
                 <div className="clearfix fixed flex-box">
                     <Tappable
                         id=""
-                        onTap={this.deliverytoHomeFn}
-                        className="list-but flex-1 home"
-                        component="a">
-                        <i className="list-icon icon-home"></i>送货上门
-                    </Tappable>
-                    <Tappable
-                        id=""
                         onTap={this.onStoreFn}
                         className="list-but flex-1"
                         component="a">
-                        <i className="list-icon icon-store"></i>到店自提
+                        新增地址
                     </Tappable>
                 </div>
             </div>
