@@ -48,8 +48,7 @@ class App extends Component {
     }
 
     render() {
-        let {indexConfig} = this.props,
-            content;
+        let content;
 
 
         const { pathname } = this.props.location
@@ -81,7 +80,7 @@ class App extends Component {
 const mapStateToProps = (state) => {
     // alert("configStates:"+JSON.stringify(state.configStates)+"-"+"listStates:"+JSON.stringify(state.listStates))
     return {
-        ...state.indexConfig,
+        // ...state.indexConfig,
         dataloading: state.dataloading
     }
 }

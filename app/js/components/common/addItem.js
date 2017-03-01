@@ -13,22 +13,13 @@ class ListItem extends Component{
         this.state = {
             isSelect: false
         }
-        this.selectFn = this.selectFn.bind(this);
+        this.editFn = this.editFn.bind(this);
+        this.setDefaultFn = this.setDefaultFn.bind(this);
         this.deleteFn = this.deleteFn.bind(this);
     }
 
-    godetailHandler(){
-        console.log(1);
-    }
+    editFn(e){
 
-    selectFn(e){
-        this.setState({
-            isSelect: !(e.target.classList.contains('on'))
-        })
-        this.props.selectFn({
-            id: e.target.id,
-            select: !e.target.classList.contains('on')
-        })
     }
 
     deleteFn(e){
@@ -37,22 +28,29 @@ class ListItem extends Component{
         })
     }
 
+    setDefaultFn(e){
+        this.setState({
+            isSelect: !(e.currentTarget.classList.contains('on'))
+        })
+        console.log(e.currentTarget.id);
+    }
+
     render(){
         const opt = this.props.opt,
               idx = opt.idx,
               id = opt.id,
-              isSelect = this.state.isSelect ? 'list-order-setDefault fl on' : 'list-order-setDefault fl',
+              isSelect = this.state.isSelect ? 'address-icon default on' : 'address-icon default',
               iconsrc = opt.iconsrc,
               takeDelivery = opt.takeDelivery,
               date = opt.date,
               orderId = opt.orderId,
               status = opt.status,
               count = opt.count;
-
+        console.log(this.state.isSelect);
         return (
             <div className="list-order-warp clear">
                 <div className="list-order-top flex-box">
-                    <div className="list-lm-icon flex-1"></div>
+                    <div className="list-lm-icon yello flex-1"></div>
                 </div>
                 <div className="list-order-center address clearfix">
                     <div className="flex-box ">
@@ -66,25 +64,28 @@ class ListItem extends Component{
                 <div className="list-order-foot clearfix">
                     <Tappable
                         id={id}
-                        onTap={this.deleteFn}
-                        className="list-order-edit"
+                        onTap={this.editFn}
+                        className="list-address-edit"
                         component="a">
+                        <i className="address-icon edit"></i>
                         编辑
                     </Tappable>
                     <Tappable
                         id={id}
-                        onTap={this.selectFn}
-                        className="list-order-delete"
+                        onTap={this.deleteFn}
+                        className="list-address-delete"
                         component="a">
+                        <i className="list-order-delet"></i>
                         删除
                     </Tappable>
-                    <Tappable
+                    <span className="list-order-setDefault fl">
+                        <Tappable
                         id={id}
-                        onTap={this.deleteFn}
+                        onTap={this.setDefaultFn}
                         className={isSelect}
-                        component="a">
+                        component="a"></Tappable>
                         设为默认
-                    </Tappable>
+                    </span>
                 </div>
             </div>
         )

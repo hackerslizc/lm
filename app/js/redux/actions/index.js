@@ -9,15 +9,7 @@ export const TOGGLE_DATA_LOADING = 'TOGGLE_DATA_LOADING';
 export const TOAST_TIP = 'TOAST_TIP';
 export const SET_RUNTIME = 'SET_RUNTIME';
 
-export const GET_INDEX_CONFIG= 'GET_INDEX_CONFIG';  //设置配置信息
-
 export const GET_ACCOUNT_INFO= 'GET_ACCOUNT_INFO';  //获取用户信息
-export const GET_LOGIN_STATUS= 'GET_LOGIN_STATUS'; //获取用户登录状态
-
-
-
-
-
 
 
 /**
@@ -205,8 +197,6 @@ export {
     setRuntime,
     toggleDataLoading,
     toggleLoading,
-
     AccountInfoFn,
-
     getAccountInfo
 }

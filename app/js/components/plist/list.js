@@ -105,14 +105,14 @@ class List extends Component{
                     <Tappable
                         id=""
                         onTap={this.deliverytoHomeFn}
-                        className="list-but flex-1 home"
+                        className="list-btn flex-1 home"
                         component="a">
                         <i className="list-icon icon-home"></i>送货上门
                     </Tappable>
                     <Tappable
                         id=""
                         onTap={this.onStoreFn}
-                        className="list-but flex-1"
+                        className="list-btn flex-1"
                         component="a">
                         <i className="list-icon icon-store"></i>到店自提
                     </Tappable>
@@ -126,7 +126,7 @@ class List extends Component{
 const mapStateToProps = (state) => {
     // console.log(state.indexConfig)
     return {
-        ...state.indexConfig
+        // ...state.indexConfig
     }
 };
 

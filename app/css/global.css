@@ -23,6 +23,7 @@
 .mt20{margin-top:20px}
 .mt30{margin-top:30px}
 .mt40{margin-top:40px}
+.mt50{margin-top:50px}
 
 .mb5{margin-bottom:5px}
 .mb10{margin-bottom:10px}
@@ -99,6 +100,7 @@ input:focus,textarea:focus{outline:0}
 .red-col{color:#d9434b!important}
 .white-col{ color: #fff!important;}
 .blue-col{ color:#0077ff!important}
+.yello-col{ color: #ec6a21 }
 
 .tl{text-align:left!important}
 .tr{text-align:right!important}
@@ -492,7 +494,7 @@ button[disabled] {
     height: 22px;
     margin-top: 12px;
     background-image: url('../img/back.png');
-    background-size: 19px;
+    background-size: 22px;
     text-indent: -999em;
 }
 

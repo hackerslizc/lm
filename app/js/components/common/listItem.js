@@ -53,7 +53,7 @@ class ListItem extends Component{
         return (
             <div className="list-order-warp clear">
                 <div className="list-order-top flex-box">
-                    <div className="list-lm-icon flex-1"></div>
+                    <div className="list-lm-icon gray flex-1"></div>
                     <Tappable
                         id={id}
                         onTap={this.deleteFn}

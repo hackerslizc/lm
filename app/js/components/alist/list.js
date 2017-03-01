@@ -108,7 +108,7 @@ class List extends Component{
                     <Tappable
                         id=""
                         onTap={this.onStoreFn}
-                        className="list-but flex-1"
+                        className="list-btn add flex-1"
                         component="a">
                         新增地址
                     </Tappable>
@@ -122,7 +122,7 @@ class List extends Component{
 const mapStateToProps = (state) => {
     // console.log(state.indexConfig)
     return {
-        ...state.indexConfig
+        // ...state.indexConfig
     }
 };
 

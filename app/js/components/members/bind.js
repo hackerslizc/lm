@@ -81,7 +81,7 @@ class BindUser extends Component{
 const mapStateToProps = (state) => {
     // console.log(state.indexConfig)
     return {
-        ...state.indexConfig
+        // ...state.indexConfig
     }
 };
 

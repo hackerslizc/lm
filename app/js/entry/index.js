@@ -14,10 +14,15 @@ import Header from '../components/header';
 import Home from '../components/index/index';
 import MemberCenter from '../components/members/index';
 
-import NoContent from '../components/nocontent.js';
+import NoContent from '../components/nocontent';
 import BindUser from '../components/members/bind';
 import List from '../components/plist/list';
+import Detail from '../components/detail/index';
+
 import AddressList from '../components/alist/list';
+import AddAddress from '../components/alist/add-address';
+import Infomation from '../components/members/infomation';
+import MailingResult from '../components/members/mailing-result';
 
 // import PayStatus from '../components/pay-status.js';
 
@@ -52,8 +57,20 @@ class App extends Component {
                     <Route path="/list" 
                         component={List}>
                     </Route>
+                    <Route path="/detail" 
+                        component={Detail}>
+                    </Route>
                     <Route path="/address-list" 
                         component={AddressList}>
+                    </Route>
+                    <Route path="/info" 
+                        component={Infomation}>
+                    </Route>
+                    <Route path="/mailing-result" 
+                        component={MailingResult}>
+                    </Route>
+                    <Route path="/add-address" 
+                        component={AddAddress}>
                     </Route>
                 </Router>
             </Provider>

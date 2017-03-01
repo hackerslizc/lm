@@ -3,31 +3,11 @@ import {
     TOGGLE_LOADING,
     TOGGLE_DATA_LOADING,
     SET_RUNTIME,
-    GET_INDEX_CONFIG,
 
     GET_ACCOUNT_INFO,
-    GET_LOGIN_STATUS,
 
     SET_CONFIG_STATES,
 } from '../actions';
-
-
-
-
-function indexConfig(state={}, action) {
-    switch (action.type) {
-        case GET_INDEX_CONFIG:
-            return {
-                ...state,
-                indexConfig:{
-                    ...action.data                    
-                }
-            };
-        break;
-        default:
-            return state
-    }
-}
 
 function loading(state={}, action) {
     switch (action.type) {
@@ -71,19 +51,6 @@ function toastTip(state={}, action) {
     }
 }
 
-
-/*
- *  设置登陆状态
- */
-function setLoginStatus(state={}, action) {
-    switch (action.type) {
-        case 'GET_LOGIN_STATUS':
-            return action.data;
-        break;
-        default:
-            return state
-    }
-}
 /*
  *  设置用户信息
  */
@@ -105,7 +72,6 @@ export default combineReducers({
     dataloading,
     toastTip,
     runtime,
-    indexConfig,
-    setAccountInfo,
-    setLoginStatus
+    // indexConfig,
+    setAccountInfo
 });

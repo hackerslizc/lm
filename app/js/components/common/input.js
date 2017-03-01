@@ -63,12 +63,4 @@ class Input extends Component{
     }
 };
 
-
-const mapStateToProps = (state) => {
-    // console.log(state.indexConfig)
-    return {
-        ...state.indexConfig
-    }
-};
-
 export default Input;
