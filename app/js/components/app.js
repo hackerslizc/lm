@@ -9,7 +9,7 @@ import { hashHistory } from 'react-router';
 
 import Home from './index/index';
 import Members from './members/index';
-import Header from './header';
+import Header from './common/header';
 
 import {
     setRuntime,

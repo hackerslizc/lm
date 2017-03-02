@@ -3,7 +3,7 @@ import {hashHistory,Link} from 'react-router';
 import {Promise} from 'es6-promise';
 
 import Tappable from 'react-tappable';
-import Header from '../header';
+import Header from '../common/header';
 /**
  *
  * @param  {消息列表 模块}

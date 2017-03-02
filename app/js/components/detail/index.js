@@ -3,7 +3,7 @@ import {hashHistory,Link} from 'react-router';
 import { connect } from 'react-redux';
 import {Promise} from 'es6-promise';
 import Tappable from 'react-tappable';
-import Header from '../header';
+import Header from '../common/header';
 
 
 /**

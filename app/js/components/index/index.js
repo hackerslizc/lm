@@ -6,7 +6,7 @@ import {Promise} from 'es6-promise';
 import Tappable from 'react-tappable';
 
 
-import Header from '../header';
+import Header from '../common/header';
 import Banner from './banner';
 import IconList from './iconList';
 import Discount from './discount';

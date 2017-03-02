@@ -9,7 +9,7 @@ import Tappable from 'react-tappable';
 
 import {
     AccountInfoFn
-} from '../redux/actions';
+} from '../../redux/actions';
 
 /**
  *

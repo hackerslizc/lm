@@ -5,7 +5,7 @@ import {Promise} from 'es6-promise';
 
 import Tappable from 'react-tappable';
 
-import Header from '../header';
+import Header from '../common/header';
 import ListItem from '../common/addItem';
 /**
  *

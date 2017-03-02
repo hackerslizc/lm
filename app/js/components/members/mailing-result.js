@@ -7,7 +7,7 @@ import CONSTS from '../../const.js';
 
 import Tappable from 'react-tappable';
 
-import Header from '../header';
+import Header from '../common/header';
 
 import {
     AccountInfoFn

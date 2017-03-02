@@ -10,7 +10,6 @@ import InitState from '../redux/reducers/init-state';
 
 import AppMain from '../components/app';
 
-import Header from '../components/header';
 import Home from '../components/index/index';
 import MemberCenter from '../components/members/index';
 
@@ -23,6 +22,8 @@ import AddressList from '../components/alist/list';
 import AddAddress from '../components/alist/add-address';
 import Infomation from '../components/members/infomation';
 import MailingResult from '../components/members/mailing-result';
+import ExpressForm from '../components/express-form/index';
+
 
 // import PayStatus from '../components/pay-status.js';
 
@@ -71,6 +72,10 @@ class App extends Component {
                     </Route>
                     <Route path="/add-address" 
                         component={AddAddress}>
+                    </Route>
+
+                    <Route path="/express-form" 
+                        component={ExpressForm}>
                     </Route>
                 </Router>
             </Provider>
