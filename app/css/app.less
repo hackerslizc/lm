@@ -119,204 +119,7 @@ html,body{
     width: 100%;
     padding-top: 10px;
 }
-/*
-* Banner
-*/
-.banner-warp{
-    width: 100%;
-    height: 90px;
-    overflow: hidden;
-    position: relative;
-}
 
-.banner-warp .banner{
-    width: 100%;
-    height: 90px;
-    display: block;
-}
-
-.banner-warp .slick-track{
-    height: 90px;
-}
-
-.banner-warp .slick-track .slick-slide {
-    width: 100%;
-    float: left;
-    display: block;
-}
-
-.banner-warp .slick-dots{
-    position: absolute;
-    z-index: 2;
-    bottom: 2px;
-    list-style: none;
-    text-align: center;
-    width: 100%;
-}
-.banner-warp .slick-dots li{
-    position: relative;
-    display: inline-block;
-    height: 2px;
-    width: 2px;
-    margin:1px 4px;
-    padding: 0;
-    cursor: pointer;
-    border-radius: 50%;
-    background:#cacaca;
-    /*background: rgba(0,0,0,0.1);
-    border:1px solid  rgba(255,255,255,.6);*/
-    text-indent: -10000px;
-    overflow: hidden;
-    border:#fff 1px solid;
-    opacity: .6;
-}
-.banner-warp .slick-dots li.slick-active{
-    width: 5px;
-    height: 5px;
-    margin:0px 4px;
-    border:#ececec 1px solid;
-    opacity: 1;
-}
-
-
-/*
-* 首页通用title条
-*/
-.column-title{
-    line-height: 50px;
-    height: 50px;
-    color: #000;
-    font-size: 16px;
-    overflow: hidden;
-}
-
-/*
-* 一大波优惠
-*/
-.discount-warp{
-    padding:0px 0px 0px 15px;
-    background-color: #fff;
-    overflow: hidden;
-}
-.discount-warp .discount-content{
-    height: 227px;
-    -webkit-overflow-scrolling:touch;
-    overflow-x: scroll;
-}
-.discount-content .discount{
-    width: 130px;
-    height: 191px;
-    float: left;
-    display: inline-block;
-    background-color: #f6f6f6;
-    position: relative;
-    margin-right: 15px;
-}
-.discount-content .discount:nth-last-child(1){
-    margin: 0px
-}
-.discount-content .discount .discount-img{
-    width: 130px;
-    height: 110px;
-    display: block;
-    border: none
-}
-.discount-content .discount .discount-text{
-    width: 90px;
-    height: 70px;
-    /*line-height: 64px;*/
-    padding: 0px 20px;
-    text-align: center;
-    display: block;
-    display:table;
-}
-.discount-content .discount .discount-text label{
-    display: inline-block;
-    vertical-align: middle;
-    display:table-cell;    
-}
-.discount-content .discount .discount-btn{
-    width: 62px;
-    height: 22px;
-    line-height: 22px;
-    text-align: center;
-    font-size: 12px;
-    color: #fff;
-    background-color: #f15353;
-    position: absolute;
-    bottom: -11px;
-    left: 50%;
-    margin-left: -31px;
-}
-
-.discount-content .discount .discount-btn-position{
-    position: absolute;
-    width: 100px;
-    height: 44px;
-    top: -11px;
-    left: -19px;
-    z-index: 2;
-}
-
-.discount-content .discount .discount-btn-text{
-    width: 100%;
-    height: 22px;
-    overflow: hidden;
-}
-
-/*
-* 精挑细选
-*/
-.choosy-warp{
-    padding:0px 15px 0px;
-    background-color: #fff;
-}
-.choosy-warp li{
-    display: block;
-    width: 100%;
-    margin-bottom: 15px;
-}
-.choosy-warp li a{
-    display: block;
-    width: 100%;
-}
-.choosy-warp li img{
-    width: 100%;
-    max-height: 134px;
-    display: block;
-}
-
-.finance-warp{
-    background-color: #fff;
-}
-.finance-warp .finance-content{
-    width: 100%;
-    overflow: hidden;
-}
-
-.finance-content .finance-item{
-    display: block;
-    /*border-top: #eee 1px solid;*/
-    /*padding: 20px 15px 20px;*/
-    /*width: 100%;*/
-    overflow: hidden;
-    padding:15px 0px;
-    margin-left: 20px;
-}
-.title-line{
-    position: relative;
-}
-.title-line::after{
-    content: '';
-    width: 100%;
-    height: 1px;
-    background: #ddd;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    -webkit-transform: scaleY(.5);
-    transform: scaleY(.5);
-}
 .index-bottom-line{
     position: relative;
 }
@@ -359,183 +162,8 @@ html,body{
     -webkit-transform: scaleX(.5);
     transform: scaleX(.5);
 }
-/*.finance-content .finance-item:nth-last-child(1)::after{
-    display: none;
-}*/
-
-.finance-item .finance-name{
-    font-size: 14px;
-    /*font-weight: 600;*/
-    color: #000;
-    margin-right: 20px;
-}
-.f-tag-warp{
-    width: 100%;
-    position: absolute;
-    bottom: 4px;
-    margin-top: 11px;
-}
-.f-tag{
-    color: #f15353;
-    font-size: 12px;
-    padding: 2px 5px;
-    border: #fff 1px solid;
-    line-height: 100%;
-}
-.tag-b{
-    border: rgba(241,83,83,.1) 1px solid;
-}
-
-.finance-left{
-    width: 48%;
-    height: 64px;
-}
-.finance-right{
-    width: 51%;
-    height: 64px;
-    position: relative;
-}
-.f-num{
-    /*padding-left: 5px;*/
-    font-size: 43px;
-    font-weight: 500;
-    color: #d7444c;
-    line-height: 100%
-}
-.f-desc{
-    font-size: 12px;
-    white-space:nowrap;
-    color: #b2b2b2;
-}
-.f-desc.mt7{
-    margin-top: 7px;
-}
-.f-line{
-    height: 60px;
-    margin-top: 4px;
-    border-right:#f2f2f2 1px solid;
-}
-/*会员中心 */
-.member-top-warp{
-    color: #fff;
-}
-
-.member-info-warp{
-    padding: 20px 0px 10px;
-}
-
-.member-pic{
-    width: 64px;
-    height: 64px;
-    border: 2px solid #414d63;
-    border-radius: 50%;
-    display: block;
-    float: left;
-}
-.member-pic img{
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    display: block;
-}
-.member-info{
-    float: left;
-    margin-left: 15px;
-}
-.member-name{
-    font-size: 18px;
-}
-
-.tdul{
-    text-decoration: underline;
-}
-
-.member-have{
-    text-align: center;
-    height: auto;
-    margin-bottom: 15px;
-}
-.member-have a{
-    color: #fff;
-}
-.member-have .flex-1:first-child{
-    border-right: 1px solid #484965;
-}
-.member-have .member-have-text{
-    color: rgba(255,255,255,.6);
-}
 
 
-.log-out-btn{
-    width: 100%;
-    display: block;
-    text-align: center;
-    line-height: 46px;
-    background: #fff;
-    font-weight: 500;
-    color: #333;
-    font-size: 16px;
-}
-
-.log-out-btn,
-.log-out-btn:visited,
-.log-out-btn:active{
-    color: #333;
-}
-
-
-@media screen and (min-width: 360px) {
-
-    .member-info-warp{
-        padding: 28px 0px 10px;
-    }
-    .finance-left{
-        width: 43%;
-    }
-    .finance-right{
-        width: 59%;
-    }
-}
-
-@media screen and (min-width: 370px) {
-
-     .member-info-warp{
-        padding: 28px 0px 36px;
-    }
-    .finance-left{
-        width: 40%;
-    }
-    .finance-right{
-        width: 59%;
-    }
-}
-
-@media screen and (min-width: 410px) {
-
-    .member-info-warp{
-        padding: 28px 0px 59px;
-    }
-
-    .finance-left{
-        width: 40%;
-    }
-    .finance-right{
-        width: 59%;
-    }
-}
-@media screen and (min-width: 414px) {
-
-    .member-info-warp{
-        padding: 28px 0px 61px;
-    }
-
-    .finance-left{
-        width: 40%;
-    }
-    .finance-right{
-        width: 59%;
-    }
-}
 
 /*
 * 公用input
@@ -556,7 +184,7 @@ html,body{
     line-height: 40px;
     height: 40px;
     padding: 10px 0;
-    margin: 0 45px;
+    margin: 0 10px;
 }
 .formItem .label {
     min-width: 80px;
@@ -569,9 +197,11 @@ html,body{
     margin: 8px 0px;
 }
 .formItem.bind{
+    max-width: 300px;
     padding: 0px;
     border: #eee 1px solid;
     border-radius: 5px;
+    margin: 0px auto;
 }
 .formItem.bind .label{
     color:#fff;
@@ -820,12 +450,11 @@ html,body{
 
 }
 .express-form-item {
-    margin: 10px 45px;
+    margin: 10px;
     vertical-align: middle;
     label {
         text-align:justify;
         text-align: right;
-        // width: 100px;
         height: 30px;
         line-height: 30px;
     }
@@ -835,17 +464,16 @@ html,body{
         height: 30px;
         line-height: 30px;
     }
-    .calculation-btn{
-        width: 25px;
-        height: 25px;
+    .calculation-btn,
+    .other-input{
+        min-width: 25px;
+        min-height: 25px;
         line-height: 25px;
+        padding: 0 5px;
         display: inline-block;
         border: #c9c9c9 1px solid;
         border-radius: 3px;
         text-align: center;
-    }
-    .calculation-btn:first-child,
-    .calculation-btn:last-child{
 
         background: -moz-linear-gradient(top, #fff 0%, #e5e5e5 100%);
         background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fff), color-stop(100%,#e5e5e5));
@@ -853,9 +481,55 @@ html,body{
         background: -o-linear-gradient(top, #fff 0%,#e5e5e5 100%);
         background: -ms-linear-gradient(top, #fff 0%,#e5e5e5 100%);
         background: linear-gradient(to bottom, #fff 0%,#e5e5e5 100%);
-        
     }
-    .calculation-btn:nth-child(2){
+    .calculation-btn:nth-child(2),
+    span.other-input{
         margin: 0px 8px;
+    }
+    .other-input{
+        width: 25px;
+        height: 25px;
+    }
+    .other-input.wb{
+        background: #fff;
+    }
+    .other-input.yb{
+        background: #ec6c23;
+        color: #fff;
+    }
+    .type-box{
+        margin: 0px 15px;
+        /*column-width:10em;*/
+        column-count:3;
+        .calculation-btn{
+            /*width: 20%;*/
+            float: left;
+            margin: 0px 10px 10px;
+            word-break:keep-all;           /* 不换行 */
+            white-space:nowrap;
+        }
+    }
+}
+@media screen and (min-width: 360px) {
+    .type-box{
+        margin: 0 10px;
+    }
+}
+
+@media screen and (min-width: 370px) {
+    .express-form-item .type-box{
+        margin: 0px 25px;
+    }
+}
+
+@media screen and (min-width: 410px) {
+
+    .express-form-item .type-box{
+        margin: 0px 45px;
+    }
+}
+@media screen and (min-width: 414px) {
+    .express-form-item .type-box{
+        margin: 0px 45px;
     }
 }

@@ -116,10 +116,8 @@ input:focus,textarea:focus{outline:0}
 .l30{ line-height: 30px;}
 .l40{ line-height: 40px;}
 .l46{ line-height: 46px;}
-.lh1{line-height: 1.5;}
-.lh2{line-height: 2;}
-.bor-bot{border-bottom: #ddd 1px solid; }
-.bor-top{border-top: #eee 1px solid }
+
+
 .btn{
     height: 40px;
     line-height: 40px;
@@ -221,92 +219,8 @@ input.btn.fixed {
 .pr{ position: relative; }
 .pa{position: absolute;}
 .pf{ position: fixed; }
-
-.bottom-border{
-    position: relative;
-}
-.bottom-border:after{
-    content: '.';
-    width: 100%;
-    height: 1px;
-    background: #ddd;
-    position: absolute;
-    bottom: 0px;
-    left: 0;
-    -webkit-transform:scale(1,0.5);
-    transform:scale(1,0.5);
-    overflow: hidden;
-}
 .white-bg{background:#fff;}
 .gray-bg{background: #eee;}
-
-/**
- *  Global form
- */
-
-.form-inline {
-    /*padding-left: 15px;*/
-}
-
-.form-inline input[type="tel"],
-.form-inline input[type="text"],
-.form-inline input[type="number"],
-.form-inline input[type="password"] {
-    background: none;
-}
-
-.form-inline .form-item {
-    color: #666;
-    font-size: 16px;
-    /*padding: 0 15px;*/
-    display: -webkit-box;
-    background-color: #fff;
-}
-
-.form-inline .form-label {
-    display: block;
-    line-height: 44px;
-    width: 110px;
-}
-
-.form-inline .form-ctl {
-    display: block;
-    -webkit-box-flex: 1;
-}
-
-.form-inline .form-title {
-    font-size: 12px;
-    padding-left: 15px;
-    margin-bottom: 10px;
-    margin-top: 35px;
-    color: #555;
-}
-.form-inline .form-icon{
-    display: block;
-    padding: 12px 0 12px 20px;
-}
-
-.form .form-info,
-.form-inline .form-info {
-    font-size: 14px;
-    color: #999;
-    margin: 10px 0;
-    padding: 0 15px;
-    line-height: 1.5;
-}
-
-.form-inline .btn-wrap {
-    margin: 10px 0;
-    background: none;
-}
-
-.form-field .form-item {
-    border-bottom: 1px solid #ececec;
-}
-
-.form-field .form-item:last-child {
-    border-bottom: none;
-}
 
 
 /**
@@ -342,21 +256,6 @@ input.btn.fixed {
     display: -webkit-box;
     border-bottom:  1px solid rgba(0,0,0,0);
 }
-
-/*.g-header .nav-bar , .g-header .nav-bar-no {
-    position: relative;
-    height: 45px;
-    line-height: 45px;
-    padding: 0 10px;
-    display: -webkit-box;
-}
-.g-header .nav-bar {
-    color: #000;
-    background: #fff;
-}
-.g-header .nav-bar-no {
-    color: #fff;
-}*/
 
 .g-header .nav-bar-no .nav-back a{
     display: block;
@@ -476,40 +375,7 @@ input.btn.fixed {
     text-overflow:ellipsis;/* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用。*/
     font-size: 14px;
 }
-.g-header .member-phone{
-    font-size: 12px;
-}
 
-.g-footer {
-    line-height: 1.5;
-    color: #999;
-    font-size: 14px;
-    text-align: center;
-    padding: 20px 0px;
-}
-
-.g-footer .footer-text{
-    position: relative;
-    display: inline-block;
-}
-.g-footer .footer-copyright{
-    font-size: 12px;
-    color: rgba(102,102,102,0.4);
-}
-.g-footer .footer-text::before, .g-footer .footer-text::after{
-    content: '';
-    height: 1px;
-    width: 24px;
-    top: 10px;
-    border-top:#dbdbdb 1px solid;
-    position: absolute; 
-}
-.g-footer .footer-text::before{
-    left: -35px;
-}
-.g-footer .footer-text::after{
-    right: -35px;
-}
 
 .nolist{
     width: 90px;
@@ -517,36 +383,4 @@ input.btn.fixed {
     display: inline-block;
     border: none;
     margin-top: 100px;
-}
-.header-login{
-    
-}
-.header-trade-record .header-trade-record-icon{
-    width: 22px;
-    height: 21px;
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 10px;
-    margin-top: -2px;
-}
-.header-islogin{
-    
-}
-
-
-/* 登陆整改 */
-.form-item{
-    margin: 0px 15px;
-}
-.form-item .form-Input{
-    width: 100%;
-    height: 50px;
-    line-height: 50px;
-    padding: 0px;
-    font-size: 16px;
-}
-
-.form-item .form-Input::-webkit-input-placeholder {
-    color:#cccccc;
-    text-transform:uppercase;
 }

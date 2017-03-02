@@ -59,7 +59,7 @@ class ExpressForm extends Component{
                     <div className="clearfix express-form-item">
                         <div className="flex-box clearfix">
                             <label className="clearfix flex-1 justify">姓名：<span></span></label>
-                            <p className="clearfix flex-3">
+                            <p className="clearfix flex-2">
                                 <input type="text" id="12321" className="flex-1" onChange={this.changeHandler}/>
                             </p>
                         </div>
@@ -67,7 +67,7 @@ class ExpressForm extends Component{
                     <div className="clearfix express-form-item">
                         <div className="flex-box clearfix">
                             <label className="clearfix flex-1 justify">电话：<span></span></label>
-                            <p className="clearfix flex-3">
+                            <p className="clearfix flex-2">
                                 <input type="tel" id="12321" className="flex-1" maxLength="11" onChange={this.changeHandler}/>
                             </p>
 
@@ -76,7 +76,7 @@ class ExpressForm extends Component{
                     <div className="clearfix express-form-item">
                         <div className="flex-box clearfix">
                             <label className="clearfix flex-1 justify">省市：<span></span></label>
-                            <p className="clearfix flex-3">
+                            <p className="clearfix flex-2">
                                 <input type="text" id="12321" className="flex-1" onChange={this.changeHandler}/>
                             </p>
                         </div>
@@ -84,7 +84,7 @@ class ExpressForm extends Component{
                     <div className="clearfix express-form-item">
                         <div className="flex-box clearfix">
                             <label className="clearfix flex-1 justify">详细地址：<span></span></label>
-                            <p className="clearfix flex-3">
+                            <p className="clearfix flex-2">
                                 <input type="text" id="12321" className="flex-1" onChange={this.changeHandler}/>
                             </p>
                         </div>
@@ -92,7 +92,7 @@ class ExpressForm extends Component{
                     <div className="clearfix express-form-item">
                         <div className="flex-box clearfix">
                             <label className="clearfix flex-1 justify">下单数量：<span></span></label>
-                            <p className="clearfix flex-3">
+                            <p className="clearfix flex-2">
                                 <Tappable
                                     id=""
                                     onTap={this.reduceFn}
@@ -100,7 +100,7 @@ class ExpressForm extends Component{
                                     component="a">
                                     -
                                 </Tappable>
-                                <span className="calculation-btn">1</span>
+                                <span className="other-input wb">1</span>
                                 <Tappable
                                     id=""
                                     onTap={this.addFn}
@@ -115,31 +115,74 @@ class ExpressForm extends Component{
                     <div className="clearfix express-form-item">
                         <div className="flex-box clearfix">
                             <label className="clearfix flex-1 justify">预估重量：<span></span></label>
-                            <p className="clearfix flex-3">
-                                <input type="text" id="12321" className="flex-1" onChange={this.changeHandler}/>
+                            <p className="clearfix flex-2">
+                                <Tappable
+                                    id=""
+                                    onTap={this.addFn}
+                                    className="calculation-btn"
+                                    component="a">
+                                    1KG
+                                </Tappable>
+                                <Tappable
+                                    id=""
+                                    onTap={this.addFn}
+                                    className="calculation-btn"
+                                    component="a">
+                                    2KG
+                                </Tappable>
+                                <input className="other-input wb" type="tel"/>
+                                <label className="other-input yb" >KG</label>
                             </p>
                         </div>
                     </div>
                     <div className="clearfix express-form-item">
                         <div className="flex-box clearfix">
                             <label className="clearfix flex-1 justify">物品类型：<span></span></label>
-                            <p className="clearfix flex-3">
+                            <p className="clearfix flex-2">
                             </p>
                         </div>
-                        <div className="flex-box clearfix">
+                        <div className="clearfix type-box">
                             <Tappable
                                 id=""
-                                onTap={this.onStoreFn}
-                                className=""
+                                onTap={this.selectTypeFn}
+                                className="calculation-btn"
                                 component="a">
                                 文件
                             </Tappable>
                             <Tappable
                                 id=""
-                                onTap={this.onStoreFn}
-                                className=""
+                                onTap={this.selectTypeFn}
+                                className="calculation-btn"
                                 component="a">
                                 数码
+                            </Tappable>
+                            <Tappable
+                                id=""
+                                onTap={this.selectTypeFn}
+                                className="calculation-btn"
+                                component="a">
+                                生活用品
+                            </Tappable>
+                            <Tappable
+                                id=""
+                                onTap={this.selectTypeFn}
+                                className="calculation-btn"
+                                component="a">
+                                服饰
+                            </Tappable>
+                            <Tappable
+                                id=""
+                                onTap={this.selectTypeFn}
+                                className="calculation-btn"
+                                component="a">
+                                食品
+                            </Tappable>
+                            <Tappable
+                                id=""
+                                onTap={this.selectTypeFn}
+                                className="calculation-btn"
+                                component="a">
+                                酒类
                             </Tappable>
                         </div>
                     </div>
@@ -151,7 +194,7 @@ class ExpressForm extends Component{
                             onTap={this.onStoreFn}
                             className="btn flex-1"
                             component="a">
-                            到店自提
+                            确认
                         </Tappable>
                     </div>
                 </div>
