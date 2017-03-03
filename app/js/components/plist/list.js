@@ -28,6 +28,8 @@ class List extends Component{
         document.getElementsByTagName('body')[0].style.height = 'auto';
         document.getElementsByTagName('body')[0].style.backgroundColor = '#ececec';
         document.getElementsByTagName('body')[0].style.paddingBottom = '40px';
+
+        console.log(1);
     }
     callbackFn(opt){
         console.log(opt)

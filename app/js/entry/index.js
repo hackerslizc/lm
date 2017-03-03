@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom';
 import { Provider, connect } from 'react-redux';
-import { Router, Route, Link, hashHistory , IndexRoute} from 'react-router';
+import { Router, Route, Link, hashHistory , IndexRoute, browserHistory} from 'react-router';
 
 import configureStore from '../redux/create-store';
 
@@ -24,6 +24,8 @@ import Infomation from '../components/members/infomation';
 import MailingResult from '../components/members/mailing-result';
 import ExpressForm from '../components/express-form/index';
 
+import Evaluation from '../components/evaluation/index';
+
 
 // import PayStatus from '../components/pay-status.js';
 
@@ -39,7 +41,7 @@ class App extends Component {
     render () {
         return (
             <Provider store={this.props.store}>
-                <Router history={hashHistory}>
+                <Router history={browserHistory}>
                     <Route path="/" 
                         component={AppMain}>
                         <Route path="/Index" 
@@ -77,6 +79,11 @@ class App extends Component {
                     <Route path="/express-form" 
                         component={ExpressForm}>
                     </Route>
+
+                    <Route path="/evaluation" 
+                        component={Evaluation}>
+                    </Route>
+                    
                 </Router>
             </Provider>
         );

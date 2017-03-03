@@ -325,36 +325,32 @@ html,body{
 .list-btn{
     height: 40px;
     line-height: 40px;
-    background: #fedbc0;
+    background: #ec6a21;
     text-align: center;
-    color: #000;
+    color: #fff;
 }
 .list-btn.home{
-    background: #ec6500;
-    color: #fff;
+    border-right: #fff 1px solid;
 }
 .list-btn.add{
     background: #dd5614;
     color: #fff;
 }
 .list-icon {
+    width: 17px;
+    height: 17px;
     display: inline-block;
     margin-right: 5px;
-    background: url('../img/list-icon.png') no-repeat left top;
+    background: url('../img/list-icon.png') no-repeat;
+    background-size: 17px 38px;
 }
 .icon-store {
-    width: 24px;
-    height: 19px;
-    background-size: 22px 39px;
-    background-position: 0px -19px;
-    margin-bottom: -5px;
-}
+    background-position: 0px -22px;
+    margin-bottom: -5px
+};
 .icon-home {
-    width: 23px;
-    height: 20px;
-    margin-bottom: -2px;
-    background-size: 22px 39px;
-    background-position: 0px 2px;
+    margin-bottom: -3px;
+    background-position: 0px 0px;
 }
 .list-order-center.address{
     line-height: 30px;
@@ -443,6 +439,49 @@ html,body{
     background-size: 100% 100% ;
 }
 
+.add-address-form {
+    line-height: 40px;
+    border-bottom: #cfcfcf 1px solid;
+    vertical-align: middle;
+    margin: 0px 50px;
+    /*width: 280px;*/
+    .icon{
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+        margin-right: 5px;
+        background: url('../img/add-address.png') no-repeat;
+        background-size: 20px 80px;
+        margin-bottom: -5px;
+    }
+    input{
+        height: 24px;
+        line-height: 24px;
+    }
+    .no{
+        background-position: -999px -999px;
+    }
+    .name{
+        background-position: 0px -30px;
+    }
+    .location{
+        background-position: 0px -60px;
+    }
+    .default{
+        width: auto;
+        height: 20px;
+        line-height: 20px;
+        text-indent: 30px;
+        display: inline-block;
+        background: url('../img/address-icon.png') no-repeat 0px -24px;
+        background-size: 19px 60px; 
+        color: #c3c3c3;
+    }
+    .default.on{
+        background-position: 0px 0px;
+    }
+}
+
 
 
 /*寄件页面*/
@@ -510,6 +549,67 @@ html,body{
         }
     }
 }
+
+/* info */
+.list-info-center{
+    height: 90px;
+    background: #ececec;
+    padding: 8px 10px;
+    line-height: 30px;
+    background: #fff;
+    border-bottom: 1px #eaeaea solid;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+}
+
+/* 评价页面 */
+.page-sign{
+    width: 100px;
+    height: 100px;
+    background: #e2303f;
+    color: #fff;
+    text-align: center;
+    margin: 100px auto 70px;
+    .bigfont{
+        font-size: 30px;
+        margin:6px 15px 0;
+        line-height: 35px;
+    }
+}
+.start-box{
+    background: url('../img/star.png') no-repeat;
+    background-size: 125px 145px;
+    .star{
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+        
+        margin-right: 5px;
+    }
+}
+.star-0{
+    background-position: 0px 0px;
+}
+.star-1{
+    background-position: 0px -25px;
+}
+.star-2{
+    background-position: 0px -50px;
+}
+.star-3{
+    background-position: 0px -75px;
+}
+.star-4{
+    background-position: 0px -100px;
+}
+.star-5{
+    background-position: 0px -125px;
+}
+
+
 @media screen and (min-width: 360px) {
     .type-box{
         margin: 0 10px;
@@ -523,7 +623,6 @@ html,body{
 }
 
 @media screen and (min-width: 410px) {
-
     .express-form-item .type-box{
         margin: 0px 45px;
     }
@@ -531,5 +630,8 @@ html,body{
 @media screen and (min-width: 414px) {
     .express-form-item .type-box{
         margin: 0px 45px;
+    }
+    .list-lm-icon{
+        height: 0.55rem
     }
 }

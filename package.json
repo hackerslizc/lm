@@ -4,7 +4,7 @@
   "description": "linmi",
   "main": "index.js",
   "scripts": {
-    "start": "webpack --progress && webpack-dev-server --port 8989 --hot --devtool --progress --colors --content-base build",
+    "start": "webpack --progress && webpack-dev-server --port 8989 --hot --devtool eval --progress --colors --content-base build",
     "build": "webpack --progress && sh ./build.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

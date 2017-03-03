@@ -18,9 +18,15 @@ class InfomationItem extends Component{
     }
     render(){
         return (
-            <div className="clearfix">
-                <div className="clearfix main">
-
+            <div className="list-order-warp clear">
+                <div className="list-info-center clearfix">
+                    的撒的撒的范德萨发的萨菲阿范德萨范德萨范德萨范德萨阿哥和规范的后
+                    果东风发的什么基金可点击撒金额为秋日请new汾河湾
+                </div>
+                <div className="list-order-foot clearfix">
+                    <span className=" fl gray-col">
+                        阅读全文
+                    </span>
                 </div>
             </div>
         )

@@ -4,6 +4,7 @@ import {Promise} from 'es6-promise';
 
 import Tappable from 'react-tappable';
 import Header from '../common/header';
+import InfoItem from './info-item';
 /**
  *
  * @param  {消息列表 模块}
@@ -25,7 +26,7 @@ class Infomation extends Component{
                     pathname:'info'}}>
                 </Header>
                 <div className="clearfix main">
-                
+                    <InfoItem></InfoItem>
                 </div>
          </div>
         )

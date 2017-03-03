@@ -21,7 +21,9 @@ console.log(env);
 
 module.exports = {
     //页面入口配置文件
-    entry: ['./app/js/entry/index.js'],
+    entry: [
+        './app/js/entry/index.js'
+    ],
 
     //设置导出路径
     output: {
