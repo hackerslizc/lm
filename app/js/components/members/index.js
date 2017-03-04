@@ -10,7 +10,7 @@ import Tappable from 'react-tappable';
 import Header from '../common/header';
 
 import {
-    AccountInfoFn
+    // AccountInfoFn
 } from '../../redux/actions';
 /**
  *

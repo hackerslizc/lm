@@ -41,49 +41,57 @@ class App extends Component {
     render () {
         return (
             <Provider store={this.props.store}>
-                <Router history={browserHistory}>
-                    <Route path="/" 
-                        component={AppMain}>
+                <Router history={hashHistory}>
+                    <Route path="/" component={AppMain}>
+
                         <Route path="/Index" 
-                            component={Home}>
+                            component={NoContent}>
+                        </Route>
+
+                        <Route path="/member-center" 
+                            component={MemberCenter}>
+                        </Route>
+
+                        <Route path="/error-page" 
+                            component={NoContent}>
+                        </Route>
+
+                        <Route path="/bind" 
+                            component={BindUser}>
+                        </Route>
+
+                        <Route path="/list" 
+                            component={List}>
+                        </Route>
+
+                        <Route path="/detail" 
+                            component={Detail}>
+                        </Route>
+
+                        <Route path="/address-list" 
+                            component={AddressList}>
+                        </Route>
+
+                        <Route path="/info" 
+                            component={Infomation}>
+                        </Route>
+
+                        <Route path="/mailing-result" 
+                            component={MailingResult}>
+                        </Route>
+                        
+                        <Route path="/add-address" 
+                            component={AddAddress}>
+                        </Route>
+
+                        <Route path="/express-form" 
+                            component={ExpressForm}>
+                        </Route>
+
+                        <Route path="/evaluation" 
+                            component={Evaluation}>
                         </Route>
                     </Route>
-                    <Route path="/member-center" 
-                        component={MemberCenter}>
-                    </Route>
-                    <Route path="/error-page" 
-                        component={NoContent}>
-                    </Route>
-                    <Route path="/bind" 
-                        component={BindUser}>
-                    </Route>
-                    <Route path="/list" 
-                        component={List}>
-                    </Route>
-                    <Route path="/detail" 
-                        component={Detail}>
-                    </Route>
-                    <Route path="/address-list" 
-                        component={AddressList}>
-                    </Route>
-                    <Route path="/info" 
-                        component={Infomation}>
-                    </Route>
-                    <Route path="/mailing-result" 
-                        component={MailingResult}>
-                    </Route>
-                    <Route path="/add-address" 
-                        component={AddAddress}>
-                    </Route>
-
-                    <Route path="/express-form" 
-                        component={ExpressForm}>
-                    </Route>
-
-                    <Route path="/evaluation" 
-                        component={Evaluation}>
-                    </Route>
-                    
                 </Router>
             </Provider>
         );

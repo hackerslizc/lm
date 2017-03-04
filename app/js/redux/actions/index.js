@@ -10,6 +10,7 @@ export const TOAST_TIP = 'TOAST_TIP';
 export const SET_RUNTIME = 'SET_RUNTIME';
 
 export const GET_ACCOUNT_INFO= 'GET_ACCOUNT_INFO';  //获取用户信息
+export const GET_PACKAGE_LIST= 'GET_PACKAGE_LIST';  //获取用户信息
 
 
 /**
@@ -19,9 +20,20 @@ export const GET_ACCOUNT_INFO= 'GET_ACCOUNT_INFO';  //获取用户信息
 function getAccountInfo(data) {
     return {
         type: GET_ACCOUNT_INFO,
+        data: data
+    }
+}
+/**
+ * @param  {data} 传递收件列表
+ * @return {Object} action 对象
+ */
+function getpackageList(data) {
+    return {
+        type: GET_PACKAGE_LIST,
         data
     }
 }
+
 
 
 /**
@@ -85,16 +97,19 @@ function toast(msg){
 }
 
 /*获取用户信息*/
-function AccountInfoFn(){
+function GetPackageList(){
     return dispatch => {
         dispatch(
             remote({
-                url:CONSTS.URL.SELECT_ACCOUNT_INFO,
-                type: 'get'
+                type: 'post',
+                data: {
+                    sno:10201,
+                    barna: 'byGet'
+                }
             })
         ).then((json)=>{
             if (json) {
-                dispatch(getAccountInfo(json));
+                dispatch(getpackageList(json.data));
             } else {
             }
         })
@@ -104,7 +119,7 @@ function AccountInfoFn(){
 function remote(options) {
     return (dispatch, getState) => {
         options = {
-            type: 'GET',
+            type: 'post',
             data: {},
             // 
             ...options
@@ -115,7 +130,15 @@ function remote(options) {
         },
             store = getState();
         options.data = {
-            ...options.data
+            asn: 9024405, // 随机数
+            aot: 9024391, //失效时间
+            acd: "cac0efdbe794f04edd15b8085f4d7f27", //验证码， md5
+            sno: '', // 服务编号
+
+            phone:18980709669,  
+            passw:"123456",
+            ...options.data,
+
         }
 
         if ( options.type.toUpperCase() === 'GET' && options.data) {
@@ -130,28 +153,29 @@ function remote(options) {
             fetchOptions.method = options.type;
             // fetchOptions.body = options.data;
             fetchOptions.headers = {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
             };
-
-            fetchOptions.body = JSON.stringify(options.data);
-
+            fetchOptions.body = param(options.data);
             delete fetchOptions.credentials;
         }
 
         // return fetch(options.url, options.data)
         // return fetch(options.url, fetchOptions)
         // return fetch(CONSTS.BASE_URL + options.url, options)  // member get
-        return fetch(CONSTS.BASE_URL + options.url, fetchOptions)//post.
+        return fetch(CONSTS.URL.SERVER_URl, fetchOptions)//post.
             .then(res =>res.json())
             .then(json => {
-                dispatch(toggleLoading(false))
-                if ( json.resultCode == '0' ) {
-                    return json.resultData || {};
+                dispatch(toggleLoading(false));
+                if ( json.err == '0' ) {
+                    return json || {};
                 }else {
-                    if ( json.resultMsg != '') {
-                        dispatch(toast(json.resultMsg))
+                    if(json.err == '908'){
+                        hashHistory.push('/error-page');
+                    }
+                    if ( json.msg != '') {
+                        dispatch(toast(json.msg))
                     } else {
-                        dispatch(toast(json.resultMsg || '网络繁忙，服务端未知错误'))
+                        dispatch(toast(json.msg || '网络繁忙，服务端未知错误'))
                     }
                 }
 
@@ -197,6 +221,8 @@ export {
     setRuntime,
     toggleDataLoading,
     toggleLoading,
-    AccountInfoFn,
-    getAccountInfo
+
+    getAccountInfo,
+    GetPackageList,
+    getpackageList
 }

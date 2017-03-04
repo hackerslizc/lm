@@ -7,9 +7,7 @@ import {Promise} from 'es6-promise';
 
 import Tappable from 'react-tappable';
 
-import {
-    AccountInfoFn
-} from '../../redux/actions';
+
 
 /**
  *
@@ -37,10 +35,6 @@ class Header extends Component{
 
     }
 
-    componentWillMount(){
-
-    }
-
     toMemberCenter(){
         hashHistory.push('/member-center');
     }
@@ -59,7 +53,7 @@ class Header extends Component{
             classname = (opt.name == 'member-center') ? 'nav-bar-no' : 'nav-bar',
             backclass = (opt.name == 'login') ? 'nav-back J_navBack gray' : 'nav-back J_navBack';
             // classname = (opt.name == 'member-center') ? 'nav-bar-no bottom-line' : 'nav-bar bottom-line';
-
+        // console.log(this.props.accountinfo);
         return (
             <header className="g-header logged-in" id="J_header">
                 <div className={classname}>
@@ -101,9 +95,6 @@ const mapStateToProps = (state) => {
     return { 
         loginstatus:{
             ...state.setLoginStatus
-        },
-        accountinfo:{
-            ...state.setAccountInfo
         }
     }
 };

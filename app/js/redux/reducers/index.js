@@ -7,6 +7,7 @@ import {
     GET_ACCOUNT_INFO,
 
     SET_CONFIG_STATES,
+    GET_PACKAGE_LIST
 } from '../actions';
 
 function loading(state={}, action) {
@@ -55,8 +56,22 @@ function toastTip(state={}, action) {
  *  设置用户信息
  */
 function setAccountInfo(state={}, action) {
+    console.log(action);
     switch (action.type) {
         case 'GET_ACCOUNT_INFO':
+            return action.data;
+        break;
+        default:
+            return state
+    }
+}
+
+/*
+ *  设置用户信息
+ */
+function setPackageList(state={}, action) {
+    switch (action.type) {
+        case 'GET_PACKAGE_LIST':
             return action.data;
         break;
         default:
@@ -73,5 +88,6 @@ export default combineReducers({
     toastTip,
     runtime,
     // indexConfig,
-    setAccountInfo
+    setAccountInfo,
+    setPackageList
 });

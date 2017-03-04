@@ -8,7 +8,8 @@ export default function(initialState={}) {
     let createStoreWithMiddleware = applyMiddleware(
         thunkMiddleware
         ,
-        createLogger()
+        // 控制台输出action
+        // createLogger()
     )(createStore);
 
     return createStoreWithMiddleware(reducers, initialState)

@@ -18,10 +18,6 @@ class ListItem extends Component{
         this.deleteFn = this.deleteFn.bind(this);
     }
 
-    godetailHandler(){
-        console.log(1);
-    }
-
     selectFn(e){
         this.setState({
             isSelect: !(e.target.classList.contains('on'))
@@ -38,52 +34,87 @@ class ListItem extends Component{
         })
     }
 
+    getState(status) {
+        let ostat = '';
+        if(status === 0){
+            ostat = '自提'
+        } else if (status === 1) {
+            ostat = '待付款'
+        } else if (status === 2) {
+            ostat = '已付款'
+        } else if (status === 4) {
+            ostat = '已派单'
+        } else if (status === 8) {
+            ostat = '已出库'
+        } else if (status === 16) {
+            ostat = '多次派送'
+        } else if (status === 32) {
+            ostat = '电子签收'
+        } else if (status === 64) {
+            ostat = '本人签收'
+        } else if (status === 128) {
+            ostat = '他人代签'
+        }
+        return ostat
+    }
+
     render(){
         const opt = this.props.opt,
-              idx = opt.idx,
-              id = opt.id,
               isSelect = this.state.isSelect ? 'list-order-select on' : 'list-order-select',
-              iconsrc = opt.iconsrc,
-              takeDelivery = opt.takeDelivery,
-              date = opt.date,
-              orderId = opt.orderId,
-              status = opt.status,
-              count = opt.count;
 
+              takeDelivery = opt.smsvc, //提货码
+              count = opt.count,
+
+              orderId = opt.ordnr, //订单编号
+              posur = opt.posur, //物流公司
+              coder = opt.coder, //物流单号
+              inpda = opt.inpda, //到店时间
+              subna = opt.subna, //地址
+
+              status = this.getState(opt.ostat),
+              iconsrc = opt.posur, //ICON
+              chgbn = opt.chgbn, //合单批次号
+              savam = opt.savam, 
+              tracs = opt.tracs; //件数
+              
         return (
             <div className="list-order-warp clear">
                 <div className="list-order-top flex-box">
                     <div className="list-lm-icon gray flex-1"></div>
                     <Tappable
-                        id={id}
+                        id={orderId}
                         onTap={this.deleteFn}
                         className="list-order-delet"
                         component="a">
                     </Tappable>
                 </div>
-                <Tappable
-                    id={id}
-                    onTap={this.godetailHandler}
+                <Link
+                    id={orderId}
                     className="list-order-center clearfix"
-                    component="div">
+                    to={{
+                        pathname:'/detail',
+                        state:{
+                            ...opt
+                        }
+                    }}>
                     <div className="list-express-icon">
                         <img src={iconsrc}/>
                     </div>
                     <div className="list-order-info">
                         <p>订单编号：{orderId}</p>
                         <p>提  货  号：{takeDelivery}</p>
-                        <p>到站日期：{date}</p>
+                        <p>到站日期：{inpda}</p>
                     </div>
-                </Tappable>
+                </Link>
                 <div className="list-order-foot clearfix">
                     <Tappable
-                        id={id}
+                        id={orderId}
                         onTap={this.selectFn}
                         className={isSelect}
                         component="a">
                     </Tappable>
                     <label className="list-order-status">{status}</label>
-                    <label className="list-order-length">共 {count} 件包裹  </label>
+                    <label className="list-order-length">共 {tracs} 件包裹  </label>
                 </div>
             </div>
         )

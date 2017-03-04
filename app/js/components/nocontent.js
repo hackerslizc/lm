@@ -49,7 +49,7 @@ class NoContent extends Component{
 
         return (
             <div className="clearfix tc mt50 pt50">
-                    <img className="nolist" src={CONSTS.BASEURL+'img/nolist.png'}/>
+                    <span className="nolist" src={CONSTS.BASEURL+'img/nolist.png'}></span>
                     <p className="f18 gray-col-1 mt20">{title}</p>
                     <p className="f14 gray-col mt5">{desc}</p>
                     <div className="mt20 ">

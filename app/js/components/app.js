@@ -10,24 +10,35 @@ import { hashHistory } from 'react-router';
 import Home from './index/index';
 import Members from './members/index';
 import Header from './common/header';
-
 import {
+    remote,
+    getAccountInfo,
     setRuntime,
 } from '../redux/actions'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-
-var isAppLoaded = false;
         
 class App extends Component {
 
     constructor (props) {
         super(props);
         this.state={
-            showDownLoadBar:false
         }
-        var _this = this;
-        
-        this.downloadbarcbFn = this.downloadbarcbFn.bind(this)
+    }
+
+    componentWillMount(){
+        // alert(window.location)
+        const {dispatch} = this.props;
+        dispatch(remote({
+            type: 'post',
+            data: {
+                sno:10002
+            }
+        })).then((r)=>{
+            if( r && r.data ){
+                getAccountInfo(r.data)
+                this.dispatchRoute(r);
+            }
+        })
     }
 
      componentDidUpdate (prevProps) {
@@ -41,31 +52,38 @@ class App extends Component {
         }
     }
 
-    downloadbarcbFn(){
-        this.setState({
-            showDownLoadBar:false
-        })
+    dispatchRoute (r) {
+        const {data} = r;
+        if( data.phone && data.wxuid) {
+            hashHistory.push('/list');
+        } else {
+            hashHistory.push('/bind');
+        }
     }
 
     render() {
         let content;
 
-
+        
         const { pathname } = this.props.location
         const key = pathname.split('/')[1] || 'root';
 
         content =
             <ReactCSSTransitionGroup
-              component="div" transitionName="example"
-              transitionEnterTimeout={200} transitionLeaveTimeout={50}
-            >
-                {React.cloneElement(this.props.children || <div />, { key: key })}
+                component="div" transitionName="example"
+                transitionEnterTimeout={200} transitionLeaveTimeout={50}>
+                {
+                    React.cloneElement(this.props.children || <div />, { key: key })
+                }
             </ReactCSSTransitionGroup>;
 
         
         return (
             <div>
-                <Home/>
+                {
+                    // false && <Home/>
+                }
+                {content}
                 <Loading />
                 {!!this.props.dataloading &&
                     <LoadingBottom />
@@ -81,7 +99,10 @@ const mapStateToProps = (state) => {
     // alert("configStates:"+JSON.stringify(state.configStates)+"-"+"listStates:"+JSON.stringify(state.listStates))
     return {
         // ...state.indexConfig,
-        dataloading: state.dataloading
+        accountinfo:{
+            ...state.setAccountInfo
+        },
+        // dataloading: state.dataloading
     }
 }
 

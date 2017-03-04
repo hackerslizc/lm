@@ -4,8 +4,8 @@
   "description": "linmi",
   "main": "index.js",
   "scripts": {
-    "start": "webpack --progress && webpack-dev-server --port 8989 --hot --devtool eval --progress --colors --content-base build",
-    "build": "webpack --progress && sh ./build.sh",
+    "start": "cross-env NODE_ENV=development && webpack --progress && webpack-dev-server --inline --port 8989 --hot --devtool eval --progress --colors --profile --content-base build",
+    "build": "cross-env NODE_ENV=production webpack -p --progress --config",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -22,6 +22,7 @@
     "babel-preset-react": "^6.22.0",
     "babel-preset-stage-3": "^6.22.0",
     "clean-webpack-plugin": "^0.1.15",
+    "cross-env": "^3.1.4",
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
@@ -53,11 +54,10 @@
     "react-hot-loader": "^1.3.0",
     "react-router": "^2.0.0",
     "react-swipe": "^4.0.1",
-    "react-tappable": "^0.8.0",
+    "react-tappable": "^0.8.1",
     "react-addons-css-transition-group": "^0.14.8",
     "react-redux": "^4.4.5",
     "react-slick": "^0.12.2",
-    "react-tappable": "^0.8.1",
     "redux": "^3.5.2",
     "redux-logger": "^2.6.1",
     "redux-thunk": "^2.0.1",

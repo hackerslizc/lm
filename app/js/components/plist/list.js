@@ -7,29 +7,33 @@ import Tappable from 'react-tappable';
 
 import Header from '../common/header';
 import ListItem from '../common/listItem';
+import {
+    GetPackageList
+} from '../../redux/actions';
+
 /**
  *
  * @param  {列表}
  *
  **/
+
 class List extends Component{
     constructor (props) {
         super(props);
         this.state = {
             selectArr:[],
             listArr:[],
-
         }
         this.callbackFn = this.callbackFn.bind(this);
         this.selectFn = this.selectFn.bind(this);
         this.deleteFn = this.deleteFn.bind(this);
     }
     componentDidMount(){
+        let {dispatch} = this.props;
         document.getElementsByTagName('body')[0].style.height = 'auto';
         document.getElementsByTagName('body')[0].style.backgroundColor = '#ececec';
         document.getElementsByTagName('body')[0].style.paddingBottom = '40px';
-
-        console.log(1);
+        dispatch(GetPackageList())
     }
     callbackFn(opt){
         console.log(opt)
@@ -59,21 +63,17 @@ class List extends Component{
 
     ItemRender(){
         let _this = this,
+            {list} = this.props,
             Ele = '',
             eleArr = [];
-        for (var i = 0; i < 10; i++){
-            const opt = {
-                id: new Date().getTime()+i,
-                iconsrc: 'http://static.sto.cn/www/images/logo.png',
-                orderId: '12321321d',
-                takeDelivery: '',
-                date: '2017-03-01',
-                status: '未付款',
-                count: '12'
-            };
-            eleArr.push(<ListItem opt={opt} key={i} selectFn={_this.selectFn} deleteFn={_this.deleteFn}></ListItem>)
+        if(list.length > 0){
+            for (var i = 0; i < list.length; i++){
+                const opt = {
+                    ...list[i]
+                };
+                eleArr.push(<ListItem opt={opt} key={i} selectFn={_this.selectFn} deleteFn={_this.deleteFn}></ListItem>)
+            }   
         }
-
         return (eleArr)
     }
 
@@ -89,10 +89,10 @@ class List extends Component{
         let _this = this,
             headerOpt = {
                 title:'邻米',
-                name:"index",
-                pathname:'index'
+                name:"list",
+                pathname:'list'
              };
-        console.log(this.state)
+        console.log(this.props.accountinfo)
         return (
             <div className="clearfix">
                 <Header 
@@ -128,7 +128,10 @@ class List extends Component{
 const mapStateToProps = (state) => {
     // console.log(state.indexConfig)
     return {
-        // ...state.indexConfig
+        list:[...state.setPackageList],
+        accountinfo:{
+            ...state.setAccountInfo
+        }
     }
 };
 

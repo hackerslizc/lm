@@ -168,7 +168,7 @@ input.btn.fixed {
     border: none;
     background: #fff;
     color: #d9434b;
-    padding: 10px 35px; 
+    padding: 0px 35px; 
     white-space:nowrap;
 }
 
@@ -386,4 +386,6 @@ input.btn.fixed {
     display: inline-block;
     border: none;
     margin-top: 100px;
+    background: url('../img/nolist.png') no-repeat;
+    background-size: 90px 90px;
 }
