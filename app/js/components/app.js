@@ -25,22 +25,23 @@ class App extends Component {
         }
     }
 
-    componentWillMount(){
+    componentDidMount(){
         // alert(window.location)
-        const {dispatch} = this.props;
-        dispatch(remote({
-            type: 'post',
-            data: {
-                sno:10002
-            }
-        })).then((r)=>{
-            if( r && r.data ){
-                getAccountInfo(r.data)
-                this.dispatchRoute(r);
-            }
-        })
+        // const {dispatch, location} = this.props,
+        //         _this = this;
+        // dispatch(remote({
+        //     type: 'post',
+        //     data: {
+        //         sno:10002
+        //     }
+        // })).then((r)=>{
+        //     if( r && r.data ){
+        //         dispatch(getAccountInfo(r.data));
+        //         _this.dispatchRoute(r);
+        //     }
+        // })
+        hashHistory.push({ pathname: '/address-list' });
     }
-
      componentDidUpdate (prevProps) {
         if (this.props.location.pathname === '/') {
 
@@ -52,14 +53,16 @@ class App extends Component {
         }
     }
 
-    dispatchRoute (r) {
-        const {data} = r;
-        if( data.phone && data.wxuid) {
-            hashHistory.push('/list');
-        } else {
-            hashHistory.push('/bind');
-        }
-    }
+    // dispatchRoute (r) {
+    //     const {data} = r;
+    //     const {location} = this.props;
+    //     console.log(location);
+    //     if( data.phone && data.wxuid) {
+    //         hashHistory.push({ pathname: location.pathname, state: {token: data.token } });
+    //     } else {
+    //         hashHistory.push({ pathname: '/bind', state: {token: data.token } });
+    //     }
+    // }
 
     render() {
         let content;
@@ -99,9 +102,9 @@ const mapStateToProps = (state) => {
     // alert("configStates:"+JSON.stringify(state.configStates)+"-"+"listStates:"+JSON.stringify(state.listStates))
     return {
         // ...state.indexConfig,
-        accountinfo:{
-            ...state.setAccountInfo
-        },
+        // accountinfo:{
+        //     ...state.setAccountInfo
+        // },
         // dataloading: state.dataloading
     }
 }

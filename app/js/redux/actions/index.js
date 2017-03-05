@@ -12,6 +12,9 @@ export const SET_RUNTIME = 'SET_RUNTIME';
 export const GET_ACCOUNT_INFO= 'GET_ACCOUNT_INFO';  //获取用户信息
 export const GET_PACKAGE_LIST= 'GET_PACKAGE_LIST';  //获取用户信息
 
+export const GET_ADDRESS_LIST= 'GET_ADDRESS_LIST';  //获取用户信息
+
+
 
 /**
  * @param  {data} 传递用户信息
@@ -33,6 +36,18 @@ function getpackageList(data) {
         data
     }
 }
+
+/**
+ * @param  {data} 传递地址列表
+ * @return {Object} action 对象
+ */
+function getaddressList(data) {
+    return {
+        type: GET_ADDRESS_LIST,
+        data
+    }
+} 
+
 
 
 
@@ -95,16 +110,37 @@ function toast(msg){
         return dispatch(toastTip(msg)) 
     }
 }
+/*获取地址列表*/
+function GetAddressList(data){
+    return (dispatch,  getState) => {
+        const store = getState();
+        console.log(store);
+        dispatch(
+            remote({
+                type: 'post',
+                data: {
+                    ...data
+                }
+            })
+        ).then((json)=>{
+            if (json) {
+                dispatch(getaddressList(json.data));
+            } else {
+            }
+        })
+    }
+}
 
-/*获取用户信息*/
-function GetPackageList(){
+/*获取收件列表*/
+function GetPackageList(data){
     return dispatch => {
         dispatch(
             remote({
                 type: 'post',
                 data: {
                     sno:10201,
-                    barna: 'byGet'
+                    barna: 'byGet',
+                    ...data
                 }
             })
         ).then((json)=>{
@@ -133,7 +169,7 @@ function remote(options) {
             asn: 9024405, // 随机数
             aot: 9024391, //失效时间
             acd: "cac0efdbe794f04edd15b8085f4d7f27", //验证码， md5
-            sno: '', // 服务编号
+            // sno: '', // 服务编号
 
             phone:18980709669,  
             passw:"123456",
@@ -224,5 +260,7 @@ export {
 
     getAccountInfo,
     GetPackageList,
-    getpackageList
+    getpackageList,
+    GetAddressList,
+    getaddressList
 }

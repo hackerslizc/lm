@@ -44,14 +44,6 @@ class App extends Component {
                 <Router history={hashHistory}>
                     <Route path="/" component={AppMain}>
 
-                        <Route path="/Index" 
-                            component={NoContent}>
-                        </Route>
-
-                        <Route path="/member-center" 
-                            component={MemberCenter}>
-                        </Route>
-
                         <Route path="/error-page" 
                             component={NoContent}>
                         </Route>
@@ -68,24 +60,24 @@ class App extends Component {
                             component={Detail}>
                         </Route>
 
-                        <Route path="/address-list" 
-                            component={AddressList}>
-                        </Route>
-
                         <Route path="/info" 
                             component={Infomation}>
                         </Route>
 
-                        <Route path="/mailing-result" 
-                            component={MailingResult}>
+                        <Route path="/address-list" 
+                            component={AddressList}>
                         </Route>
                         
-                        <Route path="/add-address" 
+                        <Route path="/address-add" 
                             component={AddAddress}>
                         </Route>
 
                         <Route path="/express-form" 
                             component={ExpressForm}>
+                        </Route>
+
+                        <Route path="/express-result" 
+                            component={MailingResult}>
                         </Route>
 
                         <Route path="/evaluation" 

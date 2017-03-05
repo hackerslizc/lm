@@ -7,6 +7,12 @@ import Tappable from 'react-tappable';
 
 import Header from '../common/header';
 import ListItem from '../common/addItem';
+import {
+    toast,
+    remote,
+    toggleLoading,
+    GetAddressList
+} from '../../redux/actions';
 /**
  *
  * @param  {地址列表}
@@ -18,20 +24,32 @@ class List extends Component{
         this.state = {
             selectArr:[],
             listArr:[],
-
+            count: 0,
+            token:''
         }
-        this.callbackFn = this.callbackFn.bind(this);
-        this.selectFn = this.selectFn.bind(this);
+        this.defaultFn = this.defaultFn.bind(this);
         this.deleteFn = this.deleteFn.bind(this);
+        this.callbackFn = this.callbackFn.bind(this)
     }
     componentDidMount(){
-        document.getElementsByTagName('body')[0].style.height = 'auto';
-        document.getElementsByTagName('body')[0].style.backgroundColor = '#ececec';
-        document.getElementsByTagName('body')[0].style.paddingBottom = '40px';
+        const body = document.getElementsByTagName('body')[0] ;
+        body.style.height = 'auto';
+        body.style.backgroundColor = '#ececec';
+        body.style.paddingBottom = '40px';
     }
-    callbackFn(opt){
-        console.log(opt)
+
+    callbackFn(r){
+        const {dispatch, location} = this.props;
+        this.setState({
+            token: r.data.token
+        })
+        dispatch(GetAddressList({
+            token: location.state ? location.state.token : r.data.token,
+            atype:1, // 1是本地地址 2 是收件人
+            sno:10071
+        }));
     }
+
     submitHandler(){
         console.log('submitHandler')
     }
@@ -48,29 +66,47 @@ class List extends Component{
         })
         console.log(data);
     }
-
+ 
     deleteFn(data){
-        // console.log(data)
+        console.log(data)
         // 调用服务端删除接口
-        
+        const {dispatch} = this.props;
+        dispatch(toggleLoading(false));
+        dispatch(remote({
+            data: {
+                token: this.state.token,
+                addnr: data.id,
+                appno:2801000,
+                sno:10077,
+                asn:9034107,
+                aot:9034107,
+                acd:'',
+                dbg:2
+            }
+        })).then((r) => {
+            dispatch(toast(r.msg));
+            window.location.reload()
+        })
     }
 
     ItemRender(){
         let _this = this,
+            {list, location} = _this.props,
             Ele = '',
             eleArr = [];
-        for (var i = 0; i < 10; i++){
+        for (var i = 0; i < list.length; i++){
             const opt = {
-                id: new Date().getTime()+i,
-                name: '张女士',
-                mobile: '15982316112',
-                address: '成都市成华区八里桥路水武街75号',
-                isDefault: false,
+                token: this.state.token,
+                id: list[i].addnr,
+                name: list[i].agena,
+                mobile: list[i].ageph,
+                place:`${list[i].provn}${list[i].cityn}${list[i].distn}`,
+                address: list[i].zonen,
+                isDefault: list[i].isdef
             };
             eleArr.push(<ListItem opt={opt} 
                 key={i} 
-                defaultFn={_this.selectFn} 
-                selectFn={_this.selectFn} 
+                defaultFn={_this.defaultFn} 
                 deleteFn={_this.deleteFn}>
             </ListItem>)
         }
@@ -78,26 +114,42 @@ class List extends Component{
         return (eleArr)
     }
 
-    onStoreFn(){
-
-    }
-
-    deliverytoHomeFn(){
-
+    defaultFn(id){
+        this.setState({
+            isdefault: id
+        })
+        const {dispatch} = this.props;
+        dispatch(remote({
+            data: {
+                token: this.state.token,
+                addnr: id,
+                atype:1,
+                sno: 10078,
+                appno:2801000,
+                asn:9034087,
+                aot:9034087
+            }
+        })).then( r => {
+            dispatch(toast(`设置${r.msg}`))
+            window.location.reload();
+        })
     }
 
     render(){
-        let _this = this,
+        let _this = this, 
+            {dispatch, location} = this.props,
             headerOpt = {
-                title:'新增地址',
+                title:'地址列表',
                 name:"address",
-                pathname:'index'
+                pathname:'alist',
+                getUserInfo: true
              };
-        console.log(this.state)
+
         return (
             <div className="clearfix">
                 <Header 
-                    opt={headerOpt}>
+                    opt={headerOpt}
+                    callbackFn={this.callbackFn}>
                 </Header>
                 <div className="clearfix main">
                     {
@@ -105,13 +157,17 @@ class List extends Component{
                     }
                 </div>
                 <div className="clearfix fixed flex-box">
-                    <Tappable
-                        id=""
-                        onTap={this.onStoreFn}
+                    <Link
                         className="list-btn add flex-1"
-                        component="a">
+                        to={{
+                            pathname:'/address-add',
+                            state:{
+                                token: _this.state.token,
+                                type: "new"
+                            }
+                        }}>
                         新增地址
-                    </Tappable>
+                    </Link>
                 </div>
             </div>
         )
@@ -122,7 +178,8 @@ class List extends Component{
 const mapStateToProps = (state) => {
     // console.log(state.indexConfig)
     return {
-        // ...state.indexConfig
+        list:[...state.setAddressList],
+        ...state.setAccountInfo
     }
 };
 

@@ -8,6 +8,7 @@ import Tappable from 'react-tappable';
 import Header from '../common/header';
 import ListItem from '../common/listItem';
 import {
+    remote,
     GetPackageList
 } from '../../redux/actions';
 
@@ -23,20 +24,31 @@ class List extends Component{
         this.state = {
             selectArr:[],
             listArr:[],
+            token:''
         }
         this.callbackFn = this.callbackFn.bind(this);
         this.selectFn = this.selectFn.bind(this);
         this.deleteFn = this.deleteFn.bind(this);
     }
     componentDidMount(){
-        let {dispatch} = this.props;
-        document.getElementsByTagName('body')[0].style.height = 'auto';
-        document.getElementsByTagName('body')[0].style.backgroundColor = '#ececec';
-        document.getElementsByTagName('body')[0].style.paddingBottom = '40px';
-        dispatch(GetPackageList())
+        const body = document.getElementsByTagName('body')[0];
+        body.style.height = 'auto';
+        body.style.backgroundColor = '#ececec';
+        body.style.paddingBottom = '40px';
+
+        
     }
     callbackFn(opt){
-        console.log(opt)
+        const body = document.getElementsByTagName('body')[0],
+            {dispatch, accountinfo, location} = this.props,
+            token = opt.data.token;
+        this.setState({
+            token: token
+        });
+
+        dispatch(GetPackageList({
+            token: token
+        }))
     }
     submitHandler(){
         console.log('submitHandler')
@@ -47,7 +59,7 @@ class List extends Component{
         if (data.select){
             selectArr.push(data.id);
         } else {
-
+            selectArr.pop(data.id);
         }
         this.setState({
             selectArr: selectArr
@@ -58,7 +70,6 @@ class List extends Component{
     deleteFn(data){
         // console.log(data)
         // 调用服务端删除接口
-        
     }
 
     ItemRender(){
@@ -90,13 +101,14 @@ class List extends Component{
             headerOpt = {
                 title:'邻米',
                 name:"list",
-                pathname:'list'
+                pathname:'list',
+                getUserInfo: true
              };
-        console.log(this.props.accountinfo)
         return (
             <div className="clearfix">
                 <Header 
-                    opt={headerOpt}>
+                    opt={headerOpt}
+                    callbackFn={this.callbackFn}>
                 </Header>
                 <div className="clearfix main">
                     {

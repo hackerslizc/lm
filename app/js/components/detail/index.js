@@ -18,6 +18,7 @@ class Home extends Component{
 
     constructor (props) {
         super(props);
+        this.onStoreFn = this.onStoreFn.bind(this)
     }
     componentDidMount(){
         document.getElementsByTagName('body')[0].style.paddingBottom = '80px;'
@@ -48,7 +49,7 @@ class Home extends Component{
     }
 
     onStoreFn(){
-        const {dispatch,accountinfo} = this.props;
+        const {dispatch} = this.props;
         // dispatch(remote({
         //     data:{
         //         10221

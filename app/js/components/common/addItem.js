@@ -11,20 +11,15 @@ class ListItem extends Component{
     constructor (props) {
         super(props);
         this.state = {
-            isSelect: false
+            isSelect: this.props.opt.isDefault ?  this.props.opt.isDefault : false
         }
-        this.editFn = this.editFn.bind(this);
         this.setDefaultFn = this.setDefaultFn.bind(this);
         this.deleteFn = this.deleteFn.bind(this);
     }
 
-    editFn(e){
-
-    }
-
     deleteFn(e){
         this.props.deleteFn({
-            id: e.target.id
+            id: e.currentTarget.id
         })
     }
 
@@ -32,21 +27,15 @@ class ListItem extends Component{
         this.setState({
             isSelect: !(e.currentTarget.classList.contains('on'))
         })
-        console.log(e.currentTarget.id);
+        // console.log(e.currentTarget.id);
+        this.props.defaultFn(e.currentTarget.id)
     }
 
     render(){
-        const opt = this.props.opt,
-              idx = opt.idx,
+        const {opt} = this.props,
               id = opt.id,
-              isSelect = this.state.isSelect ? 'address-icon default on' : 'address-icon default',
-              iconsrc = opt.iconsrc,
-              takeDelivery = opt.takeDelivery,
-              date = opt.date,
-              orderId = opt.orderId,
-              status = opt.status,
-              count = opt.count;
-        console.log(this.state.isSelect);
+              isSelect = this.state.isSelect ? 'address-icon default on' : 'address-icon default';
+        // console.log(this.state.isSelect);
         return (
             <div className="list-order-warp clear">
                 <div className="list-order-top flex-box">
@@ -62,14 +51,21 @@ class ListItem extends Component{
                     </div>
                 </div>
                 <div className="list-order-foot clearfix">
-                    <Tappable
+                    <Link
                         id={id}
-                        onTap={this.editFn}
-                        className="list-address-edit"
-                        component="a">
+                        to={{
+                            pathname: '/address-add', 
+                            state:{
+                                type: "edit",
+                                token: opt.token,
+                                param: {...opt}
+                            }
+                        }}
+                        className="list-address-edit">
                         <i className="address-icon edit"></i>
                         编辑
-                    </Tappable>
+                    </Link>
+
                     <Tappable
                         id={id}
                         onTap={this.deleteFn}

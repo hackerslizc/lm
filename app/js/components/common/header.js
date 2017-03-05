@@ -6,7 +6,12 @@ import {Promise} from 'es6-promise';
 
 
 import Tappable from 'react-tappable';
-
+import {
+    toast,
+    remote,
+    toggleLoading,
+    getAccountInfo
+} from '../../redux/actions';
 
 
 /**
@@ -33,6 +38,25 @@ class Header extends Component{
         this.toMemberCenter = this.toMemberCenter.bind(this);
         this.backHandleFn = this.backHandleFn.bind(this);
 
+    }
+
+    componentDidMount(){
+        // alert(window.location)
+        const {dispatch, location} = this.props,
+                _this = this;
+        if(this.props.opt.getUserInfo){
+            dispatch(remote({
+                type: 'post',
+                data: {
+                    sno:10002
+                }
+            })).then((r)=>{
+                if( r && r.data ){
+                    dispatch(getAccountInfo(r.data));
+                    _this.props.callbackFn(r);
+                }
+            })
+        }
     }
 
     toMemberCenter(){
