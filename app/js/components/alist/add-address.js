@@ -118,7 +118,7 @@ class AddAddress extends Component{
     }
 
     changePlace(){
-
+        
     }
 
     render(){
@@ -157,8 +157,8 @@ class AddAddress extends Component{
                                 placeholder="所在地区"
                                 component="input">
                             </Tappable>
-                            
-                                <LocationSelect />
+
+                                <LocationSelect  />
                         </div>
                         <div className="add-address-form">
                             <i className="icon no"></i>

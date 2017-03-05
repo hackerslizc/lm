@@ -43,6 +43,13 @@ class LocationSelect extends Component{
 
     callbackFn(data){
         console.log(data);
+        if(data.province) {
+            document.getElementById('city').change();
+        } else if (data.city) {
+            document.getElementById('area').click();
+        } else if (data.area) {
+
+        }
     }
 
     render(){
