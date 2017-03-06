@@ -85,8 +85,6 @@ const allpca = [{
         "sub": [{
                 "name": "石家庄市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "长安区"
                     }, {
                         "name": "桥西区"
@@ -134,8 +132,6 @@ const allpca = [{
             }, {
                 "name": "唐山市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "路南区"
                     }, {
                         "name": "路北区"
@@ -167,8 +163,6 @@ const allpca = [{
             }, {
                 "name": "秦皇岛市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "海港区"
                     }, {
                         "name": "山海关区"
@@ -186,8 +180,6 @@ const allpca = [{
             }, {
                 "name": "邯郸市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "邯山区"
                     }, {
                         "name": "丛台区"
@@ -229,8 +221,6 @@ const allpca = [{
             }, {
                 "name": "邢台市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "桥东区"
                     }, {
                         "name": "桥西区"
@@ -272,8 +262,6 @@ const allpca = [{
             }, {
                 "name": "保定市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "新市区"
                     }, {
                         "name": "北市区"
@@ -327,8 +315,6 @@ const allpca = [{
             }, {
                 "name": "张家口市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "桥东区"
                     }, {
                         "name": "桥西区"
@@ -366,8 +352,6 @@ const allpca = [{
             }, {
                 "name": "承德市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "双桥区"
                     }, {
                         "name": "双滦区"
@@ -393,8 +377,6 @@ const allpca = [{
             }, {
                 "name": "沧州市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "新华区"
                     }, {
                         "name": "运河区"
@@ -430,8 +412,6 @@ const allpca = [{
             }, {
                 "name": "廊坊市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "安次区"
                     }, {
                         "name": "广阳区"
@@ -455,8 +435,6 @@ const allpca = [{
             }, {
                 "name": "衡水市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "桃城区"
                     }, {
                         "name": "枣强县"
@@ -485,8 +463,6 @@ const allpca = [{
         "sub": [{
                 "name": "太原市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "小店区"
                     }, {
                         "name": "迎泽区"
@@ -510,8 +486,6 @@ const allpca = [{
             }, {
                 "name": "大同市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "城区"
                     }, {
                         "name": "矿区"
@@ -537,8 +511,6 @@ const allpca = [{
             }, {
                 "name": "阳泉市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "城区"
                     }, {
                         "name": "矿区"
@@ -552,8 +524,6 @@ const allpca = [{
             }, {
                 "name": "长治市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "城区"
                     }, {
                         "name": "郊区"
@@ -583,8 +553,6 @@ const allpca = [{
             }, {
                 "name": "晋城市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "城区"
                     }, {
                         "name": "沁水县"
@@ -600,8 +568,6 @@ const allpca = [{
             }, {
                 "name": "朔州市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "朔城区"
                     }, {
                         "name": "平鲁区"
@@ -617,8 +583,6 @@ const allpca = [{
             }, {
                 "name": "晋中市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "榆次区"
                     }, {
                         "name": "榆社县"
@@ -644,8 +608,6 @@ const allpca = [{
             }, {
                 "name": "运城市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "盐湖区"
                     }, {
                         "name": "临猗县"
@@ -675,8 +637,6 @@ const allpca = [{
             }, {
                 "name": "忻州市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "忻府区"
                     }, {
                         "name": "定襄县"
@@ -708,8 +668,6 @@ const allpca = [{
             }, {
                 "name": "临汾市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "尧都区"
                     }, {
                         "name": "曲沃县"
@@ -747,8 +705,6 @@ const allpca = [{
             }, {
                 "name": "吕梁市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "离石区"
                     }, {
                         "name": "文水县"
@@ -781,8 +737,6 @@ const allpca = [{
         "sub": [{
                 "name": "呼和浩特市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "新城区"
                     }, {
                         "name": "回民区"
@@ -804,8 +758,6 @@ const allpca = [{
             }, {
                 "name": "包头市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "东河区"
                     }, {
                         "name": "昆都仑区"
@@ -827,8 +779,6 @@ const allpca = [{
             }, {
                 "name": "乌海市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "海勃湾区"
                     }, {
                         "name": "海南区"
@@ -838,8 +788,6 @@ const allpca = [{
             }, {
                 "name": "赤峰市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "红山区"
                     }, {
                         "name": "元宝山区"
@@ -867,8 +815,6 @@ const allpca = [{
             }, {
                 "name": "通辽市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "科尔沁区"
                     }, {
                         "name": "科尔沁左翼中旗"
@@ -888,8 +834,6 @@ const allpca = [{
             }, {
                 "name": "鄂尔多斯市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "东胜区"
                     }, {
                         "name": "达拉特旗"
@@ -909,8 +853,6 @@ const allpca = [{
             }, {
                 "name": "呼伦贝尔市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "海拉尔区"
                     }, {
                         "name": "扎赉诺尔区"
@@ -942,8 +884,6 @@ const allpca = [{
             }, {
                 "name": "巴彦淖尔市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "临河区"
                     }, {
                         "name": "五原县"
@@ -961,8 +901,6 @@ const allpca = [{
             }, {
                 "name": "乌兰察布市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "集宁区"
                     }, {
                         "name": "卓资县"
@@ -1042,8 +980,6 @@ const allpca = [{
         "sub": [{
                 "name": "沈阳市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "和平区"
                     }, {
                         "name": "沈河区"
@@ -1073,8 +1009,6 @@ const allpca = [{
             }, {
                 "name": "大连市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "中山区"
                     }, {
                         "name": "西岗区"
@@ -1098,8 +1032,6 @@ const allpca = [{
             }, {
                 "name": "鞍山市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "铁东区"
                     }, {
                         "name": "铁西区"
@@ -1117,8 +1049,6 @@ const allpca = [{
             }, {
                 "name": "抚顺市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "新抚区"
                     }, {
                         "name": "东洲区"
@@ -1136,8 +1066,6 @@ const allpca = [{
             }, {
                 "name": "本溪市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "平山区"
                     }, {
                         "name": "溪湖区"
@@ -1153,8 +1081,6 @@ const allpca = [{
             }, {
                 "name": "丹东市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "元宝区"
                     }, {
                         "name": "振兴区"
@@ -1170,8 +1096,6 @@ const allpca = [{
             }, {
                 "name": "锦州市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "古塔区"
                     }, {
                         "name": "凌河区"
@@ -1189,8 +1113,6 @@ const allpca = [{
             }, {
                 "name": "营口市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "站前区"
                     }, {
                         "name": "西市区"
@@ -1206,8 +1128,6 @@ const allpca = [{
             }, {
                 "name": "阜新市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "海州区"
                     }, {
                         "name": "新邱区"
@@ -1225,8 +1145,6 @@ const allpca = [{
             }, {
                 "name": "辽阳市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "白塔区"
                     }, {
                         "name": "文圣区"
@@ -1244,8 +1162,6 @@ const allpca = [{
             }, {
                 "name": "盘锦市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "双台子区"
                     }, {
                         "name": "兴隆台区"
@@ -1257,8 +1173,6 @@ const allpca = [{
             }, {
                 "name": "铁岭市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "银州区"
                     }, {
                         "name": "清河区"
@@ -1276,8 +1190,6 @@ const allpca = [{
             }, {
                 "name": "朝阳市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "双塔区"
                     }, {
                         "name": "龙城区"
@@ -1295,8 +1207,6 @@ const allpca = [{
             }, {
                 "name": "葫芦岛市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "连山区"
                     }, {
                         "name": "龙港区"
@@ -1315,8 +1225,6 @@ const allpca = [{
         "sub": [{
                 "name": "长春市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "南关区"
                     }, {
                         "name": "宽城区"
@@ -1340,8 +1248,6 @@ const allpca = [{
             }, {
                 "name": "吉林市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "昌邑区"
                     }, {
                         "name": "龙潭区"
@@ -1363,8 +1269,6 @@ const allpca = [{
             }, {
                 "name": "四平市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "铁西区"
                     }, {
                         "name": "铁东区"
@@ -1380,8 +1284,6 @@ const allpca = [{
             }, {
                 "name": "辽源市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "龙山区"
                     }, {
                         "name": "西安区"
@@ -1393,8 +1295,6 @@ const allpca = [{
             }, {
                 "name": "通化市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "东昌区"
                     }, {
                         "name": "二道江区"
@@ -1412,8 +1312,6 @@ const allpca = [{
             }, {
                 "name": "白山市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "浑江区"
                     }, {
                         "name": "江源区"
@@ -1429,8 +1327,6 @@ const allpca = [{
             }, {
                 "name": "松原市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "宁江区"
                     }, {
                         "name": "前郭尔罗斯蒙古族自治县"
@@ -1444,8 +1340,6 @@ const allpca = [{
             }, {
                 "name": "白城市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "洮北区"
                     }, {
                         "name": "镇赉县"
@@ -1481,8 +1375,6 @@ const allpca = [{
         "sub": [{
                 "name": "哈尔滨市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "道里区"
                     }, {
                         "name": "南岗区"
@@ -1522,8 +1414,6 @@ const allpca = [{
             }, {
                 "name": "齐齐哈尔市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "龙沙区"
                     }, {
                         "name": "建华区"
@@ -1559,8 +1449,6 @@ const allpca = [{
             }, {
                 "name": "鸡西市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "鸡冠区"
                     }, {
                         "name": "恒山区"
@@ -1582,8 +1470,6 @@ const allpca = [{
             }, {
                 "name": "鹤岗市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "向阳区"
                     }, {
                         "name": "工农区"
@@ -1603,8 +1489,6 @@ const allpca = [{
             }, {
                 "name": "双鸭山市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "尖山区"
                     }, {
                         "name": "岭东区"
@@ -1624,8 +1508,6 @@ const allpca = [{
             }, {
                 "name": "大庆市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "萨尔图区"
                     }, {
                         "name": "龙凤区"
@@ -1647,8 +1529,6 @@ const allpca = [{
             }, {
                 "name": "伊春市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "伊春区"
                     }, {
                         "name": "南岔区"
@@ -1686,8 +1566,6 @@ const allpca = [{
             }, {
                 "name": "佳木斯市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "向阳区"
                     }, {
                         "name": "前进区"
@@ -1711,8 +1589,6 @@ const allpca = [{
             }, {
                 "name": "七台河市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "新兴区"
                     }, {
                         "name": "桃山区"
@@ -1724,8 +1600,6 @@ const allpca = [{
             }, {
                 "name": "牡丹江市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "东安区"
                     }, {
                         "name": "阳明区"
@@ -1749,8 +1623,6 @@ const allpca = [{
             }, {
                 "name": "黑河市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "爱辉区"
                     }, {
                         "name": "嫩江县"
@@ -1766,8 +1638,6 @@ const allpca = [{
             }, {
                 "name": "绥化市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "北林区"
                     }, {
                         "name": "望奎县"
@@ -1846,8 +1716,6 @@ const allpca = [{
         "sub": [{
                 "name": "南京市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "玄武区"
                     }, {
                         "name": "秦淮区"
@@ -1873,8 +1741,6 @@ const allpca = [{
             }, {
                 "name": "无锡市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "崇安区"
                     }, {
                         "name": "南长区"
@@ -1894,8 +1760,6 @@ const allpca = [{
             }, {
                 "name": "徐州市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "鼓楼区"
                     }, {
                         "name": "云龙区"
@@ -1919,8 +1783,6 @@ const allpca = [{
             }, {
                 "name": "常州市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "天宁区"
                     }, {
                         "name": "钟楼区"
@@ -1938,8 +1800,6 @@ const allpca = [{
             }, {
                 "name": "苏州市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "虎丘区"
                     }, {
                         "name": "吴中区"
@@ -1961,8 +1821,6 @@ const allpca = [{
             }, {
                 "name": "南通市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "崇川区"
                     }, {
                         "name": "港闸区"
@@ -1982,8 +1840,6 @@ const allpca = [{
             }, {
                 "name": "连云港市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "连云区"
                     }, {
                         "name": "海州区"
@@ -1999,8 +1855,6 @@ const allpca = [{
             }, {
                 "name": "淮安市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "清河区"
                     }, {
                         "name": "淮安区"
@@ -2020,8 +1874,6 @@ const allpca = [{
             }, {
                 "name": "盐城市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "亭湖区"
                     }, {
                         "name": "盐都区"
@@ -2043,8 +1895,6 @@ const allpca = [{
             }, {
                 "name": "扬州市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "广陵区"
                     }, {
                         "name": "邗江区"
@@ -2060,8 +1910,6 @@ const allpca = [{
             }, {
                 "name": "镇江市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "京口区"
                     }, {
                         "name": "润州区"
@@ -2077,8 +1925,6 @@ const allpca = [{
             }, {
                 "name": "泰州市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "海陵区"
                     }, {
                         "name": "高港区"
@@ -2094,8 +1940,6 @@ const allpca = [{
             }, {
                 "name": "宿迁市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "宿城区"
                     }, {
                         "name": "宿豫区"
@@ -2112,8 +1956,6 @@ const allpca = [{
         "sub": [{
                 "name": "杭州市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "上城区"
                     }, {
                         "name": "下城区"
@@ -2143,8 +1985,6 @@ const allpca = [{
             }, {
                 "name": "宁波市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "海曙区"
                     }, {
                         "name": "江东区"
@@ -2170,8 +2010,6 @@ const allpca = [{
             }, {
                 "name": "温州市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "鹿城区"
                     }, {
                         "name": "龙湾区"
@@ -2197,8 +2035,6 @@ const allpca = [{
             }, {
                 "name": "嘉兴市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "南湖区"
                     }, {
                         "name": "秀洲区"
@@ -2216,8 +2052,6 @@ const allpca = [{
             }, {
                 "name": "湖州市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "吴兴区"
                     }, {
                         "name": "南浔区"
@@ -2231,8 +2065,6 @@ const allpca = [{
             }, {
                 "name": "绍兴市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "越城区"
                     }, {
                         "name": "柯桥区"
@@ -2248,8 +2080,6 @@ const allpca = [{
             }, {
                 "name": "金华市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "婺城区"
                     }, {
                         "name": "金东区"
@@ -2271,8 +2101,6 @@ const allpca = [{
             }, {
                 "name": "衢州市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "柯城区"
                     }, {
                         "name": "衢江区"
@@ -2288,8 +2116,6 @@ const allpca = [{
             }, {
                 "name": "舟山市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "定海区"
                     }, {
                         "name": "普陀区"
@@ -2301,8 +2127,6 @@ const allpca = [{
             }, {
                 "name": "台州市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "椒江区"
                     }, {
                         "name": "黄岩区"
@@ -2324,8 +2148,6 @@ const allpca = [{
             }, {
                 "name": "丽水市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "莲都区"
                     }, {
                         "name": "青田县"
@@ -2350,8 +2172,6 @@ const allpca = [{
         "sub": [{
                 "name": "合肥市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "瑶海区"
                     }, {
                         "name": "庐阳区"
@@ -2373,8 +2193,6 @@ const allpca = [{
             }, {
                 "name": "芜湖市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "镜湖区"
                     }, {
                         "name": "弋江区"
@@ -2394,8 +2212,6 @@ const allpca = [{
             }, {
                 "name": "蚌埠市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "龙子湖区"
                     }, {
                         "name": "蚌山区"
@@ -2413,8 +2229,6 @@ const allpca = [{
             }, {
                 "name": "淮南市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "大通区"
                     }, {
                         "name": "田家庵区"
@@ -2430,8 +2244,6 @@ const allpca = [{
             }, {
                 "name": "马鞍山市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "花山区"
                     }, {
                         "name": "雨山区"
@@ -2447,8 +2259,6 @@ const allpca = [{
             }, {
                 "name": "淮北市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "杜集区"
                     }, {
                         "name": "相山区"
@@ -2460,8 +2270,6 @@ const allpca = [{
             }, {
                 "name": "铜陵市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "铜官山区"
                     }, {
                         "name": "狮子山区"
@@ -2473,8 +2281,6 @@ const allpca = [{
             }, {
                 "name": "安庆市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "迎江区"
                     }, {
                         "name": "大观区"
@@ -2500,8 +2306,6 @@ const allpca = [{
             }, {
                 "name": "黄山市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "屯溪区"
                     }, {
                         "name": "黄山区"
@@ -2519,8 +2323,6 @@ const allpca = [{
             }, {
                 "name": "滁州市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "琅琊区"
                     }, {
                         "name": "南谯区"
@@ -2540,8 +2342,6 @@ const allpca = [{
             }, {
                 "name": "阜阳市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "颍州区"
                     }, {
                         "name": "颍东区"
@@ -2561,8 +2361,6 @@ const allpca = [{
             }, {
                 "name": "宿州市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "埇桥区"
                     }, {
                         "name": "砀山县"
@@ -2576,8 +2374,6 @@ const allpca = [{
             }, {
                 "name": "六安市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "金安区"
                     }, {
                         "name": "裕安区"
@@ -2595,8 +2391,6 @@ const allpca = [{
             }, {
                 "name": "亳州市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "谯城区"
                     }, {
                         "name": "涡阳县"
@@ -2608,8 +2402,6 @@ const allpca = [{
             }, {
                 "name": "池州市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "贵池区"
                     }, {
                         "name": "东至县"
@@ -2621,8 +2413,6 @@ const allpca = [{
             }, {
                 "name": "宣城市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "宣州区"
                     }, {
                         "name": "郎溪县"
@@ -2643,8 +2433,6 @@ const allpca = [{
         "sub": [{
                 "name": "福州市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "鼓楼区"
                     }, {
                         "name": "台江区"
@@ -2674,8 +2462,6 @@ const allpca = [{
             }, {
                 "name": "厦门市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "思明区"
                     }, {
                         "name": "海沧区"
@@ -2691,8 +2477,6 @@ const allpca = [{
             }, {
                 "name": "莆田市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "城厢区"
                     }, {
                         "name": "涵江区"
@@ -2706,8 +2490,6 @@ const allpca = [{
             }, {
                 "name": "三明市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "梅列区"
                     }, {
                         "name": "三元区"
@@ -2735,8 +2517,6 @@ const allpca = [{
             }, {
                 "name": "泉州市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "鲤城区"
                     }, {
                         "name": "丰泽区"
@@ -2764,8 +2544,6 @@ const allpca = [{
             }, {
                 "name": "漳州市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "芗城区"
                     }, {
                         "name": "龙文区"
@@ -2791,8 +2569,6 @@ const allpca = [{
             }, {
                 "name": "南平市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "延平区"
                     }, {
                         "name": "顺昌县"
@@ -2816,8 +2592,6 @@ const allpca = [{
             }, {
                 "name": "龙岩市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "新罗区"
                     }, {
                         "name": "长汀县"
@@ -2835,8 +2609,6 @@ const allpca = [{
             }, {
                 "name": "宁德市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "蕉城区"
                     }, {
                         "name": "霞浦县"
@@ -2861,8 +2633,6 @@ const allpca = [{
         "sub": [{
                 "name": "南昌市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "东湖区"
                     }, {
                         "name": "西湖区"
@@ -2884,8 +2654,6 @@ const allpca = [{
             }, {
                 "name": "景德镇市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "昌江区"
                     }, {
                         "name": "珠山区"
@@ -2897,8 +2665,6 @@ const allpca = [{
             }, {
                 "name": "萍乡市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "安源区"
                     }, {
                         "name": "湘东区"
@@ -2912,8 +2678,6 @@ const allpca = [{
             }, {
                 "name": "九江市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "庐山区"
                     }, {
                         "name": "浔阳区"
@@ -2943,8 +2707,6 @@ const allpca = [{
             }, {
                 "name": "新余市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "渝水区"
                     }, {
                         "name": "分宜县"
@@ -2952,8 +2714,6 @@ const allpca = [{
             }, {
                 "name": "鹰潭市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "月湖区"
                     }, {
                         "name": "余江县"
@@ -2963,8 +2723,6 @@ const allpca = [{
             }, {
                 "name": "赣州市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "章贡区"
                     }, {
                         "name": "南康区"
@@ -3004,8 +2762,6 @@ const allpca = [{
             }, {
                 "name": "吉安市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "吉州区"
                     }, {
                         "name": "青原区"
@@ -3035,8 +2791,6 @@ const allpca = [{
             }, {
                 "name": "宜春市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "袁州区"
                     }, {
                         "name": "奉新县"
@@ -3060,8 +2814,6 @@ const allpca = [{
             }, {
                 "name": "抚州市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "临川区"
                     }, {
                         "name": "南城县"
@@ -3087,8 +2839,6 @@ const allpca = [{
             }, {
                 "name": "上饶市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "信州区"
                     }, {
                         "name": "上饶县"
@@ -3119,8 +2869,6 @@ const allpca = [{
         "sub": [{
                 "name": "济南市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "历下区"
                     }, {
                         "name": "市中区"
@@ -3144,8 +2892,6 @@ const allpca = [{
             }, {
                 "name": "青岛市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "市南区"
                     }, {
                         "name": "市北区"
@@ -3169,8 +2915,6 @@ const allpca = [{
             }, {
                 "name": "淄博市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "淄川区"
                     }, {
                         "name": "张店区"
@@ -3190,8 +2934,6 @@ const allpca = [{
             }, {
                 "name": "枣庄市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "市中区"
                     }, {
                         "name": "薛城区"
@@ -3207,8 +2949,6 @@ const allpca = [{
             }, {
                 "name": "东营市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "东营区"
                     }, {
                         "name": "河口区"
@@ -3222,8 +2962,6 @@ const allpca = [{
             }, {
                 "name": "烟台市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "芝罘区"
                     }, {
                         "name": "福山区"
@@ -3251,8 +2989,6 @@ const allpca = [{
             }, {
                 "name": "潍坊市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "潍城区"
                     }, {
                         "name": "寒亭区"
@@ -3280,8 +3016,6 @@ const allpca = [{
             }, {
                 "name": "济宁市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "任城区"
                     }, {
                         "name": "兖州区"
@@ -3307,8 +3041,6 @@ const allpca = [{
             }, {
                 "name": "泰安市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "泰山区"
                     }, {
                         "name": "岱岳区"
@@ -3324,8 +3056,6 @@ const allpca = [{
             }, {
                 "name": "威海市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "环翠区"
                     }, {
                         "name": "文登区"
@@ -3337,8 +3067,6 @@ const allpca = [{
             }, {
                 "name": "日照市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "东港区"
                     }, {
                         "name": "岚山区"
@@ -3350,8 +3078,6 @@ const allpca = [{
             }, {
                 "name": "莱芜市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "莱城区"
                     }, {
                         "name": "钢城区"
@@ -3359,8 +3085,6 @@ const allpca = [{
             }, {
                 "name": "临沂市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "兰山区"
                     }, {
                         "name": "罗庄区"
@@ -3388,8 +3112,6 @@ const allpca = [{
             }, {
                 "name": "德州市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "德城区"
                     }, {
                         "name": "陵城区"
@@ -3415,8 +3137,6 @@ const allpca = [{
             }, {
                 "name": "聊城市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "东昌府区"
                     }, {
                         "name": "阳谷县"
@@ -3436,8 +3156,6 @@ const allpca = [{
             }, {
                 "name": "滨州市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "滨城区"
                     }, {
                         "name": "沾化区"
@@ -3455,8 +3173,6 @@ const allpca = [{
             }, {
                 "name": "菏泽市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "牡丹区"
                     }, {
                         "name": "曹县"
@@ -3481,8 +3197,6 @@ const allpca = [{
         "sub": [{
                 "name": "郑州市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "中原区"
                     }, {
                         "name": "二七区"
@@ -3510,8 +3224,6 @@ const allpca = [{
             }, {
                 "name": "开封市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "龙亭区"
                     }, {
                         "name": "顺河回族区"
@@ -3535,8 +3247,6 @@ const allpca = [{
             }, {
                 "name": "洛阳市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "老城区"
                     }, {
                         "name": "西工区"
@@ -3570,8 +3280,6 @@ const allpca = [{
             }, {
                 "name": "平顶山市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "新华区"
                     }, {
                         "name": "卫东区"
@@ -3595,8 +3303,6 @@ const allpca = [{
             }, {
                 "name": "安阳市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "文峰区"
                     }, {
                         "name": "北关区"
@@ -3618,8 +3324,6 @@ const allpca = [{
             }, {
                 "name": "鹤壁市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "鹤山区"
                     }, {
                         "name": "山城区"
@@ -3633,8 +3337,6 @@ const allpca = [{
             }, {
                 "name": "新乡市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "红旗区"
                     }, {
                         "name": "卫滨区"
@@ -3662,8 +3364,6 @@ const allpca = [{
             }, {
                 "name": "焦作市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "解放区"
                     }, {
                         "name": "中站区"
@@ -3687,8 +3387,6 @@ const allpca = [{
             }, {
                 "name": "濮阳市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "华龙区"
                     }, {
                         "name": "清丰县"
@@ -3704,8 +3402,6 @@ const allpca = [{
             }, {
                 "name": "许昌市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "魏都区"
                     }, {
                         "name": "许昌县"
@@ -3721,8 +3417,6 @@ const allpca = [{
             }, {
                 "name": "漯河市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "源汇区"
                     }, {
                         "name": "郾城区"
@@ -3736,8 +3430,6 @@ const allpca = [{
             }, {
                 "name": "三门峡市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "湖滨区"
                     }, {
                         "name": "渑池县"
@@ -3753,8 +3445,6 @@ const allpca = [{
             }, {
                 "name": "南阳市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "宛城区"
                     }, {
                         "name": "卧龙区"
@@ -3784,8 +3474,6 @@ const allpca = [{
             }, {
                 "name": "商丘市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "梁园区"
                     }, {
                         "name": "睢阳区"
@@ -3807,8 +3495,6 @@ const allpca = [{
             }, {
                 "name": "信阳市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "浉河区"
                     }, {
                         "name": "平桥区"
@@ -3832,8 +3518,6 @@ const allpca = [{
             }, {
                 "name": "周口市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "川汇区"
                     }, {
                         "name": "扶沟县"
@@ -3857,8 +3541,6 @@ const allpca = [{
             }, {
                 "name": "驻马店市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "驿城区"
                     }, {
                         "name": "西平县"
@@ -3890,8 +3572,6 @@ const allpca = [{
         "sub": [{
                 "name": "武汉市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "江岸区"
                     }, {
                         "name": "江汉区"
@@ -3921,8 +3601,6 @@ const allpca = [{
             }, {
                 "name": "黄石市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "黄石港区"
                     }, {
                         "name": "西塞山区"
@@ -3938,8 +3616,6 @@ const allpca = [{
             }, {
                 "name": "十堰市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "茅箭区"
                     }, {
                         "name": "张湾区"
@@ -3959,8 +3635,6 @@ const allpca = [{
             }, {
                 "name": "宜昌市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "西陵区"
                     }, {
                         "name": "伍家岗区"
@@ -3990,8 +3664,6 @@ const allpca = [{
             }, {
                 "name": "襄阳市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "襄城区"
                     }, {
                         "name": "樊城区"
@@ -4013,8 +3685,6 @@ const allpca = [{
             }, {
                 "name": "鄂州市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "梁子湖区"
                     }, {
                         "name": "华容区"
@@ -4024,8 +3694,6 @@ const allpca = [{
             }, {
                 "name": "荆门市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "东宝区"
                     }, {
                         "name": "掇刀区"
@@ -4039,8 +3707,6 @@ const allpca = [{
             }, {
                 "name": "孝感市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "孝南区"
                     }, {
                         "name": "孝昌县"
@@ -4058,8 +3724,6 @@ const allpca = [{
             }, {
                 "name": "荆州市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "沙市区"
                     }, {
                         "name": "荆州区"
@@ -4079,8 +3743,6 @@ const allpca = [{
             }, {
                 "name": "黄冈市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "黄州区"
                     }, {
                         "name": "团风县"
@@ -4104,8 +3766,6 @@ const allpca = [{
             }, {
                 "name": "咸宁市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "咸安区"
                     }, {
                         "name": "嘉鱼县"
@@ -4121,8 +3781,6 @@ const allpca = [{
             }, {
                 "name": "随州市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "曾都区"
                     }, {
                         "name": "随县"
@@ -4165,8 +3823,6 @@ const allpca = [{
         "sub": [{
                 "name": "长沙市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "芙蓉区"
                     }, {
                         "name": "天心区"
@@ -4188,8 +3844,6 @@ const allpca = [{
             }, {
                 "name": "株洲市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "荷塘区"
                     }, {
                         "name": "芦淞区"
@@ -4211,8 +3865,6 @@ const allpca = [{
             }, {
                 "name": "湘潭市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "雨湖区"
                     }, {
                         "name": "岳塘区"
@@ -4226,8 +3878,6 @@ const allpca = [{
             }, {
                 "name": "衡阳市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "珠晖区"
                     }, {
                         "name": "雁峰区"
@@ -4255,8 +3905,6 @@ const allpca = [{
             }, {
                 "name": "邵阳市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "双清区"
                     }, {
                         "name": "大祥区"
@@ -4284,8 +3932,6 @@ const allpca = [{
             }, {
                 "name": "岳阳市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "岳阳楼区"
                     }, {
                         "name": "云溪区"
@@ -4307,8 +3953,6 @@ const allpca = [{
             }, {
                 "name": "常德市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "武陵区"
                     }, {
                         "name": "鼎城区"
@@ -4330,8 +3974,6 @@ const allpca = [{
             }, {
                 "name": "张家界市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "永定区"
                     }, {
                         "name": "武陵源区"
@@ -4343,8 +3985,6 @@ const allpca = [{
             }, {
                 "name": "益阳市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "资阳区"
                     }, {
                         "name": "赫山区"
@@ -4360,8 +4000,6 @@ const allpca = [{
             }, {
                 "name": "郴州市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "北湖区"
                     }, {
                         "name": "苏仙区"
@@ -4387,8 +4025,6 @@ const allpca = [{
             }, {
                 "name": "永州市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "零陵区"
                     }, {
                         "name": "冷水滩区"
@@ -4414,8 +4050,6 @@ const allpca = [{
             }, {
                 "name": "怀化市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "鹤城区"
                     }, {
                         "name": "中方县"
@@ -4443,8 +4077,6 @@ const allpca = [{
             }, {
                 "name": "娄底市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "娄星区"
                     }, {
                         "name": "双峰县"
@@ -4480,8 +4112,6 @@ const allpca = [{
         "sub": [{
                 "name": "广州市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "荔湾区"
                     }, {
                         "name": "越秀区"
@@ -4509,8 +4139,6 @@ const allpca = [{
             }, {
                 "name": "韶关市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "武江区"
                     }, {
                         "name": "浈江区"
@@ -4534,8 +4162,6 @@ const allpca = [{
             }, {
                 "name": "深圳市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "罗湖区"
                     }, {
                         "name": "福田区"
@@ -4551,8 +4177,6 @@ const allpca = [{
             }, {
                 "name": "珠海市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "香洲区"
                     }, {
                         "name": "斗门区"
@@ -4562,8 +4186,6 @@ const allpca = [{
             }, {
                 "name": "汕头市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "龙湖区"
                     }, {
                         "name": "金平区"
@@ -4581,8 +4203,6 @@ const allpca = [{
             }, {
                 "name": "佛山市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "禅城区"
                     }, {
                         "name": "南海区"
@@ -4596,8 +4216,6 @@ const allpca = [{
             }, {
                 "name": "江门市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "蓬江区"
                     }, {
                         "name": "江海区"
@@ -4615,8 +4233,6 @@ const allpca = [{
             }, {
                 "name": "湛江市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "赤坎区"
                     }, {
                         "name": "霞山区"
@@ -4638,8 +4254,6 @@ const allpca = [{
             }, {
                 "name": "茂名市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "茂南区"
                     }, {
                         "name": "电白区"
@@ -4653,8 +4267,6 @@ const allpca = [{
             }, {
                 "name": "肇庆市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "端州区"
                     }, {
                         "name": "鼎湖区"
@@ -4674,8 +4286,6 @@ const allpca = [{
             }, {
                 "name": "惠州市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "惠城区"
                     }, {
                         "name": "惠阳区"
@@ -4689,8 +4299,6 @@ const allpca = [{
             }, {
                 "name": "梅州市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "梅江区"
                     }, {
                         "name": "梅县区"
@@ -4710,8 +4318,6 @@ const allpca = [{
             }, {
                 "name": "汕尾市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "城区"
                     }, {
                         "name": "海丰县"
@@ -4723,8 +4329,6 @@ const allpca = [{
             }, {
                 "name": "河源市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "源城区"
                     }, {
                         "name": "紫金县"
@@ -4740,8 +4344,6 @@ const allpca = [{
             }, {
                 "name": "阳江市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "江城区"
                     }, {
                         "name": "阳西县"
@@ -4753,8 +4355,6 @@ const allpca = [{
             }, {
                 "name": "清远市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "清城区"
                     }, {
                         "name": "清新区"
@@ -4780,8 +4380,6 @@ const allpca = [{
             }, {
                 "name": "潮州市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "湘桥区"
                     }, {
                         "name": "潮安区"
@@ -4791,8 +4389,6 @@ const allpca = [{
             }, {
                 "name": "揭阳市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "榕城区"
                     }, {
                         "name": "揭东区"
@@ -4806,8 +4402,6 @@ const allpca = [{
             }, {
                 "name": "云浮市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "云城区"
                     }, {
                         "name": "云安区"
@@ -4824,8 +4418,6 @@ const allpca = [{
         "sub": [{
                 "name": "南宁市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "兴宁区"
                     }, {
                         "name": "青秀区"
@@ -4853,8 +4445,6 @@ const allpca = [{
             }, {
                 "name": "柳州市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "城中区"
                     }, {
                         "name": "鱼峰区"
@@ -4878,8 +4468,6 @@ const allpca = [{
             }, {
                 "name": "桂林市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "秀峰区"
                     }, {
                         "name": "叠彩区"
@@ -4917,8 +4505,6 @@ const allpca = [{
             }, {
                 "name": "梧州市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "万秀区"
                     }, {
                         "name": "长洲区"
@@ -4936,8 +4522,6 @@ const allpca = [{
             }, {
                 "name": "北海市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "海城区"
                     }, {
                         "name": "银海区"
@@ -4949,8 +4533,6 @@ const allpca = [{
             }, {
                 "name": "防城港市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "港口区"
                     }, {
                         "name": "防城区"
@@ -4962,8 +4544,6 @@ const allpca = [{
             }, {
                 "name": "钦州市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "钦南区"
                     }, {
                         "name": "钦北区"
@@ -4975,8 +4555,6 @@ const allpca = [{
             }, {
                 "name": "贵港市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "港北区"
                     }, {
                         "name": "港南区"
@@ -4990,8 +4568,6 @@ const allpca = [{
             }, {
                 "name": "玉林市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "玉州区"
                     }, {
                         "name": "福绵区"
@@ -5009,8 +4585,6 @@ const allpca = [{
             }, {
                 "name": "百色市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "右江区"
                     }, {
                         "name": "田阳县"
@@ -5038,8 +4612,6 @@ const allpca = [{
             }, {
                 "name": "贺州市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "八步区"
                     }, {
                         "name": "昭平县"
@@ -5051,8 +4623,6 @@ const allpca = [{
             }, {
                 "name": "河池市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "金城江区"
                     }, {
                         "name": "南丹县"
@@ -5078,8 +4648,6 @@ const allpca = [{
             }, {
                 "name": "来宾市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "兴宾区"
                     }, {
                         "name": "忻城县"
@@ -5095,8 +4663,6 @@ const allpca = [{
             }, {
                 "name": "崇左市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "江州区"
                     }, {
                         "name": "扶绥县"
@@ -5117,8 +4683,6 @@ const allpca = [{
         "sub": [{
                 "name": "海口市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "秀英区"
                     }, {
                         "name": "龙华区"
@@ -5130,8 +4694,6 @@ const allpca = [{
             }, {
                 "name": "三亚市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "海棠区"
                     }, {
                         "name": "吉阳区"
@@ -5269,8 +4831,6 @@ const allpca = [{
         "sub": [{
                 "name": "成都市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "锦江区"
                     }, {
                         "name": "青羊区"
@@ -5312,8 +4872,6 @@ const allpca = [{
             }, {
                 "name": "自贡市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "自流井区"
                     }, {
                         "name": "贡井区"
@@ -5329,8 +4887,6 @@ const allpca = [{
             }, {
                 "name": "攀枝花市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "东区"
                     }, {
                         "name": "西区"
@@ -5344,8 +4900,6 @@ const allpca = [{
             }, {
                 "name": "泸州市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "江阳区"
                     }, {
                         "name": "纳溪区"
@@ -5363,8 +4917,6 @@ const allpca = [{
             }, {
                 "name": "德阳市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "旌阳区"
                     }, {
                         "name": "中江县"
@@ -5380,8 +4932,6 @@ const allpca = [{
             }, {
                 "name": "绵阳市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "涪城区"
                     }, {
                         "name": "游仙区"
@@ -5403,8 +4953,6 @@ const allpca = [{
             }, {
                 "name": "广元市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "利州区"
                     }, {
                         "name": "昭化区"
@@ -5422,8 +4970,6 @@ const allpca = [{
             }, {
                 "name": "遂宁市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "船山区"
                     }, {
                         "name": "安居区"
@@ -5437,8 +4983,6 @@ const allpca = [{
             }, {
                 "name": "内江市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "市中区"
                     }, {
                         "name": "东兴区"
@@ -5452,8 +4996,6 @@ const allpca = [{
             }, {
                 "name": "乐山市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "市中区"
                     }, {
                         "name": "沙湾区"
@@ -5479,8 +5021,6 @@ const allpca = [{
             }, {
                 "name": "南充市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "顺庆区"
                     }, {
                         "name": "高坪区"
@@ -5502,8 +5042,6 @@ const allpca = [{
             }, {
                 "name": "眉山市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "东坡区"
                     }, {
                         "name": "仁寿县"
@@ -5519,8 +5057,6 @@ const allpca = [{
             }, {
                 "name": "宜宾市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "翠屏区"
                     }, {
                         "name": "南溪区"
@@ -5544,8 +5080,6 @@ const allpca = [{
             }, {
                 "name": "广安市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "广安区"
                     }, {
                         "name": "前锋区"
@@ -5561,8 +5095,6 @@ const allpca = [{
             }, {
                 "name": "达州市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "通川区"
                     }, {
                         "name": "达川区"
@@ -5580,8 +5112,6 @@ const allpca = [{
             }, {
                 "name": "雅安市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "雨城区"
                     }, {
                         "name": "名山区"
@@ -5601,8 +5131,6 @@ const allpca = [{
             }, {
                 "name": "巴中市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "巴州区"
                     }, {
                         "name": "恩阳区"
@@ -5616,8 +5144,6 @@ const allpca = [{
             }, {
                 "name": "资阳市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "雁江区"
                     }, {
                         "name": "安岳县"
@@ -5737,8 +5263,6 @@ const allpca = [{
         "sub": [{
                 "name": "贵阳市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "南明区"
                     }, {
                         "name": "云岩区"
@@ -5773,8 +5297,6 @@ const allpca = [{
             }, {
                 "name": "遵义市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "红花岗区"
                     }, {
                         "name": "汇川区"
@@ -5806,8 +5328,6 @@ const allpca = [{
             }, {
                 "name": "安顺市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "西秀区"
                     }, {
                         "name": "平坝县"
@@ -5823,8 +5343,6 @@ const allpca = [{
             }, {
                 "name": "毕节市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "七星关区"
                     }, {
                         "name": "大方县"
@@ -5844,8 +5362,6 @@ const allpca = [{
             }, {
                 "name": "铜仁市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "碧江区"
                     }, {
                         "name": "万山区"
@@ -5953,8 +5469,6 @@ const allpca = [{
         "sub": [{
                 "name": "昆明市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "五华区"
                     }, {
                         "name": "盘龙区"
@@ -5986,8 +5500,6 @@ const allpca = [{
             }, {
                 "name": "曲靖市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "麒麟区"
                     }, {
                         "name": "马龙县"
@@ -6009,8 +5521,6 @@ const allpca = [{
             }, {
                 "name": "玉溪市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "红塔区"
                     }, {
                         "name": "江川县"
@@ -6032,8 +5542,6 @@ const allpca = [{
             }, {
                 "name": "保山市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "隆阳区"
                     }, {
                         "name": "施甸县"
@@ -6047,8 +5555,6 @@ const allpca = [{
             }, {
                 "name": "昭通市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "昭阳区"
                     }, {
                         "name": "鲁甸县"
@@ -6074,8 +5580,6 @@ const allpca = [{
             }, {
                 "name": "丽江市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "古城区"
                     }, {
                         "name": "玉龙纳西族自治县"
@@ -6089,8 +5593,6 @@ const allpca = [{
             }, {
                 "name": "普洱市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "思茅区"
                     }, {
                         "name": "宁洱哈尼族彝族自治县"
@@ -6114,8 +5616,6 @@ const allpca = [{
             }, {
                 "name": "临沧市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "临翔区"
                     }, {
                         "name": "凤庆县"
@@ -6278,8 +5778,6 @@ const allpca = [{
         "sub": [{
                 "name": "拉萨市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "城关区"
                     }, {
                         "name": "林周县"
@@ -6452,8 +5950,6 @@ const allpca = [{
         "sub": [{
                 "name": "西安市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "新城区"
                     }, {
                         "name": "碑林区"
@@ -6483,8 +5979,6 @@ const allpca = [{
             }, {
                 "name": "铜川市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "王益区"
                     }, {
                         "name": "印台区"
@@ -6496,8 +5990,6 @@ const allpca = [{
             }, {
                 "name": "宝鸡市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "渭滨区"
                     }, {
                         "name": "金台区"
@@ -6525,8 +6017,6 @@ const allpca = [{
             }, {
                 "name": "咸阳市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "秦都区"
                     }, {
                         "name": "杨陵区"
@@ -6558,8 +6048,6 @@ const allpca = [{
             }, {
                 "name": "渭南市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "临渭区"
                     }, {
                         "name": "华县"
@@ -6585,8 +6073,6 @@ const allpca = [{
             }, {
                 "name": "延安市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "宝塔区"
                     }, {
                         "name": "延长县"
@@ -6616,8 +6102,6 @@ const allpca = [{
             }, {
                 "name": "汉中市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "汉台区"
                     }, {
                         "name": "南郑县"
@@ -6643,8 +6127,6 @@ const allpca = [{
             }, {
                 "name": "榆林市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "榆阳区"
                     }, {
                         "name": "神木县"
@@ -6672,8 +6154,6 @@ const allpca = [{
             }, {
                 "name": "安康市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "汉滨区"
                     }, {
                         "name": "汉阴县"
@@ -6697,8 +6177,6 @@ const allpca = [{
             }, {
                 "name": "商洛市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "商州区"
                     }, {
                         "name": "洛南县"
@@ -6719,8 +6197,6 @@ const allpca = [{
         "sub": [{
                 "name": "兰州市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "城关区"
                     }, {
                         "name": "七里河区"
@@ -6739,14 +6215,10 @@ const allpca = [{
                     }]
             }, {
                 "name": "嘉峪关市",
-                "sub": [{
-                        "name": "市辖区"
-                    }]
+                "sub": []
             }, {
                 "name": "金昌市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "金川区"
                     }, {
                         "name": "永昌县"
@@ -6754,8 +6226,6 @@ const allpca = [{
             }, {
                 "name": "白银市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "白银区"
                     }, {
                         "name": "平川区"
@@ -6769,8 +6239,6 @@ const allpca = [{
             }, {
                 "name": "天水市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "秦州区"
                     }, {
                         "name": "麦积区"
@@ -6788,8 +6256,6 @@ const allpca = [{
             }, {
                 "name": "武威市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "凉州区"
                     }, {
                         "name": "民勤县"
@@ -6801,8 +6267,6 @@ const allpca = [{
             }, {
                 "name": "张掖市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "甘州区"
                     }, {
                         "name": "肃南裕固族自治县"
@@ -6818,8 +6282,6 @@ const allpca = [{
             }, {
                 "name": "平凉市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "崆峒区"
                     }, {
                         "name": "泾川县"
@@ -6837,8 +6299,6 @@ const allpca = [{
             }, {
                 "name": "酒泉市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "肃州区"
                     }, {
                         "name": "金塔县"
@@ -6856,8 +6316,6 @@ const allpca = [{
             }, {
                 "name": "庆阳市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "西峰区"
                     }, {
                         "name": "庆城县"
@@ -6877,8 +6335,6 @@ const allpca = [{
             }, {
                 "name": "定西市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "安定区"
                     }, {
                         "name": "通渭县"
@@ -6896,8 +6352,6 @@ const allpca = [{
             }, {
                 "name": "陇南市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "武都区"
                     }, {
                         "name": "成县"
@@ -6960,8 +6414,6 @@ const allpca = [{
         "sub": [{
                 "name": "西宁市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "城东区"
                     }, {
                         "name": "城中区"
@@ -7075,8 +6527,6 @@ const allpca = [{
         "sub": [{
                 "name": "银川市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "兴庆区"
                     }, {
                         "name": "西夏区"
@@ -7092,8 +6542,6 @@ const allpca = [{
             }, {
                 "name": "石嘴山市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "大武口区"
                     }, {
                         "name": "惠农区"
@@ -7103,8 +6551,6 @@ const allpca = [{
             }, {
                 "name": "吴忠市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "利通区"
                     }, {
                         "name": "红寺堡区"
@@ -7118,8 +6564,6 @@ const allpca = [{
             }, {
                 "name": "固原市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "原州区"
                     }, {
                         "name": "西吉县"
@@ -7133,8 +6577,6 @@ const allpca = [{
             }, {
                 "name": "中卫市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "沙坡头区"
                     }, {
                         "name": "中宁县"
@@ -7147,8 +6589,6 @@ const allpca = [{
         "sub": [{
                 "name": "乌鲁木齐市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "天山区"
                     }, {
                         "name": "沙依巴克区"
@@ -7168,8 +6608,6 @@ const allpca = [{
             }, {
                 "name": "克拉玛依市",
                 "sub": [{
-                        "name": "市辖区"
-                    }, {
                         "name": "独山子区"
                     }, {
                         "name": "克拉玛依区"
@@ -7394,29 +6832,361 @@ const allpca = [{
             }]
     }, {
         "name": "台湾省",
-        "sub": []
+        "sub": [{
+                "name": "台北市",
+                "sub": [{
+                        "name": "中正区"
+                    }, {
+                        "name": "大同区"
+                    }, {
+                        "name": "中山区"
+                    }, {
+                        "name": "松山区"
+                    }, {
+                        "name": "大安区"
+                    }, {
+                        "name": "万华区"
+                    }, {
+                        "name": "信义区"
+                    }, {
+                        "name": "士林区"
+                    },{
+                        "name": "北投区"
+                    }, {
+                        "name": "内湖区"
+                    }, {
+                        "name": "南港区"
+                    }, {
+                        "name": "文山区"
+                    }]
+            }, {
+                "name": "高雄市",
+                "sub": [{
+                        "name": "新兴区"
+                    }, {
+                        "name": "前金区"
+                    }, {
+                        "name": "芩雅区"
+                    }, {
+                        "name": "盐埕区"
+                    }, {
+                        "name": "鼓山区"
+                    }, {
+                        "name": "旗津区"
+                    }, {
+                        "name": "前镇区"
+                    }, {
+                        "name": "三民区"
+                    }, {
+                        "name": "左营区"
+                    }, {
+                        "name": "楠梓区"
+                    }, {
+                        "name": "小港区"
+                    }]
+            }, {
+                "name": "新北市",
+                "sub": [{
+                        "name": "东区"
+                    }, {
+                        "name": "西区"
+                    }, {
+                        "name": "香山区"
+                    }]
+            }, {
+                "name": "台中市",
+                "sub": [{
+                        "name": "东区"
+                    }, {
+                        "name": "西区"
+                    }, {
+                        "name": "中区"
+                    }, {
+                        "name": "南区"
+                    }, {
+                        "name": "北区"
+                    }, {
+                        "name": "北屯区"
+                    }, {
+                        "name": "西屯区"
+                    }, {
+                        "name": "南屯区"
+                    }]
+            }, {
+                "name": "桃园市",
+                "sub": [{
+                        "name": "桃园区"
+                    }, {
+                        "name": "中坜区"
+                    }, {
+                        "name": "平镇区"
+                    }, {
+                        "name": "八德区"
+                    }, {
+                        "name": "杨梅区"
+                    }, {
+                        "name": "芦竹区"
+                    }, {
+                        "name": "大溪区"
+                    }, {
+                        "name": "龙潭区"
+                    }, {
+                        "name": "龟山区"
+                    }, {
+                        "name": "大园区"
+                    }, {
+                        "name": "观音区"
+                    }, {
+                        "name": "新屋区"
+                    }, {
+                        "name": "复兴区"
+                    }, {
+                        "name": "桃园市"
+                    }]
+            }, {
+                "name": "台南市",
+                "sub": [{
+                        "name": "中西区"
+                    }, {
+                        "name": "东区"
+                    }, {
+                        "name": "南区"
+                    }, {
+                        "name": "北区"
+                    }, 
+                    {
+                        "name": "仁德区"
+                    }, {
+                        "name": "南化区"
+                    }, {
+                        "name": "楠西区"
+                    }, {
+                        "name": "玉井区"
+                    }, {
+                        "name": "左镇区"
+                    }, {
+                        "name": "新化区"
+                    }, {
+                        "name": "归仁区"
+                    },{
+                        "name": "中西区"
+                    }, {
+                        "name": "永康区"
+                    }, {
+                        "name": "安南区"
+                    }, {
+                        "name": "安平区"
+                    }, {
+                        "name": "学甲区"
+                    }, {
+                        "name": "北门区"
+                    }, {
+                        "name": "新营区"
+                    },{
+                        "name": "后壁区"
+                    }, {
+                        "name": "白河区"
+                    }, {
+                        "name": "东山区"
+                    }, {
+                        "name": "六甲区"
+                    }, {
+                        "name": "下营区"
+                    }, {
+                        "name": "柳营区"
+                    }, {
+                        "name": "盐水区"
+                    },{
+                        "name": "善化区"
+                    }, {
+                        "name": "山上区"
+                    }, {
+                        "name": "新市区"
+                    }, {
+                        "name": "安定区"
+                    }, {
+                        "name": "关庙区"
+                    }, {
+                        "name": "龙崎区"
+                    }, {
+                        "name": "官田区"
+                    }, {
+                        "name": "麻豆区"
+                    }, {
+                        "name": "佳里区"
+                    }, {
+                        "name": "西港区"
+                    }, {
+                        "name": "七股区"
+                    }, {
+                        "name": "将军区"
+                    }]
+            }, {
+                "name": "嘉义市",
+                "sub": [{
+                        "name": "东区"
+                    }, {
+                        "name": "西区"
+                    }]
+            }, {
+                "name": "新竹市",
+                "sub": [{
+                        "name": "东区"
+                    }, {
+                        "name": "北区"
+                    }, {
+                        "name": "香山区"
+                    }]
+            }, {
+                "name": "基隆市",
+                "sub": [{
+                        "name": "安乐区"
+                    }, {
+                        "name": "仁爱区"
+                    }, {
+                        "name": "信义区"
+                    }, {
+                        "name": "七堵区"
+                    }, {
+                        "name": "中山区"
+                    }, {
+                        "name": "中正区"
+                    }, {
+                        "name": "暖暖区"
+                    }]
+            }]
     }, {
         "name": "香港特别行政区",
-        "sub": []
+        "sub": [{
+                "name": "香港岛",
+                "sub": [{
+                        "name": "中西区"
+                    }, {
+                        "name": "湾仔区"
+                    }, {
+                        "name": "东区"
+                    }, {
+                        "name": "南区"
+                    }]
+            }, {
+                "name": "九龙半岛",
+                "sub": [{
+                        "name": "油尖旺区"
+                    }, {
+                        "name": "深水埗区"
+                    }, {
+                        "name": "九龙城区"
+                    }, {
+                        "name": "黄大仙区"
+                    }, {
+                        "name": "观塘区"
+                    }]
+            }, {
+                "name": "新界",
+                "sub": [{
+                        "name": "北区"
+                    }, {
+                        "name": "大埔区"
+                    }, {
+                        "name": "沙田区"
+                    }, {
+                        "name": "西贡区"
+                    }, {
+                        "name": "荃湾区"
+                    }, {
+                        "name": "屯门区"
+                    }, {
+                        "name": "元朗区"
+                    }, {
+                        "name": "离岛区"
+                    }, {
+                        "name": "葵青区"
+                    }]
+            }]
     }, {
         "name": "澳门特别行政区",
-        "sub": []
+        "sub": [{
+                "name": "花地玛堂区",
+                "sub": [{
+                        "name": "青州"
+                    }, {
+                        "name": "台山"
+                    }, {
+                        "name": "黑沙环"
+                    }, {
+                        "name": "筷子基"
+                    }, {
+                        "name": "水塘"
+                    }]
+            }, {
+                "name": "圣安多尼堂区",
+                "sub": [{
+                        "name": "新桥"
+                    }, {
+                        "name": "沙梨头"
+                    }]
+            }, {
+                "name": "大堂区",
+                "sub": [{
+                        "name": "中区"
+                    }, {
+                        "name": "新马路以北"
+                    }, {
+                        "name": "南湾"
+                    }, {
+                        "name": "水坑尾"
+                    }, {
+                        "name": "新口岸填海地段"
+                    }]
+            }, {
+                "name": "望德堂区",
+                "sub": [{
+                        "name": "荷兰园"
+                    }, {
+                        "name": "东望洋山"
+                    }, {
+                        "name": "塔石"
+                    }]
+            }, {
+                "name": "风顺堂区",
+                "sub": [{
+                        "name": "妈阁山"
+                    }, {
+                        "name": "西望洋山"
+                    }, {
+                        "name": "新马路以南"
+                    }]
+            }]
     }
 ];
 function getProvince(name){
-    for(var i =0;i<allpca.length;i++){
-        if(allpca[i].name==name){
+    for(var i = 0; i < allpca.length; i++){
+        if(allpca[i].name == name){
             return allpca[i];
         }
     }
 };
-function getCity(province,cityname){
-    for(var i =0;i<province.sub.length;i++){
-        if(province.sub[i].name==cityname){
+function getCity(province, cityname){
+    if(province.sub.length === 0) return [];
+    for(var i = 0; i < province.sub.length; i++){
+        if(province.sub[i].name == cityname){
             return province.sub[i];
         }
     }
 };
+// function getArea(province,cityname){
+//     for(var i = 0 ; i < province.sub.length; i++){
+//         // if(province.sub[i].name==cityname){
+//         //     return province.sub[i];
+//         // }
+//         for(var i = 0; i < province.sub.length; i++){
+
+//             if(province.sub[i].name == cityname){
+//                 return province.sub[i];
+//             }
+//         }
+//     }
+// };
 export {
     allpca,
     getProvince,

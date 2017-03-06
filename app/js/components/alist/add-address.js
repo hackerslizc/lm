@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import {hashHistory,Link} from 'react-router';
 import { connect } from 'react-redux';
 import {Promise} from 'es6-promise';
-
 import Tappable from 'react-tappable';
 
 import Header from '../common/header';
@@ -33,11 +32,16 @@ class AddAddress extends Component{
             mobile: mobile,
             place: place,
             address: address,
-            isdefault: isdefault
+            isdefault: isdefault,
+            provn: '',
+            cityn: '',
+            distn: ''
+
         };
         this.changeVal = this.changeVal.bind(this);
         this.onSubmitFn = this.onSubmitFn.bind(this);
-        this.onVerificationFn = this.onVerificationFn.bind(this)
+        this.onVerificationFn = this.onVerificationFn.bind(this);
+        this.callbackFn = this.callbackFn.bind(this);
     }
     componentDidMount(){
         let body = document.getElementsByTagName('body')[0];
@@ -84,14 +88,16 @@ class AddAddress extends Component{
     }
 
     onSubmitFn(){
-        const {name, mobile, place, address} = this.state;
+        const {name, mobile, place, address, provn, cityn, distn} = this.state;
         const {dispatch, location} = this.props;
+        console.log(location.param.id)
         let data = {
+            ordnr:location.param.id,
             agena: name ,
             ageph: mobile,
-            provn : 'provn' ,
-            cityn : 'cityn' ,
-            distn : 'distn' ,
+            provn,
+            cityn,
+            distn,
             stren : 0,
             builn: 0,
             unitn: 0,
@@ -117,9 +123,10 @@ class AddAddress extends Component{
         })
     }
 
-    changePlace(){
-        
+    callbackFn(data) {
+        console.log(data)
     }
+
 
     render(){
         let _this = this,
@@ -129,7 +136,7 @@ class AddAddress extends Component{
                 name:"address",
                 pathname:'add-address'
              };
-        console.log(this.state)
+        // console.log(this.state)
         return (
             <div className="clearfix">
                 <Header 
@@ -148,17 +155,8 @@ class AddAddress extends Component{
                         </div>
                         <div className="add-address-form">
                             <i className="icon location"></i>
-                            <Tappable
-                                id="place"
-                                type="text" 
-                                onTap={this.changePlace.bind(this)}
-                                onChange={this.changeVal} 
-                                defaultValue={place} 
-                                placeholder="所在地区"
-                                component="input">
-                            </Tappable>
-
-                                <LocationSelect  />
+                            
+                            <LocationSelect callbackFn={this.callbackFn}/>
                         </div>
                         <div className="add-address-form">
                             <i className="icon no"></i>
@@ -173,9 +171,6 @@ class AddAddress extends Component{
                                 设为默认地址
                             </Tappable>
                             <input type="text" placeholder="注：每次下单使用该地址" disabled />
-                        </div>
-                        <div className="add-address-form">
-                            <LocationSelect />
                         </div>
                     </div>
                 </div>
