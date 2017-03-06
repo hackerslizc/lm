@@ -90,9 +90,9 @@ class AddAddress extends Component{
     onSubmitFn(){
         const {name, mobile, place, address, provn, cityn, distn} = this.state;
         const {dispatch, location} = this.props;
-        console.log(location.param.id)
+
         let data = {
-            ordnr:location.param.id,
+            ordnr:location.state.param.id,
             agena: name ,
             ageph: mobile,
             provn,
