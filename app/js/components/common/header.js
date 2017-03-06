@@ -44,7 +44,7 @@ class Header extends Component{
         // alert(window.location)
         const {dispatch, location} = this.props,
                 _this = this;
-        if(this.props.opt.getUserInfo){
+        // if(this.props.opt.getUserInfo){
             dispatch(remote({
                 type: 'post',
                 data: {
@@ -56,7 +56,7 @@ class Header extends Component{
                     _this.props.callbackFn(r);
                 }
             })
-        }
+        // }
     }
 
     toMemberCenter(){

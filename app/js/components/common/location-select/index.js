@@ -5,7 +5,7 @@ import {allpca, getProvince, getCity} from './pca';
 import Province from './province';
 import City from './city';
 import Area from './area';
-import './picker-container.css'
+require('./picker-container.css')
 
 
 /**
@@ -109,9 +109,10 @@ export default class LocationPicker extends Component {
       display: isPickerShow ? 'block' : 'none'
     };
     const pickerModalClass = `picker-modal${isPickerShow ? ' picker-modal-toggle' : ''}`;
+    const style = this.props.style ? this.props.style : {};
 
     return (
-      <div className="picker-container">
+      <div className="location-wrap" style={style}>
         <div className="">
           <input
             type="text"

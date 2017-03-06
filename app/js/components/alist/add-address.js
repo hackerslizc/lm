@@ -33,10 +33,9 @@ class AddAddress extends Component{
             place: place,
             address: address,
             isdefault: isdefault,
-            provn: '',
-            cityn: '',
-            distn: ''
-
+            provn: 0,
+            cityn: 0,
+            distn: 0
         };
         this.changeVal = this.changeVal.bind(this);
         this.onSubmitFn = this.onSubmitFn.bind(this);
@@ -71,12 +70,12 @@ class AddAddress extends Component{
         if (name == ''){
             valid = false;
             dispatch(toast("姓名错误，请重新填写"))
-        } else if(mobile == '' && mobile.length){
+        } else if(!(/^1[3578]\d{9}$/.test(mobile))){
             valid = false;
             dispatch(toast("手机号错误，请重新填写"))
         } else if(place == ''){
-            valid = false;
-            dispatch(toast("所在地区不错误，请重新填写"))
+            valid = true;
+            // dispatch(toast("所在地区错误，请重新填写"))
         } else if(address == ''){
             valid = false;
             dispatch(toast("详细地址错误，请重新填写"))
@@ -91,52 +90,59 @@ class AddAddress extends Component{
         const {name, mobile, place, address, provn, cityn, distn} = this.state;
         const {dispatch, location} = this.props;
 
-        let data = {
-            ordnr:location.state.param.id,
-            agena: name ,
-            ageph: mobile,
-            provn,
-            cityn,
-            distn,
-            stren : 0,
-            builn: 0,
-            unitn: 0,
-            housn: 0,
-            zonen: address
-        };
-        // if(){
-        //     data: {
-        //         dosql:"provn='江苏',cityn='南京',distn='雨花台',zonen='中山陵广场235号'"
-        //     }
-            
-        // }
+        let sourcesdata = {},
+            targetdata = {
+                token: location.state.token,
+                agena: name ,
+                ageph: mobile,
+                provn,
+                cityn,
+                distn,
+                stren : 0,
+                builn: 0,
+                unitn: 0,
+                housn: 0,
+                zonen: address
+            };
+        if(location.state.type === 'edit'){
+            sourcesdata = {
+                ordnr:location.state.param.id,
+            };
+        }
+
+        targetdata = Object.assign(targetdata, sourcesdata, {
+            sno: location.state.type === 'edit' ? 10086 : 10085,
+            appno:2801000,
+            asn:9034087,
+            aot:9034087
+        });
+
         dispatch(remote({
-            data: {
-                addnr: data.id,
-                sno: location.state.type === 'edit' ? 10086 : 10085,
-                appno:2801000,
-                asn:9034087,
-                aot:9034087
-            }
+            data: targetdata
         })).then((r) => {
-            console.log(r.msg)
+            dispatch(toast("修改"+r.msg));
+            window.location.reload()
         })
     }
 
     callbackFn(data) {
-        console.log(data)
+        this.setState({
+            provn: data.province,
+            cityn: data.city,
+            distn: data.area
+        })
     }
 
 
     render(){
         let _this = this,
-            {name, mobile, place, address } = this.state,
+            {name, mobile, address } = this.state,
             headerOpt = {
                 title:_this.props.location.state.type === 'edit' ? '编辑地址' : '新增地址',
                 name:"address",
                 pathname:'add-address'
              };
-        // console.log(this.state)
+        // console.log(this.props)
         return (
             <div className="clearfix">
                 <Header 

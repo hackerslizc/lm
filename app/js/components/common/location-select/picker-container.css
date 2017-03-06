@@ -1,8 +1,8 @@
-// *, :after, :before {
-//     margin:0;
-//     padding:0;
-//     box-sizing:border-box
-// }
+*, :after, :before {
+    margin:0;
+    padding:0;
+    box-sizing:border-box
+}
 .app-container, .page, body, html {
     width:100%;
     height:100%
@@ -63,10 +63,14 @@
     color:#04be02;
     -webkit-tap-highlight-color:rgba(0, 0, 0, 0)
 }
-
+.location-wrap{
+    position: absolute;
+    top: 0px;
+    left: 24px;
+}
 .picker-container {
     z-index: 10001;
-    // width: 100 %
+    width: auto!important
 }
 .picker-container, 
 .picker-container *, 

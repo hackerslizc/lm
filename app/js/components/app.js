@@ -40,7 +40,7 @@ class App extends Component {
         //         _this.dispatchRoute(r);
         //     }
         // })
-        hashHistory.push({ pathname: '/address-list' });
+        // hashHistory.push({ pathname: '/address-list' });
     }
      componentDidUpdate (prevProps) {
         if (this.props.location.pathname === '/') {

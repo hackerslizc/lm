@@ -5,7 +5,7 @@ import {Promise} from 'es6-promise';
 import Tappable from 'react-tappable';
 import Header from '../common/header';
 import Input from '../common/input';
-
+import LocationSelect from '../common/location-select';
 
 /**
  *
@@ -16,18 +16,72 @@ class ExpressForm extends Component{
 
     constructor (props) {
         super(props);
+        this.state = {
+            token: '',
+            name:'',
+            mobile:'',
+            provn: '',
+            cityn: '',
+            distn: '',
+            count: 1,
+            weight: 0,
+            paktn: '',
+        };
+        this.headercallbackFn = this.headercallbackFn.bind(this);
+        this.callbackFn = this.callbackFn.bind(this);
+        this.reduceFn = this.reduceFn.bind(this);
+        this.addFn = this.addFn.bind(this);
+        this.changeHandler = this.changeHandler.bind(this);
+        this.selectTypeFn = this.selectTypeFn.bind(this);
     }
     componentDidMount(){
         document.getElementsByTagName('body')[0].style.backgroundColor = '#fff';
     }
     reduceFn(){
-        console.log(1)
+        const {count} = this.state;
+        if(count === 1) return false;
+        this.setState({
+            count: count - 1
+        })
     }
     addFn(){
-        console.log(2)
+        const {count} = this.state;
+        this.setState({
+            count: count + 1
+        })
     }
+
+    callbackFn(data) {
+        this.setState({
+            provn: data.province,
+            cityn: data.city,
+            distn: data.area
+        })
+    }
+
+    headercallbackFn(r){
+        this.setState({
+            token: r.data.token
+        })
+    }
+
+    changeHandler(e){
+        let data = {};
+        data[e.currentTarget.id] = e.currentTarget.value;
+        this.setState(data);
+    }
+
+    selectTypeFn(e){
+        let data = {}; 
+
+        this.setState({
+            paktn:  e.currentTarget.name
+        });
+    }
+
     render(){
 
+        console.log(this.state)
         let _this = this,
              headerOpt = {
                 title:'邻米',
@@ -37,7 +91,8 @@ class ExpressForm extends Component{
         return (
             <div className="clearfix">
                 <Header 
-                    opt={headerOpt}>
+                    opt={headerOpt}
+                    callbackFn={this.headercallbackFn}>
                 </Header>
                 <div className="clearfix main">
                     <Input opt={{
@@ -60,7 +115,7 @@ class ExpressForm extends Component{
                         <div className="flex-box clearfix">
                             <label className="clearfix flex-1 justify">姓名：<span></span></label>
                             <p className="clearfix flex-2">
-                                <input type="text" id="12321" className="flex-1" onChange={this.changeHandler}/>
+                                <input type="text" id="name" className="flex-1" onChange={this.changeHandler}/>
                             </p>
                         </div>
                     </div>
@@ -68,7 +123,7 @@ class ExpressForm extends Component{
                         <div className="flex-box clearfix">
                             <label className="clearfix flex-1 justify">电话：<span></span></label>
                             <p className="clearfix flex-2">
-                                <input type="tel" id="12321" className="flex-1" maxLength="11" onChange={this.changeHandler}/>
+                                <input type="tel" id="mobile" className="flex-1" maxLength="11" onChange={this.changeHandler}/>
                             </p>
 
                         </div>
@@ -76,16 +131,16 @@ class ExpressForm extends Component{
                     <div className="clearfix express-form-item">
                         <div className="flex-box clearfix">
                             <label className="clearfix flex-1 justify">省市：<span></span></label>
-                            <p className="clearfix flex-2">
-                                <input type="text" id="12321" className="flex-1" onChange={this.changeHandler}/>
-                            </p>
+                            <div className="clearfix flex-2 pr">
+                                <LocationSelect style={{left: '0px'}} callbackFn={this.callbackFn}/>
+                            </div>
                         </div>
                     </div>
                     <div className="clearfix express-form-item">
                         <div className="flex-box clearfix">
                             <label className="clearfix flex-1 justify">详细地址：<span></span></label>
                             <p className="clearfix flex-2">
-                                <input type="text" id="12321" className="flex-1" onChange={this.changeHandler}/>
+                                <input type="text" id="address" className="flex-1" onChange={this.changeHandler}/>
                             </p>
                         </div>
                     </div>
@@ -100,7 +155,7 @@ class ExpressForm extends Component{
                                     component="a">
                                     -
                                 </Tappable>
-                                <span className="other-input wb">1</span>
+                                <span className="other-input wb">{this.state.count}</span>
                                 <Tappable
                                     id=""
                                     onTap={this.addFn}
@@ -117,20 +172,20 @@ class ExpressForm extends Component{
                             <label className="clearfix flex-1 justify">预估重量：<span></span></label>
                             <p className="clearfix flex-2">
                                 <Tappable
-                                    id=""
-                                    onTap={this.addFn}
+                                    id="1"
+                                    onTap={this.changeWeight}
                                     className="calculation-btn"
                                     component="a">
                                     1KG
                                 </Tappable>
                                 <Tappable
-                                    id=""
-                                    onTap={this.addFn}
+                                    id="2"
+                                    onTap={this.changeWeight}
                                     className="calculation-btn"
                                     component="a">
                                     2KG
                                 </Tappable>
-                                <input className="other-input wb" type="tel"/>
+                                <input className="other-input wb" id="weight" onChange={this.changeHandler} type="tel"/>
                                 <label className="other-input yb" >KG</label>
                             </p>
                         </div>
@@ -143,42 +198,42 @@ class ExpressForm extends Component{
                         </div>
                         <div className="clearfix type-box">
                             <Tappable
-                                id=""
+                                name="信件"
                                 onTap={this.selectTypeFn}
                                 className="calculation-btn"
                                 component="a">
                                 文件
                             </Tappable>
                             <Tappable
-                                id=""
+                                name="数码"
                                 onTap={this.selectTypeFn}
                                 className="calculation-btn"
                                 component="a">
                                 数码
                             </Tappable>
                             <Tappable
-                                id=""
+                                name="生活用品"
                                 onTap={this.selectTypeFn}
                                 className="calculation-btn"
                                 component="a">
                                 生活用品
                             </Tappable>
                             <Tappable
-                                id=""
+                                name="服饰"
                                 onTap={this.selectTypeFn}
                                 className="calculation-btn"
                                 component="a">
                                 服饰
                             </Tappable>
                             <Tappable
-                                id=""
+                                name="食品"
                                 onTap={this.selectTypeFn}
                                 className="calculation-btn"
                                 component="a">
                                 食品
                             </Tappable>
                             <Tappable
-                                id=""
+                                name="酒类"
                                 onTap={this.selectTypeFn}
                                 className="calculation-btn"
                                 component="a">
