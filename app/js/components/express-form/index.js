@@ -6,7 +6,11 @@ import Tappable from 'react-tappable';
 import Header from '../common/header';
 import Input from '../common/input';
 import LocationSelect from '../common/location-select';
-
+import wx from 'weixin-js-sdk'
+import {
+    toast,
+    remote
+} from '../../redux/actions/';
 /**
  *
  * @param  {我要寄件}
@@ -33,8 +37,13 @@ class ExpressForm extends Component{
         this.addFn = this.addFn.bind(this);
         this.changeHandler = this.changeHandler.bind(this);
         this.selectTypeFn = this.selectTypeFn.bind(this);
+        this.onSubmitFn = this.onSubmitFn.bind(this);
+        this.onVerificationFn = this.onVerificationFn.bind(this);
+        this.changeWeight = this.changeWeight.bind(this)
     }
     componentDidMount(){
+
+        console.log(wx);
         document.getElementsByTagName('body')[0].style.backgroundColor = '#fff';
     }
     reduceFn(){
@@ -72,16 +81,86 @@ class ExpressForm extends Component{
     }
 
     selectTypeFn(e){
-        let data = {}; 
-
         this.setState({
             paktn:  e.currentTarget.name
         });
     }
 
-    render(){
+    changeWeight(e) {
+        this.setState({
+            weight:  e.currentTarget.id
+        });
+    }
 
-        console.log(this.state)
+    onVerificationFn(){
+        const {dispatch} = this.props;
+        
+        const { name, mobile, place, address, 
+            provn, cityn, distn, weight, paktn} = this.state;
+        let valid = false;
+        if (name == ''){
+            valid = false;
+            dispatch(toast("姓名错误，请重新填写"))
+        } else if(!(/^1[3578]\d{9}$/.test(mobile))){
+            valid = false;
+            dispatch(toast("手机号错误，请重新填写"))
+        } else if(address == ''){
+            valid = false;
+            dispatch(toast("详细地址错误，请重新填写"))
+        }  else if(weight == 0){
+            valid = false;
+            dispatch(toast("包裹重量错误，请重新填写"))
+        }  else if(paktn == ''){
+            valid = false;
+            dispatch(toast("请选择文件类型"))
+        } else {
+            valid = true;
+        } 
+
+        valid && this.onSubmitFn()
+    }
+
+    onSubmitFn(){
+        const {name, mobile, place, address, provn, cityn, distn, token} = this.state;
+
+        const {dispatch, location} = this.props;
+
+        let sourcesdata = {},
+            targetdata = {
+                token,
+                agena: name ,
+                ageph: mobile,
+                provn,
+                cityn,
+                distn,
+                stren : 0,
+                builn: 0,
+                unitn: 0,
+                housn: 0,
+                zonen: address
+            };
+        if(location.state.type === 'edit'){
+            sourcesdata = {
+                ordnr:location.state.param.id,
+            };
+        }
+
+        targetdata = Object.assign(targetdata, sourcesdata, {
+            sno: 10305,
+            appno:2801000,
+            asn:9034087,
+            aot:9034087
+        });
+
+        dispatch(remote({
+            data: targetdata
+        })).then((r) => {
+            dispatch(toast("修改"+r.msg));
+            window.location.reload()
+        })
+    }
+
+    render(){
         let _this = this,
              headerOpt = {
                 title:'邻米',
@@ -246,7 +325,7 @@ class ExpressForm extends Component{
                     <div className="clearfix mt50">
                         <Tappable
                             id=""
-                            onTap={this.onStoreFn}
+                            onTap={this.onVerificationFn}
                             className="btn flex-1"
                             component="a">
                             确认
@@ -260,10 +339,7 @@ class ExpressForm extends Component{
 
 
 const mapStateToProps = (state) => {
-    // console.log(state.indexConfig)
-    return {
-        // ...state.indexConfig
-    }
+    return {}
 };
 
 export default connect(mapStateToProps)(ExpressForm);

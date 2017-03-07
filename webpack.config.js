@@ -82,12 +82,12 @@ module.exports = {
     //定义需要使用的插件
     plugins: [
         //CSS 分离
-        new ExtractTextPlugin("/[name].css", {allChunks: true}),
+        new ExtractTextPlugin("[name].css", {allChunks: true}),
 
         //生成HTML 模板
         new HtmlwebpackPlugin({
             mobile: true,
-            title: 'webpack-react-react-router',
+            title: '邻米',
             filename: buildPath + '/index.html',
             template: path.resolve(rootPath, './app/templates/index.ejs'),
         }),
