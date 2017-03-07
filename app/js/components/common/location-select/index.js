@@ -2,9 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import Picker from 'react-mobile-picker';
 
 import {allpca, getProvince, getCity} from './pca';
-import Province from './province';
-import City from './city';
-import Area from './area';
 require('./picker-container.css')
 
 
