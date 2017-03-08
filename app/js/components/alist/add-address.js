@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import {Promise} from 'es6-promise';
 import Tappable from 'react-tappable';
 
+import {returnAddr} from '../../common/Util';
+
 import Header from '../common/header';
 import ListItem from '../common/addItem';
 import LocationSelect from '../common/location-select';
@@ -25,22 +27,21 @@ class AddAddress extends Component{
                  mobile = (location.state.type === 'edit' ? location.state.param.mobile : ''),
                  place = (location.state.type === 'edit' ? location.state.param.place : ''),
                  address = (location.state.type === 'edit' ? location.state.param.address : ''),
-                 isdefault = (location.state.type === 'edit' ? location.state.param.isDefault : false);
-
+                 isdefault = (location.state.type === 'edit' ? location.state.param.isDefault : false),
+                 data = returnAddr(place);
         this.state = {
             name: name,
             mobile: mobile,
             place: place,
             address: address,
             isdefault: isdefault,
-            provn: 0,
-            cityn: 0,
-            distn: 0
+            ...data
         };
         this.changeVal = this.changeVal.bind(this);
         this.onSubmitFn = this.onSubmitFn.bind(this);
         this.onVerificationFn = this.onVerificationFn.bind(this);
         this.callbackFn = this.callbackFn.bind(this);
+        this.headerCallbackFn = this.headerCallbackFn.bind(this)
     }
     componentDidMount(){
         let body = document.getElementsByTagName('body')[0];
@@ -87,12 +88,12 @@ class AddAddress extends Component{
     }
 
     onSubmitFn(){
-        const {name, mobile, place, address, provn, cityn, distn} = this.state;
+        const {name, mobile, place, address, provn, cityn, distn, token} = this.state;
         const {dispatch, location} = this.props;
 
         let sourcesdata = {},
             targetdata = {
-                token: location.state.token,
+                token,
                 agena: name ,
                 ageph: mobile,
                 provn,
@@ -120,8 +121,10 @@ class AddAddress extends Component{
         dispatch(remote({
             data: targetdata
         })).then((r) => {
-            dispatch(toast("修改"+r.msg));
-            window.location.reload()
+            if(r.err === 0){
+                dispatch(toast("修改"+r.msg));
+                window.location.reload()
+            }
         })
     }
 
@@ -133,10 +136,15 @@ class AddAddress extends Component{
         })
     }
 
+    headerCallbackFn(r){
+        this.setState({
+            token: r.data.token
+        })
+    }
 
     render(){
         let _this = this,
-            {name, mobile, address } = this.state,
+            {name, mobile, address, cityn, provn, distn } = this.state,
             headerOpt = {
                 title:_this.props.location.state.type === 'edit' ? '编辑地址' : '新增地址',
                 name:"address",
@@ -146,7 +154,8 @@ class AddAddress extends Component{
         return (
             <div className="clearfix">
                 <Header 
-                    opt={headerOpt}>
+                    opt={headerOpt}
+                    callbackFn={this.headerCallbackFn}>
                 </Header>
                 <div className="clearfix main">
                     <div className="add-address-bg"></div>
@@ -162,7 +171,11 @@ class AddAddress extends Component{
                         <div className="add-address-form">
                             <i className="icon location"></i>
                             
-                            <LocationSelect callbackFn={this.callbackFn}/>
+                            <LocationSelect callbackFn={this.callbackFn} defaultLocation={{
+                                province: provn,
+                                city: cityn,
+                                area: distn
+                            }} />
                         </div>
                         <div className="add-address-form">
                             <i className="icon no"></i>

@@ -4,14 +4,11 @@ import Picker from 'react-mobile-picker';
 import {allpca, getProvince, getCity} from './pca';
 require('./picker-container.css')
 
-
 /**
  *
  * @param  {地址选择器}
  *
  **/
-
-
 
 function getProvinceArray() {
   let array = [];
@@ -34,36 +31,33 @@ function getAreaArray(pname, cname){
   let province = getProvince(pname),
       city = getCity(province, cname),
       array = [];
-  if (city.length === 0) return false;
   city.sub.forEach(function(area){
       array.push(area.name)
   })
   return array;
 }
 
-
-function generateNumberArray(begin, end) {
-  let array = [];
-  for (let i = begin; i <= end; i++) {
-    array.push((i < 10 ? '0' : '') + i);
-  }
-  return array;
-}
-
 export default class LocationPicker extends Component {
   constructor(props) {
     super(props);
+
+    const {province, city, area} = this.props.defaultLocation;
+    const mprov = province ? province : '四川省', 
+             mcity = city? city : '成都市',
+             marea = area ? area : '高新区';
+    console.log(province, city, area);
+
     this.state = {
       isPickerShow: false,
       valueGroups: {
-        province: '四川省',
-        city: '成都市',
-        area: '高新区'
+        province: mprov,
+        city: mcity ,
+        area: marea
       },
       optionGroups: {
         province: getProvinceArray(),
-        city: getCityArray('四川省'),
-        area: getAreaArray('四川省', '成都市')
+        city: getCityArray(mprov),
+        area: getAreaArray(mprov, mcity)
       }
     };
     this.togglePicker = this.togglePicker.bind(this);

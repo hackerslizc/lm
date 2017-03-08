@@ -8,7 +8,9 @@ import {
 
     SET_CONFIG_STATES,
     GET_PACKAGE_LIST,
-    GET_ADDRESS_LIST
+    GET_ADDRESS_LIST,
+    GET_ADDRESSEE,
+    GET_SENDER
 } from '../actions';
 
 function loading(state={}, action) {
@@ -81,6 +83,31 @@ function setAddressList(state={}, action) {
     }
 }
 
+/*
+ *  设置地址
+ */
+function setaddressee(state={}, action) {
+    switch (action.type) {
+        case 'GET_ADDRESSEE':
+            return action.data;
+        break;
+        default:
+            return state
+    }
+}
+
+/*
+ *  设置地址
+ */
+function setsender(state={}, action) {
+    switch (action.type) {
+        case 'GET_SENDER':
+            return action.data;
+        break;
+        default:
+            return state
+    }
+}
 
 
 
@@ -91,5 +118,7 @@ export default combineReducers({
     // indexConfig,
     setAccountInfo,
     setPackageList,
-    setAddressList
+    setAddressList,
+    setaddressee,
+    setsender
 });

@@ -7163,7 +7163,8 @@ const allpca = [{
 ];
 function getProvince(name){
     for(var i = 0; i < allpca.length; i++){
-        if(allpca[i].name == name){
+        // console.log(allpca[i].name.indexOf(name));
+        if(allpca[i].name == name || allpca[i].name.substring(0,2) === name){
             return allpca[i];
         }
     }
@@ -7176,19 +7177,6 @@ function getCity(province, cityname){
         }
     }
 };
-// function getArea(province,cityname){
-//     for(var i = 0 ; i < province.sub.length; i++){
-//         // if(province.sub[i].name==cityname){
-//         //     return province.sub[i];
-//         // }
-//         for(var i = 0; i < province.sub.length; i++){
-
-//             if(province.sub[i].name == cityname){
-//                 return province.sub[i];
-//             }
-//         }
-//     }
-// };
 export {
     allpca,
     getProvince,

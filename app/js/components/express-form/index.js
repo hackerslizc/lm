@@ -6,6 +6,9 @@ import Tappable from 'react-tappable';
 import Header from '../common/header';
 import Input from '../common/input';
 import LocationSelect from '../common/location-select';
+
+import {returnAddr} from '../../common/Util';
+
 import wx from 'weixin-js-sdk'
 import {
     toast,
@@ -17,16 +20,18 @@ import {
  *
  **/
 class ExpressForm extends Component{
-
     constructor (props) {
         super(props);
+        const {name, mobile, place} = this.props.sender;
+        const {provn, cityn, distn} = returnAddr(place);
+        console.log(this.props);
         this.state = {
             token: '',
-            name:'',
-            mobile:'',
-            provn: '',
-            cityn: '',
-            distn: '',
+            name: name ? name : '',
+            mobile: mobile ? mobile : '',
+            provn: provn ? provn : '',
+            cityn:  cityn ? cityn : '',
+            distn:  distn ? distn : '',
             count: 1,
             weight: 0,
             paktn: '',
@@ -42,9 +47,12 @@ class ExpressForm extends Component{
         this.changeWeight = this.changeWeight.bind(this)
     }
     componentDidMount(){
-
-        console.log(wx);
+        console.info(this.props);
+        // console.log(wx);
         document.getElementsByTagName('body')[0].style.backgroundColor = '#fff';
+
+
+        console.log(this.props.addressee);
     }
     reduceFn(){
         const {count} = this.state;
@@ -162,6 +170,7 @@ class ExpressForm extends Component{
 
     render(){
         let _this = this,
+            {name, mobile, provn, cityn, distn} = this.state,
              headerOpt = {
                 title:'邻米',
                 name:"index",
@@ -174,27 +183,36 @@ class ExpressForm extends Component{
                     callbackFn={this.headercallbackFn}>
                 </Header>
                 <div className="clearfix main">
-                    <Input opt={{
-                        id:'captcha',
-                        margint: true,
-                        pagename:'bind',
-                        type: 'text',
-                        label: '寄件人',
-                        callbackFn:_this.callbackFn}}>
-                    </Input>
-                    <Input opt={{
-                        id:'captcha',
-                        margint: true,
-                        pagename:'bind',
-                        type: 'text',
-                        label: '收件人',
-                        callbackFn:_this.callbackFn}}>
-                    </Input>
+                    <Link className="clearfix flex-box formItem bind"
+                        to={{
+                            pathname: '/choose-address',
+                            state:{
+                                type: 'sender'
+                            }
+                        }}>
+                        <label className="clearfix label">寄件人</label>
+                        <p className="clearfix flex-1">
+                            {this.props.sender.name}
+                        </p>
+                    </Link>
+                    <div className="mt10"></div>
+                    <Link className="clearfix flex-box formItem bind"
+                        to={{
+                            pathname: '/choose-address',
+                            state:{
+                                type: 'addressee'
+                            }
+                        }}>
+                        <label className="clearfix label">收件人</label>
+                        <p className="clearfix flex-1">
+                            {this.props.addressee.name}
+                        </p>
+                    </Link>
                     <div className="clearfix express-form-item">
                         <div className="flex-box clearfix">
                             <label className="clearfix flex-1 justify">姓名：<span></span></label>
                             <p className="clearfix flex-2">
-                                <input type="text" id="name" className="flex-1" onChange={this.changeHandler}/>
+                                <input type="text" id="name" className="flex-1" defaultValue={name} onChange={this.changeHandler}/>
                             </p>
                         </div>
                     </div>
@@ -202,16 +220,19 @@ class ExpressForm extends Component{
                         <div className="flex-box clearfix">
                             <label className="clearfix flex-1 justify">电话：<span></span></label>
                             <p className="clearfix flex-2">
-                                <input type="tel" id="mobile" className="flex-1" maxLength="11" onChange={this.changeHandler}/>
+                                <input type="tel" id="mobile" disabled className="flex-1" maxLength="11" defaultValue={mobile} onChange={this.changeHandler}/>
                             </p>
-
                         </div>
                     </div>
                     <div className="clearfix express-form-item">
                         <div className="flex-box clearfix">
                             <label className="clearfix flex-1 justify">省市：<span></span></label>
                             <div className="clearfix flex-2 pr">
-                                <LocationSelect style={{left: '0px'}} callbackFn={this.callbackFn}/>
+                                <LocationSelect style={{left: '0px'}} defaultLocation={{
+                                    province: provn,
+                                    city: cityn,
+                                    area: distn
+                                }} callbackFn={this.callbackFn}/>
                             </div>
                         </div>
                     </div>
@@ -339,7 +360,15 @@ class ExpressForm extends Component{
 
 
 const mapStateToProps = (state) => {
-    return {}
+    return {
+        sender: {
+            ...state.setsender
+        },
+        addressee: {
+            ...state.setaddressee
+        }
+    }
 };
+
 
 export default connect(mapStateToProps)(ExpressForm);

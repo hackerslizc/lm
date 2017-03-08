@@ -21,8 +21,8 @@ import Infomation from '../components/members/infomation';
 import MailingResult from '../components/members/mailing-result';
 import ExpressList from '../components/elist/list';
 import ExpressForm from '../components/express-form/index';
-
 import Evaluation from '../components/evaluation/index';
+import ChooseList from '../components/clist/list';
 
 
 // import PayStatus from '../components/pay-status.js';
@@ -84,6 +84,10 @@ class App extends Component {
 
                         <Route path="/evaluation" 
                             component={Evaluation}>
+                        </Route>
+
+                        <Route path="/choose-address" 
+                            component={ChooseList}>
                         </Route>
                     </Route>
                 </Router>

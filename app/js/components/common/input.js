@@ -27,12 +27,13 @@ class Input extends Component{
         const opt = this.props.opt,
               wrapclass = opt.pagename == 'bind' ? 'clearfix flex-box formItem bind' : 'clearfix flex-box formItem',
               _type = (opt.type === 'mobile' || opt.type === 'captcha') ? 'tel' : 'text',
+              disabled = opt.disabled ? opt.disabled : false,
               id = opt.id;
-        let inputTemp = (<input type={_type} id={id} onChange={this.changeHandler}/>);
+        let inputTemp = (<input type={_type} id={id} disabled={disabled}  onChange={this.changeHandler}/>);
 
         if (opt.type === 'text' || opt.type === 'mobile' ) {
             if( opt.type === 'mobile' ){
-                inputTemp = (<input type={_type} id={id} maxLength='11' onChange={this.changeHandler}/>)
+                inputTemp = (<input type={_type} id={id} disabled={disabled} maxLength='11' onChange={this.changeHandler}/>)
             }
             return (<div className={wrapclass}>
                     <label className="clearfix label">{opt.label}</label>

@@ -13,6 +13,8 @@ export const GET_ACCOUNT_INFO= 'GET_ACCOUNT_INFO';  //获取用户信息
 export const GET_PACKAGE_LIST= 'GET_PACKAGE_LIST';  //获取用户信息
 
 export const GET_ADDRESS_LIST= 'GET_ADDRESS_LIST';  //获取用户信息
+export const GET_ADDRESSEE= 'GET_ADDRESSEE';  //获取用户信息
+export const GET_SENDER= 'GET_SENDER';  //获取用户信息
 
 
 
@@ -23,6 +25,18 @@ export const GET_ADDRESS_LIST= 'GET_ADDRESS_LIST';  //获取用户信息
 function getAccountInfo(data) {
     return {
         type: GET_ACCOUNT_INFO,
+        data: data
+    }
+}
+function getAddressee(data) {
+    return {
+        type: GET_ADDRESSEE,
+        data: data
+    }
+}
+function getSender(data) {
+    return {
+        type: GET_SENDER,
         data: data
     }
 }
@@ -262,5 +276,7 @@ export {
     GetPackageList,
     getpackageList,
     GetAddressList,
-    getaddressList
+    getaddressList,
+    getAddressee,
+    getSender
 }

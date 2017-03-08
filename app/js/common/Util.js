@@ -1,26 +1,16 @@
-var Base =require('./Base.js');
-
-window.Util = function (opt){
-    return new util(opt);
-};
-
-const util = function(o){
-    this.opt = {};
-    Base.extend(this.opt,o)
+function returnAddr (str) {
+    if(!str) return {};
+    var proloc = (str.search('省') !== -1 ? str.search('省')+1 : str.search('自治区')+3) ,
+        province = str.substring(0 , proloc),
+        city =  str.substring(proloc , str.search('市')+1),
+        area = str.substring(str.search('市')+1, str.length);
+    return {
+        provn: province,
+        cityn: city,
+        distn: area
+    };
 }
-
-util.prototype= {
-    //存当前对象状态到组件
-    stateSave:function(obj){
-        var _this = this.opt.that || this ;
-        if( _this.state ){
-            //合并对象
-            var _state = Base.extend( _this.state , obj );
-            //存储新对象到状态
-            _this.setState(_state)
-        }
-    }
+export {
+    returnAddr
 };
-
-module.exports = Util ;
 
