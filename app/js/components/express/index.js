@@ -22,19 +22,21 @@ import {
 class ExpressForm extends Component{
     constructor (props) {
         super(props);
-        const {name, mobile, place} = this.props.sender;
+        const {name, mobile, place, address} = this.props.addressee;
         const {provn, cityn, distn} = returnAddr(place);
         console.log(this.props);
         this.state = {
             token: '',
             name: name ? name : '',
             mobile: mobile ? mobile : '',
-            provn: provn ? provn : '',
-            cityn:  cityn ? cityn : '',
-            distn:  distn ? distn : '',
+            provn: '',
+            cityn: '',
+            distn: '',
+            locan: address ? address : '',
+            zonen: address ? address : '',
             count: 1,
-            weight: 0,
-            paktn: '',
+            prewn: 0,
+            paktn: ''
         };
         this.headercallbackFn = this.headercallbackFn.bind(this);
         this.callbackFn = this.callbackFn.bind(this);
@@ -50,7 +52,7 @@ class ExpressForm extends Component{
         console.info(this.props);
         // console.log(wx);
         document.getElementsByTagName('body')[0].style.backgroundColor = '#fff';
-
+        document.getElementsByTagName('body')[0].style.paddingBottom = '0px';
 
         console.log(this.props.addressee);
     }
@@ -96,7 +98,7 @@ class ExpressForm extends Component{
 
     changeWeight(e) {
         this.setState({
-            weight:  e.currentTarget.id
+            prewn:  e.currentTarget.id
         });
     }
 
@@ -104,7 +106,7 @@ class ExpressForm extends Component{
         const {dispatch} = this.props;
         
         const { name, mobile, place, address, 
-            provn, cityn, distn, weight, paktn} = this.state;
+            provn, cityn, distn, prewn, paktn} = this.state;
         let valid = false;
         if (name == ''){
             valid = false;
@@ -115,7 +117,7 @@ class ExpressForm extends Component{
         } else if(address == ''){
             valid = false;
             dispatch(toast("详细地址错误，请重新填写"))
-        }  else if(weight == 0){
+        }  else if(prewn == 0){
             valid = false;
             dispatch(toast("包裹重量错误，请重新填写"))
         }  else if(paktn == ''){
@@ -129,7 +131,7 @@ class ExpressForm extends Component{
     }
 
     onSubmitFn(){
-        const {name, mobile, place, address, provn, cityn, distn, token} = this.state;
+        const {name, mobile, place, address, provn, cityn, distn, token, paktn, prewn} = this.state;
 
         const {dispatch, location} = this.props;
 
@@ -145,13 +147,9 @@ class ExpressForm extends Component{
                 builn: 0,
                 unitn: 0,
                 housn: 0,
-                zonen: address
+                zonen: address,
+                dosql:`agena=${name},ageph=${mobile},provn=${provn},cityn=${cityn},zonen=${address},paktn=${paktn},prewn=${prewn}gdoor='16幢304室',savev=2000,prewn=2`
             };
-        if(location.state.type === 'edit'){
-            sourcesdata = {
-                ordnr:location.state.param.id,
-            };
-        }
 
         targetdata = Object.assign(targetdata, sourcesdata, {
             sno: 10305,
@@ -163,19 +161,26 @@ class ExpressForm extends Component{
         dispatch(remote({
             data: targetdata
         })).then((r) => {
-            dispatch(toast("修改"+r.msg));
-            window.location.reload()
+            if (r.err === 0) {
+                // dispatch(toast("修改"+r.msg));
+                // window.location.reload()
+                console.log('success')    
+            } else {
+                console.log('fail')   
+            }
+            
         })
     }
 
     render(){
         let _this = this,
-            {name, mobile, provn, cityn, distn} = this.state,
+            {name, mobile, provn, cityn, distn, zonen} = this.state,
              headerOpt = {
                 title:'邻米',
                 name:"index",
                 pathname:'index'
              };
+        console.log(this.props.addressee, 'addressee')
         return (
             <div className="clearfix">
                 <Header 
@@ -240,7 +245,7 @@ class ExpressForm extends Component{
                         <div className="flex-box clearfix">
                             <label className="clearfix flex-1 justify">详细地址：<span></span></label>
                             <p className="clearfix flex-2">
-                                <input type="text" id="address" className="flex-1" onChange={this.changeHandler}/>
+                                <input type="text" id="address" className="flex-1" defaultValue={zonen} onChange={this.changeHandler}/>
                             </p>
                         </div>
                     </div>
@@ -285,7 +290,7 @@ class ExpressForm extends Component{
                                     component="a">
                                     2KG
                                 </Tappable>
-                                <input className="other-input wb" id="weight" onChange={this.changeHandler} type="tel"/>
+                                <input className="other-input wb" id="prewn" onChange={this.changeHandler} type="tel"/>
                                 <label className="other-input yb" >KG</label>
                             </p>
                         </div>

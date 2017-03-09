@@ -35,7 +35,10 @@ class AddAddress extends Component{
             place: place,
             address: address,
             isdefault: isdefault,
-            ...data
+            // ...data
+            cityn: '', 
+            provn: '', 
+            distn: ''
         };
         this.changeVal = this.changeVal.bind(this);
         this.onSubmitFn = this.onSubmitFn.bind(this);
@@ -122,7 +125,7 @@ class AddAddress extends Component{
             data: targetdata
         })).then((r) => {
             if(r.err === 0){
-                dispatch(toast("修改"+r.msg));
+                dispatch(toast("地址修改"+r.msg));
                 window.location.reload()
             }
         })

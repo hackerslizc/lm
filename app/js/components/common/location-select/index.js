@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import Picker from 'react-mobile-picker';
 
 import {allpca, getProvince, getCity} from './pca';
-require('./picker-container.css')
+import './picker-container.css'
 
 /**
  *

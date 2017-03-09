@@ -17,13 +17,19 @@ class Infomation extends Component{
     componentDidMount(){
         // document.getElementsByTagName('body')[0].style.backgroundColor = '80px;'
     }
+
+    callbackFn(data){
+        console.log(data)
+    }
+
     render(){
         return (
          <div className="clearfix">
                 <Header opt={{
                     title:'信息',
                     name:"index",
-                    pathname:'info'}}>
+                    pathname:'info'}}
+                    callbackFn={this.callbackFn}>
                 </Header>
                 <div className="clearfix main">
                     <InfoItem></InfoItem>

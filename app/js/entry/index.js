@@ -12,17 +12,20 @@ import AppMain from '../components/app';
 
 import NoContent from '../components/nocontent';
 import BindUser from '../components/members/bind';
-import List from '../components/plist/list';
-import Detail from '../components/detail/index';
 
-import AddressList from '../components/alist/list';
-import AddAddress from '../components/alist/add-address';
+import List from '../components/addressee/list';
+import Detail from '../components/addressee/detail';
+
+import AddressList from '../components/address/list';
+import AddAddress from '../components/address/add-address';
+
+import ExpressList from '../components/express/list';
+import ExpressForm from '../components/express/index';
+import ChooseList from '../components/choose/list';
+
 import Infomation from '../components/members/infomation';
 import MailingResult from '../components/members/mailing-result';
-import ExpressList from '../components/elist/list';
-import ExpressForm from '../components/express-form/index';
 import Evaluation from '../components/evaluation/index';
-import ChooseList from '../components/clist/list';
 
 
 // import PayStatus from '../components/pay-status.js';
@@ -32,10 +35,6 @@ const AppStore = configureStore(InitState);
 
 //APP 入口
 class App extends Component {
-    setTitle (title) {
-
-    }
-
     render () {
         return (
             <Provider store={this.props.store}>

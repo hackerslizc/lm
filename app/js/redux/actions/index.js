@@ -220,6 +220,7 @@ function remote(options) {
                     return json || {};
                 }else {
                     if(json.err == '908'){
+                        dispatch(toast('网络繁忙，服务端未知错误'))
                         hashHistory.push('/error-page');
                     }
                     if ( json.msg != '') {
