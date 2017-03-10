@@ -7,8 +7,6 @@ import LoadingBottom from './loadingbottom';
 import Tip from './tip';
 import { hashHistory } from 'react-router';
 
-import Home from './index/index';
-import Members from './members/index';
 import Header from './common/header';
 import {
     remote,
