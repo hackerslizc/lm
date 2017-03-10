@@ -36,7 +36,6 @@ class Header extends Component{
             showList: false
         }
 
-        this.toMemberCenter = this.toMemberCenter.bind(this);
         this.backHandleFn = this.backHandleFn.bind(this);
         this.showList = this.showList.bind(this);
         this.renderHeader = this.renderHeader.bind(this);
@@ -45,7 +44,7 @@ class Header extends Component{
 
     componentDidMount(){
         // alert(window.location)
-        const {dispatch, location} = this.props,
+        const {dispatch, location, callbackFn} = this.props,
                 _this = this;
         // if(this.props.opt.getUserInfo){
             dispatch(remote({
@@ -59,14 +58,10 @@ class Header extends Component{
                     this.setState({
                         token: r.data.token
                     })
-                    _this.props.callbackFn(r);
+                    callbackFn && callbackFn(r);
                 }
             })
         // }
-    }
-
-    toMemberCenter() {
-        hashHistory.push('/member-center');
     }
 
     backHandleFn() {
@@ -85,16 +80,30 @@ class Header extends Component{
         const {opt} = this.props;
         let ele = '';
 
-        if (opt && opt.name === 'list') {
+        if (opt && opt.name === 'addresseelist') {
             ele = (<h1 className="nav-title">
                         <label className={classnames("listheader",{on: showList})} onClick={this.showList}>我的包裹</label>
                         {
                             showList && (<div className="header-list">
+                                <div className="arrow-up"></div>
                                 <ul>
-                                    <li id="byGet" onClick={this.clickHancler}>新到</li>
-                                    <li id="byHis" onClick={this.clickHancler}>历史</li>
-                                    <li id="byGet" onClick={this.clickHancler}>新到</li>
-                                    <li id="byHis" onClick={this.clickHancler}>历史</li>
+                                    <li id="byGet" onClick={this.clickHancler}>已取件</li>
+                                    <li id="byHis" onClick={this.clickHancler}>已送件</li>
+                                    <li id="byNew" onClick={this.clickHancler}>待取件</li>
+                                    <li id="byOut" onClick={this.clickHancler}>待送件</li>
+                                </ul>
+                            </div>)
+                        }
+                    </h1>)
+        } else if (opt && opt.name === 'expresslist') {
+            ele = (<h1 className="nav-title">
+                        <label className={classnames("listheader",{on: showList})} onClick={this.showList}>我的包裹</label>
+                        {
+                            showList && (<div className="header-list">
+                                <div className="arrow-up"></div>
+                                <ul>
+                                    <li id="byNew" onClick={this.clickHancler}>新建列表</li>
+                                    <li id="byOut" onClick={this.clickHancler}>已付列表</li>
                                 </ul>
                             </div>)
                         }
@@ -115,7 +124,7 @@ class Header extends Component{
         this.setState({
             showList: !showList
         })
-        console.log(id)
+
         requestHandler && requestHandler({
             type: id
         })

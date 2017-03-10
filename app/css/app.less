@@ -248,7 +248,7 @@ a.formItem p{
     width: 12px;
     height: 12px;
     margin-left: 15px;
-    background: url('../img/arrow-up.png') no-repeat;
+    background: url('../img/arrow-down.png') no-repeat;
     background-size: 100% 100%;
 }
 .listheader:after{
@@ -257,7 +257,7 @@ a.formItem p{
     width: 12px;
     height: 12px;
     margin-left: 15px;
-    background: url('../img/arrow-down.png') no-repeat;
+    background: url('../img/arrow-up.png') no-repeat;
     background-size: 100% 100%;
 }
 .header-list{
@@ -266,13 +266,23 @@ a.formItem p{
     background: #fff;
     position: absolute;
     border:#f2f1f1 1px solid;
-    border-bottom-right-radius: 8px;
-    border-bottom-left-radius: 8px;
-    top: 45px;
+    border-radius: 8px;
+    /*border-bottom-left-radius: 8px;*/
+    top: 40px;
     z-index: 3;
     left: 50%;
     margin-left: -75px;
     box-shadow: 0px 0px 10px #999;
+    .arrow-up{
+        position: absolute;
+        top: -8px;
+        right: 22px;
+        width:0; 
+        height:0; 
+        border-left:8px solid transparent;
+        border-right:8px solid transparent;
+        border-bottom:8px solid #fff;
+    }
 }
 .header-list li{
     font-size: 14px;

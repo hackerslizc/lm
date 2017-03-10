@@ -20,6 +20,7 @@ import AddressList from '../components/address/list';
 import AddAddress from '../components/address/add-address';
 
 import ExpressList from '../components/express/list';
+import ExpressDetail from '../components/express/detail';
 import ExpressForm from '../components/express/index';
 import ChooseList from '../components/choose/list';
 
@@ -72,6 +73,10 @@ class App extends Component {
 
                         <Route path="/express-list" 
                             component={ExpressList}>
+                        </Route>
+
+                        <Route path="/express-detail" 
+                            component={ExpressDetail}>
                         </Route>
 
                         <Route path="/express-add" 

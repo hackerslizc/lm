@@ -112,8 +112,8 @@ class List extends Component{
         let _this = this,
             headerOpt = {
                 title:'邻米',
-                name:"list",
-                pathname:'list',
+                name:"addresseelist",
+                pathname:'addresseelist',
                 getUserInfo: true
              };
         return (

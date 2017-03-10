@@ -207,10 +207,9 @@ function remote(options) {
             delete fetchOptions.credentials;
         }
 
-        // return fetch(options.url, options.data)
-        // return fetch(options.url, fetchOptions)
-        // return fetch(CONSTS.BASE_URL + options.url, options)  // member get
-        return fetch(CONSTS.URL.SERVER_URl, fetchOptions)//post.
+        dispatch(toggleLoading(true));
+
+        return fetch(CONSTS.URL.SERVER_URl, fetchOptions)
             .then(res =>res.json())
             .then(json => {
                 dispatch(toggleLoading(false));

@@ -71,7 +71,7 @@ class ListItem extends Component{
                     id={orderId}
                     className="list-order-center clearfix"
                     to={{
-                        pathname:'/detail',
+                        pathname:'/express-detail',
                         state:{
                             ...opt
                         }

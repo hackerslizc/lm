@@ -28,6 +28,7 @@ class List extends Component{
         }
         this.callbackFn = this.callbackFn.bind(this);
         this.clickHandler = this.clickHandler.bind(this);
+        this.getList = this.getList.bind(this);
     }
     componentDidMount(){
         const body = document.getElementsByTagName('body')[0];
@@ -36,14 +37,18 @@ class List extends Component{
         body.style.paddingBottom = '40px';
     }
     callbackFn(opt){
-        const _this = this;
-        const body = document.getElementsByTagName('body')[0],
-            {dispatch, accountinfo, location} = this.props,
-            token = opt.data.token;
+        const {token} = opt.data;
         this.setState({
             token: token
         });
-
+        token && this.getList();
+    }
+    
+    getList(type = 'byHis'){
+        const _this = this;
+        const {dispatch, accountinfo, location} = this.props,
+            {token} = this.state;
+        
         dispatch(remote({
             data:{
                 token,
@@ -61,7 +66,6 @@ class List extends Component{
             }
         })
     }
-    
 
     ItemRender(){
         let _this = this,
@@ -75,6 +79,14 @@ class List extends Component{
                 };
                 eleArr.push(<ListItem opt={opt} key={i}></ListItem>)
             }   
+        } else {
+            eleArr = (
+                <div className="clearfix tc mt50 pt50">
+                    <span className="nolist"></span>
+                    <p className="f18 gray-col-1 mt20">出错啦</p>
+                    <p className="f14 gray-col mt5">对不起，您还没有相关记录！</p>
+                </div>
+            )
         }
         return (eleArr)
     }
@@ -85,18 +97,17 @@ class List extends Component{
     }
 
     render(){
-        let _this = this,
-            headerOpt = {
-                title:'邻米',
-                name:"list",
-                pathname:'list',
-                getUserInfo: true
-             };
+        let _this = this;
         return (
             <div className="clearfix">
-                <Header 
-                    opt={headerOpt}
-                    callbackFn={this.callbackFn}>
+                <Header opt={{
+                        title:'邻米',
+                        name:"expresslist",
+                        pathname:'expresslist',
+                        getUserInfo: true
+                     }} 
+                    callbackFn={this.callbackFn}
+                    requestHandler={this.getList}>
                 </Header>
                 <div className="clearfix main">
                     {
