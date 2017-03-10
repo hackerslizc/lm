@@ -10,7 +10,6 @@ import { hashHistory } from 'react-router';
 import Header from './common/header';
 import {
     remote,
-    getAccountInfo,
     setRuntime,
 } from '../redux/actions'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
@@ -24,13 +23,12 @@ class App extends Component {
     }
 
     componentDidMount(){
-        // alert(window.location)
-        // const {dispatch, location} = this.props,
+        // const {dispatch} = this.props,
         //         _this = this;
         // dispatch(remote({
         //     type: 'post',
         //     data: {
-        //         sno:10002
+        //         sno:10000
         //     }
         // })).then((r)=>{
         //     if( r && r.data ){
@@ -38,34 +36,19 @@ class App extends Component {
         //         _this.dispatchRoute(r);
         //     }
         // })
-        // hashHistory.push({ pathname: '/address-list' });
     }
      componentDidUpdate (prevProps) {
         if (this.props.location.pathname === '/') {
 
             if ( prevProps.location.pathname !== '/' ) {
                 console.log('后退回了首页，将要关闭WEB View');
-                // window.localStorage.removeItem('scrollPosition');
                 // HybridBridge.close();
             }
         }
     }
 
-    // dispatchRoute (r) {
-    //     const {data} = r;
-    //     const {location} = this.props;
-    //     console.log(location);
-    //     if( data.phone && data.wxuid) {
-    //         hashHistory.push({ pathname: location.pathname, state: {token: data.token } });
-    //     } else {
-    //         hashHistory.push({ pathname: '/bind', state: {token: data.token } });
-    //     }
-    // }
-
     render() {
         let content;
-
-        
         const { pathname } = this.props.location
         const key = pathname.split('/')[1] || 'root';
 
@@ -77,8 +60,6 @@ class App extends Component {
                     React.cloneElement(this.props.children || <div />, { key: key })
                 }
             </ReactCSSTransitionGroup>;
-
-        
         return (
             <div>
                 {

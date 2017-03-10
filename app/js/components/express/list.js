@@ -44,7 +44,7 @@ class List extends Component{
         token && this.getList();
     }
     
-    getList(type = 'byHis'){
+    getList(type = 'byOut'){
         const _this = this;
         const {dispatch, accountinfo, location} = this.props,
             {token} = this.state;
@@ -52,7 +52,7 @@ class List extends Component{
         dispatch(remote({
             data:{
                 token,
-                barna: 'byNew ', //byOut
+                barna: type, //byOut
                 sno: 10301
             }
         })).then((r)=>{
