@@ -27,6 +27,7 @@ import Infomation from '../components/members/infomation';
 import MailingResult from '../components/members/mailing-result';
 import Evaluation from '../components/evaluation/index';
 
+import QRcode from '../components/qr-code'
 
 // import PayStatus from '../components/pay-status.js';
 
@@ -87,6 +88,10 @@ class App extends Component {
 
                         <Route path="/choose-address" 
                             component={ChooseList}>
+                        </Route>
+
+                        <Route path="/qr-code" 
+                            component={QRcode}>
                         </Route>
                     </Route>
                 </Router>

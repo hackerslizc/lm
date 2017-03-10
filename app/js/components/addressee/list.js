@@ -29,27 +29,31 @@ class List extends Component{
         this.callbackFn = this.callbackFn.bind(this);
         this.selectFn = this.selectFn.bind(this);
         this.deleteFn = this.deleteFn.bind(this);
+        this.getList = this.getList.bind(this)
     }
     componentDidMount(){
         const body = document.getElementsByTagName('body')[0];
         body.style.height = 'auto';
         body.style.backgroundColor = '#ececec';
         body.style.paddingBottom = '40px';
-
-        
     }
     callbackFn(opt){
-        const body = document.getElementsByTagName('body')[0],
-            {dispatch, accountinfo, location} = this.props,
-            token = opt.data.token;
+        const {token} = opt.data;
         this.setState({
             token: token
         });
+        token && this.getList()
+    }
 
+    getList(type = 'byHis'){
+        const {dispatch, accountinfo, location} = this.props,
+            {token} = this.state;
         dispatch(GetPackageList({
+            barna: type,
             token: token
         }))
     }
+
     submitHandler(){
         console.log('submitHandler')
     }
@@ -84,6 +88,14 @@ class List extends Component{
                 };
                 eleArr.push(<ListItem opt={opt} key={i} selectFn={_this.selectFn} deleteFn={_this.deleteFn}></ListItem>)
             }   
+        } else {
+            eleArr = (
+                <div className="clearfix tc mt50 pt50">
+                    <span className="nolist"></span>
+                    <p className="f18 gray-col-1 mt20">出错啦</p>
+                    <p className="f14 gray-col mt5">对不起，您还没有相关记录！</p>
+                </div>
+            )
         }
         return (eleArr)
     }
@@ -108,7 +120,8 @@ class List extends Component{
             <div className="clearfix">
                 <Header 
                     opt={headerOpt}
-                    callbackFn={this.callbackFn}>
+                    callbackFn={this.callbackFn}
+                    requestHandler={this.getList}>
                 </Header>
                 <div className="clearfix main">
                     {

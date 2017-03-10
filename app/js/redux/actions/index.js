@@ -152,7 +152,6 @@ function GetPackageList(data){
                 type: 'post',
                 data: {
                     sno:10201,
-                    barna: 'byGet',
                     ...data
                 }
             })

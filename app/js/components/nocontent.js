@@ -49,12 +49,9 @@ class NoContent extends Component{
 
         return (
             <div className="clearfix tc mt50 pt50">
-                    <span className="nolist" src={CONSTS.BASEURL+'img/nolist.png'}></span>
-                    <p className="f18 gray-col-1 mt20">{title}</p>
-                    <p className="f14 gray-col mt5">{desc}</p>
-                    <div className="mt20 ">
-                        <Tappable className="btn f14 red-col clrearfix middle" component="button" onTap={this.toMoudle.bind(this,type)}>{btndesc}</Tappable>
-                    </div>
+                    <span className="nolist"></span>
+                    <p className="f18 gray-col-1 mt20">无记录</p>
+                    <p className="f14 gray-col mt5">对不起，您还没有相关记录！</p>
             </div>
         )
     }

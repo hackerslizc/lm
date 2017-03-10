@@ -3,7 +3,7 @@ import { hashHistory } from 'react-router';
 
 import { connect } from 'react-redux';
 import {Promise} from 'es6-promise';
-
+import classnames from 'classnames';
 
 import Tappable from 'react-tappable';
 import {
@@ -32,12 +32,15 @@ class Header extends Component{
         super(props);
 
         this.state={
-            getdata:true
+            getdata:true,
+            showList: false
         }
 
         this.toMemberCenter = this.toMemberCenter.bind(this);
         this.backHandleFn = this.backHandleFn.bind(this);
-
+        this.showList = this.showList.bind(this);
+        this.renderHeader = this.renderHeader.bind(this);
+        this.clickHancler = this.clickHancler.bind(this)
     }
 
     componentDidMount(){
@@ -53,36 +56,84 @@ class Header extends Component{
             })).then((r)=>{
                 if( r && r.data ){
                     dispatch(getAccountInfo(r.data));
+                    this.setState({
+                        token: r.data.token
+                    })
                     _this.props.callbackFn(r);
                 }
             })
         // }
     }
 
-    toMemberCenter(){
+    toMemberCenter() {
         hashHistory.push('/member-center');
     }
 
-    backHandleFn(){
+    backHandleFn() {
         window.history.go(-1);
     }
 
-    clickHancler(){
+    showList() {
+        const showList = !this.state.showList;
+        this.setState({
+            showList
+        })
+    }
+
+    renderHeader() {
+        const {showList} = this.state;
+        const {opt} = this.props;
+        let ele = '';
+
+        if (opt && opt.name === 'list') {
+            ele = (<h1 className="nav-title">
+                        <label className={classnames("listheader",{on: showList})} onClick={this.showList}>我的包裹</label>
+                        {
+                            showList && (<div className="header-list">
+                                <ul>
+                                    <li id="byGet" onClick={this.clickHancler}>新到</li>
+                                    <li id="byHis" onClick={this.clickHancler}>历史</li>
+                                    <li id="byGet" onClick={this.clickHancler}>新到</li>
+                                    <li id="byHis" onClick={this.clickHancler}>历史</li>
+                                </ul>
+                            </div>)
+                        }
+                    </h1>)
+        } else {
+            ele = (<h1 className="nav-title">
+                        {opt.title ? opt.title : "邻米"}
+                   </h1>)
+        }
+
+        return ele;
+    }
+
+    clickHancler(e) {
+        const {showList} = this.state;
+        const {requestHandler} = this.props;
+        const id = e.currentTarget.id;
+        this.setState({
+            showList: !showList
+        })
+        console.log(id)
+        requestHandler && requestHandler({
+            type: id
+        })
 
     }
 
     render(){
 
         let opt = (!!this.props.opt) ?  this.props.opt : {name:''},
-            classname = (opt.name == 'member-center') ? 'nav-bar-no' : 'nav-bar',
-            backclass = (opt.name == 'login') ? 'nav-back J_navBack gray' : 'nav-back J_navBack';
+            classname = (opt.name == 'member-center') ? 'nav-bar-no' : 'nav-bar';
+        
             // classname = (opt.name == 'member-center') ? 'nav-bar-no bottom-line' : 'nav-bar bottom-line';
         // console.log(this.props.accountinfo);
         return (
             <header className="g-header logged-in" id="J_header">
                 <div className={classname}>
                     {
-                        opt.pathname != 'index' && (<div className={backclass}>
+                        opt.pathname != 'index' && (<div className={classnames("nav-back", "J_navBack", {gray: (opt.name == 'login')})}>
                                 <Tappable
                                     href="javascript:void(0)"
                                     onClick={this.backHandleFn}
@@ -92,9 +143,7 @@ class Header extends Component{
                             </div>)
                     }
                     <div className="nav-title-wrap">
-                        <h1 className="nav-title">
-                            {opt.title ? opt.title : "邻米"}
-                        </h1>
+                        {this.renderHeader()}
                     </div>
                     {
                         false && (<div className="nav-more">
