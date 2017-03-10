@@ -30,7 +30,8 @@ class List extends Component{
             token:''
         }
         this.callbackFn = this.callbackFn.bind(this);
-        this.clickcallbackFn = this.clickcallbackFn.bind(this)
+        this.clickcallbackFn = this.clickcallbackFn.bind(this);
+        this.ItemRender = this.ItemRender.bind(this)
     }
     componentDidMount(){
         const body = document.getElementsByTagName('body')[0] ;
@@ -51,25 +52,9 @@ class List extends Component{
         }));
     }
 
-    submitHandler(){
-        console.log('submitHandler')
-    }
-
-    selectFn(data){
-        let selectArr = this.state.selectArr;
-        if (data.select){
-            selectArr.push(data.id);
-        } else {
-
-        }
-        this.setState({
-            selectArr: selectArr
-        })
-        console.log(data);
-    }
-
     clickcallbackFn(data){
         const {dispatch, location} = this.props;
+        console.log(location);
         if(location.state.type === 'addressee'){
             dispatch(getAddressee(data));
         } else if(location.state.type === 'sender') {
@@ -98,7 +83,10 @@ class List extends Component{
                 mobile: list[i].ageph,
                 place:`${list[i].provn}${list[i].cityn}${list[i].distn}`,
                 address: list[i].zonen,
-                isDefault: list[i].isdef
+                isDefault: list[i].isdef,
+                provn: list[i].provn,
+                cityn: list[i].cityn,
+                distn: list[i].distn
             };
             eleArr.push(<ListItem opt={opt} 
                 key={i} 

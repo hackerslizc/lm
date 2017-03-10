@@ -28,6 +28,9 @@ class AddAddress extends Component{
                  place = (location.state.type === 'edit' ? location.state.param.place : ''),
                  address = (location.state.type === 'edit' ? location.state.param.address : ''),
                  isdefault = (location.state.type === 'edit' ? location.state.param.isDefault : false),
+                 provn = (location.state.type === 'edit' ? location.state.param.provn : ''),
+                 cityn = (location.state.type === 'edit' ? location.state.param.cityn : ''),
+                 distn = (location.state.type === 'edit' ? location.state.param.distn : ''),
                  data = returnAddr(place);
         this.state = {
             name: name,
@@ -35,10 +38,9 @@ class AddAddress extends Component{
             place: place,
             address: address,
             isdefault: isdefault,
-            // ...data
-            cityn: '', 
-            provn: '', 
-            distn: ''
+            provn, 
+            cityn, 
+            distn
         };
         this.changeVal = this.changeVal.bind(this);
         this.onSubmitFn = this.onSubmitFn.bind(this);

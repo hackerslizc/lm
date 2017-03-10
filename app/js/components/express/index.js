@@ -22,16 +22,15 @@ import {
 class ExpressForm extends Component{
     constructor (props) {
         super(props);
-        const {name, mobile, place, address} = this.props.addressee;
-        const {provn, cityn, distn} = returnAddr(place);
+        const {name, mobile, place, address, provn, cityn, distn} = this.props.addressee;
         console.log(this.props);
         this.state = {
             token: '',
             name: name ? name : '',
             mobile: mobile ? mobile : '',
-            provn: '',
-            cityn: '',
-            distn: '',
+            provn: provn ? provn : '',
+            cityn: cityn ? cityn : '',
+            distn: distn ? distn : '',
             locan: address ? address : '',
             zonen: address ? address : '',
             count: 1,
@@ -49,12 +48,12 @@ class ExpressForm extends Component{
         this.changeWeight = this.changeWeight.bind(this)
     }
     componentDidMount(){
-        console.info(this.props);
+        // console.info(this.props);
         // console.log(wx);
         document.getElementsByTagName('body')[0].style.backgroundColor = '#fff';
         document.getElementsByTagName('body')[0].style.paddingBottom = '0px';
 
-        console.log(this.props.addressee);
+        // console.log(this.props.addressee);
     }
     reduceFn(){
         const {count} = this.state;
@@ -175,12 +174,13 @@ class ExpressForm extends Component{
     render(){
         let _this = this,
             {name, mobile, provn, cityn, distn, zonen} = this.state,
-             headerOpt = {
+            sendername = this.props.sender.name,
+            headerOpt = {
                 title:'邻米',
                 name:"index",
                 pathname:'index'
-             };
-        console.log(this.props.addressee, 'addressee')
+            };
+        
         return (
             <div className="clearfix">
                 <Header 
@@ -197,7 +197,7 @@ class ExpressForm extends Component{
                         }}>
                         <label className="clearfix label">寄件人</label>
                         <p className="clearfix flex-1">
-                            {this.props.sender.name}
+                            {sendername ? sendername : (<span className="gray-col">请选择寄件人</span>)}
                         </p>
                     </Link>
                     <div className="mt10"></div>
@@ -210,7 +210,7 @@ class ExpressForm extends Component{
                         }}>
                         <label className="clearfix label">收件人</label>
                         <p className="clearfix flex-1">
-                            {this.props.addressee.name}
+                            {name !== '' ? name : (<span className="gray-col">请选择收件人</span>)}
                         </p>
                     </Link>
                     <div className="clearfix express-form-item">

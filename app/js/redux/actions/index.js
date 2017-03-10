@@ -128,7 +128,6 @@ function toast(msg){
 function GetAddressList(data){
     return (dispatch,  getState) => {
         const store = getState();
-        console.log(store);
         dispatch(
             remote({
                 type: 'post',

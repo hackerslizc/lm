@@ -102,7 +102,10 @@ class List extends Component{
                 mobile: list[i].ageph,
                 place:`${list[i].provn}${list[i].cityn}${list[i].distn}`,
                 address: list[i].zonen,
-                isDefault: list[i].isdef
+                isDefault: list[i].isdef,
+                provn: list[i].provn,
+                cityn: list[i].cityn,
+                distn: list[i].distn
             };
             eleArr.push(<ListItem opt={opt} 
                 key={i} 
