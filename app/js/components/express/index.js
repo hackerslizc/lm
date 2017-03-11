@@ -9,7 +9,7 @@ import LocationSelect from '../common/location-select';
 
 import {returnAddr} from '../../common/Util';
 
-import wx from 'weixin-js-sdk'
+
 import {
     toast,
     remote
@@ -147,7 +147,7 @@ class ExpressForm extends Component{
                 unitn: 0,
                 housn: 0,
                 zonen: address,
-                dosql:`agena=${name},ageph=${mobile},provn=${provn},cityn=${cityn},zonen=${address},paktn=${paktn},prewn=${prewn}gdoor='16幢304室',savev=2000,prewn=2`
+                dosql:`agena=${name},ageph=${mobile},provn=${provn},cityn=${cityn},zonen=${address},paktn=${paktn},prewn=${prewn},gdoor='16幢304室',savev=2000`
             };
 
         targetdata = Object.assign(targetdata, sourcesdata, {

@@ -1,12 +1,12 @@
-require('../../css/app.less');
-
+import wx from 'weixin-js-sdk';
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import { hashHistory } from 'react-router';
+require('../../css/app.less');
+
+import Tip from './tip';
 import Loading from './loading';
 import LoadingBottom from './loadingbottom';
-import Tip from './tip';
-import { hashHistory } from 'react-router';
-
 import Header from './common/header';
 import {
     remote,
@@ -36,11 +36,13 @@ class App extends Component {
         //         _this.dispatchRoute(r);
         //     }
         // })
+
     }
      componentDidUpdate (prevProps) {
         if (this.props.location.pathname === '/') {
 
             if ( prevProps.location.pathname !== '/' ) {
+                wx.closeWindow();
                 console.log('后退回了首页，将要关闭WEB View');
                 // HybridBridge.close();
             }

@@ -107,12 +107,15 @@ class ListItem extends Component{
                     </div>
                 </Link>
                 <div className="list-order-foot clearfix">
-                    <Tappable
-                        id={orderId}
-                        onTap={this.selectFn}
-                        className={isSelect}
-                        component="a">
-                    </Tappable>
+                    {
+                        opt.ostat == 1 && <Tappable
+                            id={orderId}
+                            onTap={this.selectFn}
+                            className={isSelect}
+                            component="a">
+                        </Tappable>
+                    }
+                    
                     <label className="list-order-status">{status}</label>
                     <label className="list-order-length">共 {tracs} 件包裹  </label>
                 </div>
