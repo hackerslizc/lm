@@ -32,7 +32,6 @@ module.exports = {
         // publicPath: publicPath,
         filename: '[name].js'
     },
-    devtool: false,
     cache: true, //开启缓存,增量编译
     devtool: 'source-map', //生成 source map文件
     stats: {
@@ -101,15 +100,17 @@ module.exports = {
         new webpack.NoErrorsPlugin(),
         //配置webpack传递的参数
         new webpack.DefinePlugin({
-          'process.env.NODE_ENV': JSON.stringify(env)
+            'process.env.NODE_ENV': JSON.stringify(env)
         }),
 
         //代码压缩
-        // new webpack.optimize.UglifyJsPlugin({
-        //   compress: {
-        //     warnings: false
-        //   }
-        // })
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            },
+            sourceMap: true,//这里的soucemap 不能少，可以在线上生成soucemap文件，便于调试
+            mangle: true
+        })
     ],
 
     //热更新

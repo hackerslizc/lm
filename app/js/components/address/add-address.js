@@ -28,9 +28,9 @@ class AddAddress extends Component{
                  place = (location.state.type === 'edit' ? location.state.param.place : ''),
                  address = (location.state.type === 'edit' ? location.state.param.address : ''),
                  isdefault = (location.state.type === 'edit' ? location.state.param.isDefault : false),
-                 provn = (location.state.type === 'edit' ? location.state.param.provn : ''),
-                 cityn = (location.state.type === 'edit' ? location.state.param.cityn : ''),
-                 distn = (location.state.type === 'edit' ? location.state.param.distn : ''),
+                 provn = (location.state.type === 'edit' ? location.state.param.provn : '四川省'),
+                 cityn = (location.state.type === 'edit' ? location.state.param.cityn : '成都市'),
+                 distn = (location.state.type === 'edit' ? location.state.param.distn : '高新区'),
                  data = returnAddr(place);
         this.state = {
             name: name,
@@ -116,6 +116,8 @@ class AddAddress extends Component{
             };
         }
 
+        const type = (location.state.type === 'edit' ? '修改' : '新增');
+
         targetdata = Object.assign(targetdata, sourcesdata, {
             sno: location.state.type === 'edit' ? 10086 : 10085,
             appno:2801000,
@@ -127,8 +129,10 @@ class AddAddress extends Component{
             data: targetdata
         })).then((r) => {
             if(r.err === 0){
-                dispatch(toast("地址修改"+r.msg));
+                dispatch(toast("地址"+type+r.msg));
                 window.location.reload()
+            } else {
+                dispatch(toast(r.msg));
             }
         })
     }
@@ -149,17 +153,16 @@ class AddAddress extends Component{
 
     render(){
         let _this = this,
-            {name, mobile, address, cityn, provn, distn } = this.state,
-            headerOpt = {
-                title:_this.props.location.state.type === 'edit' ? '编辑地址' : '新增地址',
-                name:"address",
-                pathname:'add-address'
-             };
+            {name, mobile, address, cityn, provn, distn } = this.state;
         // console.log(this.props)
         return (
             <div className="clearfix">
                 <Header 
-                    opt={headerOpt}
+                    opt={{
+                        title:_this.props.location.state.type === 'edit' ? '编辑地址' : '新增地址',
+                        name:"address",
+                        pathname:'add-address'
+                     }}
                     callbackFn={this.headerCallbackFn}>
                 </Header>
                 <div className="clearfix main">
@@ -175,7 +178,6 @@ class AddAddress extends Component{
                         </div>
                         <div className="add-address-form">
                             <i className="icon location"></i>
-                            
                             <LocationSelect callbackFn={this.callbackFn} defaultLocation={{
                                 province: provn,
                                 city: cityn,
@@ -204,7 +206,7 @@ class AddAddress extends Component{
                         onTap={this.onVerificationFn}
                         className="list-btn add flex-1"
                         component="a">
-                        {this.props.location.state.type === 'edit' ? '保存' : '新建地址'}
+                        {this.props.location.state.type === 'edit' ? '保存' : '确定'}
                     </Tappable>
                 </div>
             </div>

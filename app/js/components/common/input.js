@@ -44,8 +44,9 @@ class Input extends Component{
         } else if (opt.type === 'captcha') {
             return (<div className={wrapclass}>
                     <label className="clearfix label">{opt.label}</label>
-                    <p className="clearfix flex-1">
+                    <p className="clearfix flex-1 captcha-warp">
                         <input type={_type} id={id}  maxLength="6" onChange={this.changeHandler}/>
+                        <span className="captcha-btn">12321321</span>
                     </p>
                 </div>)
         } else {

@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import {hashHistory,Link} from 'react-router';
 import Tappable from 'react-tappable';
 
 /**
@@ -31,6 +32,22 @@ class ChooseItem extends Component {
                     <div className="list-order-address">
                         {opt.address}
                     </div>
+                </div>
+                <div className="list-order-foot clearfix">
+                    <Link
+                        id={id}
+                        to={{
+                            pathname: '/address-add', 
+                            state:{
+                                type: "edit",
+                                token: opt.token,
+                                param: {...opt}
+                            }
+                        }}
+                        className="list-address-edit">
+                        <i className="address-icon edit"></i>
+                        编辑
+                    </Link>
                 </div>
             </div>
         )

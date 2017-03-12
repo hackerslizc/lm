@@ -6,10 +6,7 @@ import Tappable from 'react-tappable';
 import Header from '../common/header';
 import Input from '../common/input';
 import LocationSelect from '../common/location-select';
-
 import {returnAddr} from '../../common/Util';
-
-
 import {
     toast,
     remote
@@ -23,7 +20,7 @@ class ExpressForm extends Component{
     constructor (props) {
         super(props);
         const {name, mobile, place, address, provn, cityn, distn} = this.props.addressee;
-        console.log(this.props);
+
         this.state = {
             token: '',
             name: name ? name : '',
@@ -48,12 +45,9 @@ class ExpressForm extends Component{
         this.changeWeight = this.changeWeight.bind(this)
     }
     componentDidMount(){
-        // console.info(this.props);
-        // console.log(wx);
-        document.getElementsByTagName('body')[0].style.backgroundColor = '#fff';
-        document.getElementsByTagName('body')[0].style.paddingBottom = '0px';
-
-        // console.log(this.props.addressee);
+        const body = document.getElementsByTagName('body')[0];
+        body.style.backgroundColor = '#fff';
+        body.style.paddingBottom = '0px';
     }
     reduceFn(){
         const {count} = this.state;
@@ -130,40 +124,47 @@ class ExpressForm extends Component{
     }
 
     onSubmitFn(){
-        const {name, mobile, place, address, provn, cityn, distn, token, paktn, prewn} = this.state;
-
+        const {name, mobile, place, address, provn, cityn, distn, token, paktn, prewnm, count} = this.state;
+        const {sender} = this.props;
         const {dispatch, location} = this.props;
 
         let sourcesdata = {},
             targetdata = {
                 token,
-                agena: name ,
-                ageph: mobile,
-                provn,
-                cityn,
-                distn,
-                stren : 0,
-                builn: 0,
-                unitn: 0,
-                housn: 0,
-                zonen: address,
-                dosql:`agena=${name},ageph=${mobile},provn=${provn},cityn=${cityn},zonen=${address},paktn=${paktn},prewn=${prewn},gdoor='16幢304室',savev=2000`
+                sname: sender.name,
+                sphon: sender.sphon ,
+                sprov: sender.sprov,
+                scity: sender.scity ,
+                sdist: sender.sdist ,
+                saddr: sender.address ,
+                gname: name ,
+                gphon: mobile,
+                gprov: provn,
+                gcity: cityn,
+                gdist: distn,
+                gaddr: address,
+                pakns: count,
+                paktn: paktn,
+                prewn: prewn,
+                savev : 0
             };
-
+        const type = true;
         targetdata = Object.assign(targetdata, sourcesdata, {
-            sno: 10305,
-            appno:2801000,
-            asn:9034087,
-            aot:9034087
+            sno: type ? 10304 : 10305
         });
 
         dispatch(remote({
             data: targetdata
         })).then((r) => {
             if (r.err === 0) {
-                // dispatch(toast("修改"+r.msg));
-                // window.location.reload()
-                console.log('success')    
+                hashHistory.push({
+                    pathname: '/express-result',
+                    state: {
+                        mobile,
+                        mobile,
+                        address
+                    }
+                });
             } else {
                 console.log('fail')   
             }
@@ -173,18 +174,17 @@ class ExpressForm extends Component{
 
     render(){
         let _this = this,
-            {name, mobile, provn, cityn, distn, zonen} = this.state,
-            sendername = this.props.sender.name,
-            headerOpt = {
-                title:'邻米',
-                name:"index",
-                pathname:'index'
-            };
-        
+            {name, mobile, provn, cityn, distn, zonen, prewn} = this.state,
+            sendername = this.props.sender.name;
+        console.log(prewn);
         return (
             <div className="clearfix">
                 <Header 
-                    opt={headerOpt}
+                    opt={{
+                        title:'邻米',
+                        name:"index",
+                        pathname:'index'
+                    }}
                     callbackFn={this.headercallbackFn}>
                 </Header>
                 <div className="clearfix main">
@@ -225,7 +225,7 @@ class ExpressForm extends Component{
                         <div className="flex-box clearfix">
                             <label className="clearfix flex-1 justify">电话：<span></span></label>
                             <p className="clearfix flex-2">
-                                <input type="tel" id="mobile" disabled className="flex-1" maxLength="11" defaultValue={mobile} onChange={this.changeHandler}/>
+                                <input type="tel" id="mobile" className="flex-1" maxLength="11" defaultValue={mobile} onChange={this.changeHandler}/>
                             </p>
                         </div>
                     </div>
@@ -290,7 +290,7 @@ class ExpressForm extends Component{
                                     component="a">
                                     2KG
                                 </Tappable>
-                                <input className="other-input wb" id="prewn" onChange={this.changeHandler} type="tel"/>
+                                <input className="other-input wb" id="prewn" defaultValue={prewn} onChange={this.changeHandler} type="tel"/>
                                 <label className="other-input yb" >KG</label>
                             </p>
                         </div>

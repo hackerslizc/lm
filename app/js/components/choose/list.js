@@ -118,21 +118,19 @@ class List extends Component{
                         this.ItemRender()
                     }
                 </div>
-                {
-                    this.props.list.length == 0  && (<div className="clearfix fixed flex-box">
-                        <Link
-                            className="list-btn add flex-1"
-                            to={{
-                                pathname:'/address-add',
-                                state:{
-                                    token: _this.state.token,
-                                    type: "new"
-                                }
-                            }}>
-                            新增地址
-                        </Link>
-                    </div>)
-                }
+                <div className="clearfix fixed flex-box">
+                    <Link
+                        className="list-btn add flex-1"
+                        to={{
+                            pathname:'/address-add',
+                            state:{
+                                token: _this.state.token,
+                                type: "new"
+                            }
+                        }}>
+                        新增地址
+                    </Link>
+                </div>
                 
             </div>
         )

@@ -215,6 +215,8 @@ function remote(options) {
                 dispatch(toggleLoading(false));
                 if ( json.err == '0' ) {
                     return json || {};
+                } else if (json.err == 1) {
+                    hashHistory.push('/bind');
                 }else {
                     if(json.err == '908'){
                         dispatch(toast('网络繁忙，服务端未知错误'))

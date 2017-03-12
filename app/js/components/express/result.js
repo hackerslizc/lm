@@ -28,8 +28,14 @@ class MailingResult extends Component{
     componentWillMount(){
         document.getElementsByTagName('body')[0].style.backgroundColor = '#fff'
     }
+
+    componentDidMount(){
+        console.log();
+    }
     
     render(){
+        const {location: {state}} = this.props;
+        if(!state || !state.name || !state.mobile) return null;
         return (
             <div className="clearfix">
                 <Header opt={{

@@ -22,10 +22,10 @@ import AddAddress from '../components/address/add-address';
 import ExpressList from '../components/express/list';
 import ExpressDetail from '../components/express/detail';
 import ExpressForm from '../components/express/index';
+import MailingResult from '../components/express/result';
 import ChooseList from '../components/choose/list';
 
 import Infomation from '../components/members/infomation';
-import MailingResult from '../components/members/mailing-result';
 import Evaluation from '../components/evaluation/index';
 
 import QRcode from '../components/qr-code'
@@ -37,10 +37,11 @@ const AppStore = configureStore(InitState);
 
 //APP 入口
 class App extends Component {
+    //hashHistory  browserHistory
     render () {
         return (
             <Provider store={this.props.store}>
-                <Router history={hashHistory}>
+                <Router history={hashHistory}>   
                     <Route path="/" component={AppMain}>
 
                         <Route path="/error-page" 
