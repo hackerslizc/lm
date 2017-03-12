@@ -45,7 +45,7 @@ class MailingResult extends Component{
                 </Header>
                 <div className="clearfix main">
                     <div className="mailing-result-icon"></div>
-                    <div className="tc l24 f16 yello-col">恭喜您，<br/>寄件下单成功</div>
+                    <div className="tc l24 f16 yellocol">恭喜您，<br/>寄件下单成功</div>
                     <div className="clearfix mt40 l30">
                         <div className="flex-box">
                             <div className="flex-3 tr">收件人：</div>
@@ -60,7 +60,7 @@ class MailingResult extends Component{
                              <div className="flex-4">申通快递物流申通快递物流</div>
                         </div>
                     </div>
-                    <div className="tc l24 yello-col clearfix mt40"><i className="local-icon"></i>系统正在为您安排小哥上门，请耐心等待！</div>
+                    <div className="tc l24 yellocol clearfix mt40"><i className="local-icon"></i>系统正在为您安排小哥上门，请耐心等待！</div>
                 </div>
          </div>
         )

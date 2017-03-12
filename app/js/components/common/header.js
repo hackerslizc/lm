@@ -26,6 +26,8 @@ import {
  *
  **/
 
+console.log(process);
+
 class Header extends Component{
 
     constructor (props) {
@@ -50,7 +52,7 @@ class Header extends Component{
             dispatch(remote({
                 type: 'post',
                 data: {
-                    sno:10002
+                    sno:10002   //10000
                 }
             })).then((r)=>{
                 if( r && r.data ){

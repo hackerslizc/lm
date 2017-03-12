@@ -27,7 +27,7 @@ class Home extends Component{
         this.deliverytoHomeFn = this.deliverytoHomeFn.bind(this);
         this.changeStatus = this.changeStatus.bind(this);
 
-        alert(window.location.href);
+        // alert(window.location.href);
 
         wx.config({
             debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
@@ -147,12 +147,12 @@ class Home extends Component{
                             <div className="flex-3 tr">到店时间：</div>
                             <div className="flex-4">{inpda}</div>
                         </div>
-                        <div className="flex-box yello-col">
+                        <div className="flex-box yellocol">
                             <div className="flex-3 tr"><i className="detail-package-icon"></i>包裹状态：</div>
                             <div className="flex-4">{state}</div>
                         </div>
                     </div>
-                    <p className="clearfix tc yello-col l20 mt50 f16"> 温馨提示：本店主营业务互联网快递业务，
+                    <p className="clearfix tc yellocol l20 mt50 f16"> 温馨提示：本店主营业务互联网快递业务，
 我们可以快递到您家！</p>
                     {
                         ostat === 1 && (<div className="clearfix mt50">

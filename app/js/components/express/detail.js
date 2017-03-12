@@ -81,12 +81,12 @@ class Home extends Component{
                             <div className="flex-3 tr">到店时间：</div>
                             <div className="flex-4">{ordda}</div>
                         </div>
-                        <div className="flex-box yello-col">
+                        <div className="flex-box yellocol">
                             <div className="flex-3 tr"><i className="detail-package-icon"></i>包裹状态：</div>
                             <div className="flex-4">{state}</div>
                         </div>
                     </div>
-                    <p className="clearfix tc yello-col l20 mt50 f16"> 温馨提示：本店主营业务互联网快递业务，
+                    <p className="clearfix tc yellocol l20 mt50 f16"> 温馨提示：本店主营业务互联网快递业务，
 我们可以快递到您家！</p>
                     {
                         ostat === 1 && (<div className="clearfix mt50">

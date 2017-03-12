@@ -3,6 +3,7 @@ import {hashHistory,Link} from 'react-router';
 import { connect } from 'react-redux';
 import {Promise} from 'es6-promise';
 import Tappable from 'react-tappable';
+import classnames from 'classnames'
 import Header from '../common/header';
 import Input from '../common/input';
 import LocationSelect from '../common/location-select';
@@ -174,7 +175,7 @@ class ExpressForm extends Component{
 
     render(){
         let _this = this,
-            {name, mobile, provn, cityn, distn, zonen, prewn} = this.state,
+            {name, mobile, provn, cityn, distn, zonen, prewn, paktn} = this.state,
             sendername = this.props.sender.name;
         console.log(prewn);
         return (
@@ -278,20 +279,20 @@ class ExpressForm extends Component{
                             <p className="clearfix flex-2">
                                 <Tappable
                                     id="1"
-                                    onTap={this.changeWeight}
+                                    onClick={this.changeWeight}
                                     className="calculation-btn"
                                     component="a">
                                     1KG
                                 </Tappable>
                                 <Tappable
                                     id="2"
-                                    onTap={this.changeWeight}
+                                    onClick={this.changeWeight}
                                     className="calculation-btn"
                                     component="a">
                                     2KG
                                 </Tappable>
-                                <input className="other-input wb" id="prewn" defaultValue={prewn} onChange={this.changeHandler} type="tel"/>
-                                <label className="other-input yb" >KG</label>
+                                <input className="other-input wb" id="prewn" defaultValue={paktn} onChange={this.changeHandler} type="tel"/>
+                                <label className="other-input yb">KG</label>
                             </p>
                         </div>
                     </div>
@@ -305,42 +306,42 @@ class ExpressForm extends Component{
                             <Tappable
                                 name="信件"
                                 onTap={this.selectTypeFn}
-                                className="calculation-btn"
+                                className={classnames("calculation-btn", {yellocol: (paktn==='信件')})}
                                 component="a">
                                 文件
                             </Tappable>
                             <Tappable
                                 name="数码"
                                 onTap={this.selectTypeFn}
-                                className="calculation-btn"
+                                className={classnames("calculation-btn", {yellocol: (paktn==='数码')})}
                                 component="a">
                                 数码
                             </Tappable>
                             <Tappable
                                 name="生活用品"
                                 onTap={this.selectTypeFn}
-                                className="calculation-btn"
+                                className={classnames("calculation-btn", {yellocol: (paktn==='生活用品')})}
                                 component="a">
                                 生活用品
                             </Tappable>
                             <Tappable
                                 name="服饰"
                                 onTap={this.selectTypeFn}
-                                className="calculation-btn"
+                                className={classnames("calculation-btn", {yellocol: (paktn==='服饰')})}
                                 component="a">
                                 服饰
                             </Tappable>
                             <Tappable
                                 name="食品"
                                 onTap={this.selectTypeFn}
-                                className="calculation-btn"
+                                className={classnames("calculation-btn", {yellocol: (paktn==='食品')})}
                                 component="a">
                                 食品
                             </Tappable>
                             <Tappable
                                 name="酒类"
                                 onTap={this.selectTypeFn}
-                                className="calculation-btn"
+                                className={classnames("calculation-btn", {yellocol: (paktn==='酒类')})}
                                 component="a">
                                 酒类
                             </Tappable>

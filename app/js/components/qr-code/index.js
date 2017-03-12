@@ -73,7 +73,7 @@ class QRcode extends Component{
                 <div className="clearfix tc">
                     <div className="qrcode-bg"></div>
                     <div>
-                        <p className="yello-col">邻米电子会员卡</p>
+                        <p className="yellocol">邻米电子会员卡</p>
                         <img src={this.state.qrcode} className="qrcode"/>
                         <p>卡号：{this.state.cardnumber}</p>
                     </div>
