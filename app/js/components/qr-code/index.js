@@ -40,7 +40,7 @@ class QRcode extends Component{
 
         dispatch(remote({
             data:{
-                token,
+                // token,
                 barna: 'byNew ', //byOut
                 sno: 10301
             }

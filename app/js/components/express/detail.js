@@ -14,7 +14,7 @@ import {
  * @param  {首页}
  *
  **/
-class Home extends Component{
+class ExpressDetail extends Component{
 
     constructor (props) {
         super(props);
@@ -123,4 +123,4 @@ const mapStateToProps = (state) => {
     }
 };
 
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps)(ExpressDetail);

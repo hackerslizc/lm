@@ -2,35 +2,25 @@ import React, {Component} from 'react';
 import {render} from 'react-dom';
 import { Provider, connect } from 'react-redux';
 import { Router, Route, Link, hashHistory , IndexRoute, browserHistory} from 'react-router';
-
 import configureStore from '../redux/create-store';
 
-
 import InitState from '../redux/reducers/init-state';
-
 import AppMain from '../components/app';
-
 import NoContent from '../components/nocontent';
-import BindUser from '../components/members/bind';
-
+import BindUser from '../components/bind/bind';
+import BindResult from '../components/bind/result';
 import List from '../components/addressee/list';
 import Detail from '../components/addressee/detail';
-
 import AddressList from '../components/address/list';
 import AddAddress from '../components/address/add-address';
-
 import ExpressList from '../components/express/list';
 import ExpressDetail from '../components/express/detail';
 import ExpressForm from '../components/express/index';
 import MailingResult from '../components/express/result';
 import ChooseList from '../components/choose/list';
-
 import Infomation from '../components/members/infomation';
 import Evaluation from '../components/evaluation/index';
-
-import QRcode from '../components/qr-code'
-
-// import PayStatus from '../components/pay-status.js';
+import QRcode from '../components/qr-code';
 
 const store = configureStore();
 const AppStore = configureStore(InitState);
@@ -50,6 +40,10 @@ class App extends Component {
 
                         <Route path="/bind" 
                             component={BindUser}>
+                        </Route>
+
+                        <Route path="/bind-result" 
+                            component={BindResult}>
                         </Route>
 
                         <Route path="/list" 

@@ -25,29 +25,34 @@ class List extends Component{
             selectArr:[],
             listArr:[],
             count: 0,
-            token:''
+            // token:''
         }
         this.defaultFn = this.defaultFn.bind(this);
         this.deleteFn = this.deleteFn.bind(this);
         this.callbackFn = this.callbackFn.bind(this)
     }
     componentDidMount(){
+        const {dispatch} = this.props;
         const body = document.getElementsByTagName('body')[0] ;
         body.style.height = 'auto';
         body.style.backgroundColor = '#ececec';
         body.style.paddingBottom = '40px';
-    }
-
-    callbackFn(r){
-        const {dispatch, location} = this.props;
-        this.setState({
-            token: r.data.token
-        })
         dispatch(GetAddressList({
-            token: location.state ? location.state.token : r.data.token,
             atype:1, // 1是本地地址 2 是收件人
             sno:10071
         }));
+    }
+
+    callbackFn(r){
+        // const {dispatch, location} = this.props;
+        // this.setState({
+        //     token: r.data.token
+        // })
+        // dispatch(GetAddressList({
+        //     token: location.state ? location.state.token : r.data.token,
+        //     atype:1, // 1是本地地址 2 是收件人
+        //     sno:10071
+        // }));
     }
 
     submitHandler(){
@@ -74,7 +79,7 @@ class List extends Component{
         dispatch(toggleLoading(false));
         dispatch(remote({
             data: {
-                token: this.state.token,
+                // token: this.state.token,
                 addnr: data.id,
                 appno:2801000,
                 sno:10077,
@@ -96,7 +101,7 @@ class List extends Component{
             eleArr = [];
         for (var i = 0; i < list.length; i++){
             const opt = {
-                token: this.state.token,
+                // token: this.state.token,
                 id: list[i].addnr,
                 name: list[i].agena,
                 mobile: list[i].ageph,
@@ -124,7 +129,7 @@ class List extends Component{
         const {dispatch} = this.props;
         dispatch(remote({
             data: {
-                token: this.state.token,
+                // token: this.state.token,
                 addnr: id,
                 atype:1,
                 sno: 10078,
@@ -165,7 +170,7 @@ class List extends Component{
                         to={{
                             pathname:'/address-add',
                             state:{
-                                token: _this.state.token,
+                                // token: _this.state.token,
                                 type: "new"
                             }
                         }}>

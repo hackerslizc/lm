@@ -93,12 +93,12 @@ class AddAddress extends Component{
     }
 
     onSubmitFn(){
-        const {name, mobile, place, address, provn, cityn, distn, token} = this.state;
+        const {name, mobile, place, address, provn, cityn, distn} = this.state;
         const {dispatch, location} = this.props;
 
         let sourcesdata = {},
             targetdata = {
-                token,
+                // token,
                 agena: name ,
                 ageph: mobile,
                 provn,
@@ -120,9 +120,6 @@ class AddAddress extends Component{
 
         targetdata = Object.assign(targetdata, sourcesdata, {
             sno: location.state.type === 'edit' ? 10086 : 10085,
-            appno:2801000,
-            asn:9034087,
-            aot:9034087
         });
 
         dispatch(remote({
@@ -146,9 +143,9 @@ class AddAddress extends Component{
     }
 
     headerCallbackFn(r){
-        this.setState({
-            token: r.data.token
-        })
+        // this.setState({
+        //     token: r.data.token
+        // })
     }
 
     render(){

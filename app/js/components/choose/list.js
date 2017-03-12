@@ -34,10 +34,16 @@ class List extends Component{
         this.ItemRender = this.ItemRender.bind(this)
     }
     componentDidMount(){
+        const {dispatch} = this.props;
         const body = document.getElementsByTagName('body')[0] ;
         body.style.height = 'auto';
         body.style.backgroundColor = '#ececec';
         body.style.paddingBottom = '40px';
+        dispatch(GetAddressList({
+            // token: r.data.token,
+            atype:1, // 1是本地地址 2 是收件人
+            sno:10071
+        }));
     }
 
     callbackFn(r){

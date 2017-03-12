@@ -35,13 +35,14 @@ class List extends Component{
         body.style.height = 'auto';
         body.style.backgroundColor = '#ececec';
         body.style.paddingBottom = '40px';
+        this.getList();
     }
     callbackFn(opt){
-        const {token} = opt.data;
-        this.setState({
-            token: token
-        });
-        token && this.getList();
+        // const {token} = opt.data;
+        // this.setState({
+        //     token: token
+        // });
+        // token && 
     }
     
     getList(type = 'byOut'){
@@ -51,7 +52,7 @@ class List extends Component{
         
         dispatch(remote({
             data:{
-                token,
+                // token,
                 barna: type, //byOut
                 sno: 10301
             }
@@ -83,8 +84,8 @@ class List extends Component{
             eleArr = (
                 <div className="clearfix tc mt50 pt50">
                     <span className="nolist"></span>
-                    <p className="f18 gray-col-1 mt20">出错啦</p>
-                    <p className="f14 gray-col mt5">对不起，您还没有相关记录！</p>
+                    <p className="f18 gray-col-1 mt20">对不起</p>
+                    <p className="f14 gray-col mt5">您还没有相关记录！</p>
                 </div>
             )
         }

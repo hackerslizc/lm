@@ -12,8 +12,6 @@ import {
     toggleLoading,
     getAccountInfo
 } from '../../redux/actions';
-
-
 /**
  *
  * @module {头部}
@@ -25,8 +23,6 @@ import {
  *     }
  *
  **/
-
-console.log(process);
 
 class Header extends Component{
 
@@ -45,25 +41,27 @@ class Header extends Component{
     }
 
     componentDidMount(){
-        // alert(window.location)
-        const {dispatch, location, callbackFn} = this.props,
-                _this = this;
-        // if(this.props.opt.getUserInfo){
-            dispatch(remote({
-                type: 'post',
-                data: {
-                    sno:10002   //10000
-                }
-            })).then((r)=>{
-                if( r && r.data ){
-                    dispatch(getAccountInfo(r.data));
-                    this.setState({
-                        token: r.data.token
-                    })
-                    callbackFn && callbackFn(r);
-                }
-            })
+        const {dispatch, opt} = this.props;
+        //         _this = this;
+        // if(opt.name != 'bind'){
+        //     dispatch(remote({
+        //         type: 'post',
+        //         data: {
+        //             sno:10000   //10000
+        //         }
+        //     })).then((r)=>{
+        //         if( r && r.data ){
+        //             dispatch(getAccountInfo(r.data));
+        //             this.setState({
+        //                 token: r.data.token
+        //             })
+        //             callbackFn && callbackFn(r);
+        //         }
+        //     })
+        // } else {
+        //     dispatch(toggleLoading(false));
         // }
+        dispatch(toggleLoading(false));
     }
 
     backHandleFn() {
@@ -127,9 +125,7 @@ class Header extends Component{
             showList: !showList
         })
 
-        requestHandler && requestHandler({
-            type: id
-        })
+        requestHandler && requestHandler(id)
 
     }
 
@@ -144,7 +140,7 @@ class Header extends Component{
             <header className="g-header logged-in" id="J_header">
                 <div className={classname}>
                     {
-                        opt.pathname != 'index' && (<div className={classnames("nav-back", "J_navBack", {gray: (opt.name == 'login')})}>
+                        opt.pathname == 'false' && (<div className={classnames("nav-back", "J_navBack", {gray: (opt.name == 'login')})}>
                                 <Tappable
                                     href="javascript:void(0)"
                                     onClick={this.backHandleFn}

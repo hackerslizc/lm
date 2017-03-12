@@ -183,8 +183,8 @@ function remote(options) {
             acd: "cac0efdbe794f04edd15b8085f4d7f27", //验证码， md5
             // sno: '', // 服务编号
 
-            phone:18980709669,  
-            passw:"123456",
+            // phone:18980709669,  
+            // passw:"123456",
             ...options.data,
 
         }

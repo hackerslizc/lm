@@ -33,7 +33,7 @@ module.exports = {
         filename: '[name].js'
     },
     cache: true, //开启缓存,增量编译
-    devtool: 'source-map', //生成 source map文件
+    // devtool: 'source-map', //生成 source map文件
     stats: {
         colors: true, //打印日志显示颜色
         reasons: true //打印相关模块被引入
@@ -108,8 +108,8 @@ module.exports = {
             compress: {
                 warnings: false
             },
-            sourceMap: true,//这里的soucemap 不能少，可以在线上生成soucemap文件，便于调试
-            mangle: true
+            // sourceMap: true,//这里的soucemap 不能少，可以在线上生成soucemap文件，便于调试
+            // mangle: true
         })
     ],
 

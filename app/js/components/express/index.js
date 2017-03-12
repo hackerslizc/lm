@@ -23,7 +23,7 @@ class ExpressForm extends Component{
         const {name, mobile, place, address, provn, cityn, distn} = this.props.addressee;
 
         this.state = {
-            token: '',
+            // token: '',
             name: name ? name : '',
             mobile: mobile ? mobile : '',
             provn: provn ? provn : '',
@@ -43,7 +43,7 @@ class ExpressForm extends Component{
         this.selectTypeFn = this.selectTypeFn.bind(this);
         this.onSubmitFn = this.onSubmitFn.bind(this);
         this.onVerificationFn = this.onVerificationFn.bind(this);
-        this.changeWeight = this.changeWeight.bind(this)
+        this.changeWeight = this.changeWeight.bind(this);
     }
     componentDidMount(){
         const body = document.getElementsByTagName('body')[0];
@@ -73,9 +73,9 @@ class ExpressForm extends Component{
     }
 
     headercallbackFn(r){
-        this.setState({
-            token: r.data.token
-        })
+        // this.setState({
+        //     token: r.data.token
+        // })
     }
 
     changeHandler(e){
@@ -125,13 +125,13 @@ class ExpressForm extends Component{
     }
 
     onSubmitFn(){
-        const {name, mobile, place, address, provn, cityn, distn, token, paktn, prewnm, count} = this.state;
+        const {name, mobile, place, address, provn, cityn, distn, paktn, prewn, count} = this.state;
         const {sender} = this.props;
         const {dispatch, location} = this.props;
 
         let sourcesdata = {},
             targetdata = {
-                token,
+                // token,
                 sname: sender.name,
                 sphon: sender.sphon ,
                 sprov: sender.sprov,
@@ -167,7 +167,7 @@ class ExpressForm extends Component{
                     }
                 });
             } else {
-                console.log('fail')   
+                dispatch(toast(r.msg || "提交失败，请重试")) 
             }
             
         })
@@ -175,9 +175,9 @@ class ExpressForm extends Component{
 
     render(){
         let _this = this,
-            {name, mobile, provn, cityn, distn, zonen, prewn, paktn} = this.state,
+            {name, mobile, provn, cityn, distn, zonen, prewn, paktn } = this.state,
             sendername = this.props.sender.name;
-        console.log(prewn);
+
         return (
             <div className="clearfix">
                 <Header 
@@ -291,7 +291,13 @@ class ExpressForm extends Component{
                                     component="a">
                                     2KG
                                 </Tappable>
-                                <input className="other-input wb" id="prewn" defaultValue={paktn} onChange={this.changeHandler} type="tel"/>
+                                <input className="other-input wb" 
+                                    type="tel"
+                                    id="prewn" 
+                                    data-id="input"
+                                    placeholder={prewn} 
+                                    value={prewn}
+                                    onChange={this.changeHandler} />
                                 <label className="other-input yb">KG</label>
                             </p>
                         </div>
