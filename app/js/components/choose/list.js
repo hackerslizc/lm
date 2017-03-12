@@ -34,25 +34,26 @@ class List extends Component{
         this.ItemRender = this.ItemRender.bind(this)
     }
     componentDidMount(){
-        const {dispatch} = this.props;
+        const {dispatch, location} = this.props;
         const body = document.getElementsByTagName('body')[0] ;
+        let type = (location.state.type === 'addressee' ? 2 : 1);
         body.style.height = 'auto';
         body.style.backgroundColor = '#ececec';
         body.style.paddingBottom = '40px';
         dispatch(GetAddressList({
             // token: r.data.token,
-            atype:1, // 1是本地地址 2 是收件人
-            sno:10071
+            atype: type, // 1是本地地址 2 是收件人
+            sno: 10071
         }));
     }
 
     callbackFn(r){
         const {dispatch, location} = this.props;
-        this.setState({
-            token: r.data.token
-        })
+        // this.setState({
+        //     token: r.data.token
+        // })
         dispatch(GetAddressList({
-            token: r.data.token,
+            // token: r.data.token,
             atype:1, // 1是本地地址 2 是收件人
             sno:10071
         }));
@@ -83,7 +84,7 @@ class List extends Component{
             eleArr = [];
         for (var i = 0; i < list.length; i++){
             const opt = {
-                token: this.state.token,
+                // token: this.state.token,
                 id: list[i].addnr,
                 name: list[i].agena,
                 mobile: list[i].ageph,
@@ -106,17 +107,16 @@ class List extends Component{
     render(){
         let _this = this, 
             {dispatch, location} = this.props,
-            title = location.state.type === 'sender' ? '寄件人' : '收件人',
-            headerOpt = {
-                title:'选择'+title+'地址',
-                name:"address",
-                pathname:'alist',
-                getUserInfo: true
-             };
+            title = location.state.type === 'sender' ? '寄件人' : '收件人';
         return (
             <div className="clearfix">
                 <Header 
-                    opt={headerOpt}
+                    opt={{
+                        title:'选择'+title+'地址',
+                        name:"address",
+                        pathname:'addresslist',
+                        getUserInfo: true
+                     }}
                     callbackFn={this.callbackFn}>
                 </Header>
                 <div className="clearfix main">
@@ -130,7 +130,7 @@ class List extends Component{
                         to={{
                             pathname:'/address-add',
                             state:{
-                                token: _this.state.token,
+                                // token: _this.state.token,
                                 type: "new"
                             }
                         }}>

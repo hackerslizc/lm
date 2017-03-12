@@ -1,17 +1,13 @@
 import {Promise} from 'es6-promise';
 import fetch from 'isomorphic-fetch';
 import { hashHistory } from 'react-router';
-
 import CONSTS from '../../const';
-
 export const TOGGLE_LOADING = 'TOGGLE_LOADING';
 export const TOGGLE_DATA_LOADING = 'TOGGLE_DATA_LOADING';
 export const TOAST_TIP = 'TOAST_TIP';
 export const SET_RUNTIME = 'SET_RUNTIME';
-
 export const GET_ACCOUNT_INFO= 'GET_ACCOUNT_INFO';  //获取用户信息
 export const GET_PACKAGE_LIST= 'GET_PACKAGE_LIST';  //获取用户信息
-
 export const GET_ADDRESS_LIST= 'GET_ADDRESS_LIST';  //获取用户信息
 export const GET_ADDRESSEE= 'GET_ADDRESSEE';  //获取用户信息
 export const GET_SENDER= 'GET_SENDER';  //获取用户信息
@@ -174,15 +170,16 @@ function remote(options) {
         };
 
         let fetchOptions = {
-            credentials:'include'
-        },
+                credentials:'include'
+            },
             store = getState();
         options.data = {
             asn: 9024405, // 随机数
             aot: 9024391, //失效时间
             acd: "cac0efdbe794f04edd15b8085f4d7f27", //验证码， md5
+            appno: 2801000,
+            dbg: 2,
             // sno: '', // 服务编号
-
             // phone:18980709669,  
             // passw:"123456",
             ...options.data,
