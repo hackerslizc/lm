@@ -33,6 +33,7 @@ class BindUser extends Component{
         this.submitHandler = this.submitHandler.bind(this);
     }
     componentDidMount(){
+        alert(window.location.href)
         document.getElementsByTagName('body')[0].style.backgroundColor = '#fff'
     }
 
