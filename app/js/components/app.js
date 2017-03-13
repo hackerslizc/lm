@@ -9,7 +9,6 @@ import Loading from './loading';
 import LoadingBottom from './loadingbottom';
 import Header from './common/header';
 import {
-    remote,
     setRuntime,
 } from '../redux/actions'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
@@ -23,20 +22,6 @@ class App extends Component {
     }
 
     componentDidMount(){
-        // const {dispatch} = this.props,
-        //         _this = this;
-        // dispatch(remote({
-        //     type: 'post',
-        //     data: {
-        //         sno:10000
-        //     }
-        // })).then((r)=>{
-        //     if( r && r.data ){
-        //         dispatch(getAccountInfo(r.data));
-        //         _this.dispatchRoute(r);
-        //     }
-        // })
-
     }
      componentDidUpdate (prevProps) {
         if (this.props.location.pathname === '/') {

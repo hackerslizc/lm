@@ -8,7 +8,6 @@ import classnames from 'classnames';
 import Tappable from 'react-tappable';
 import {
     toast,
-    remote,
     toggleLoading,
     getAccountInfo
 } from '../../redux/actions';

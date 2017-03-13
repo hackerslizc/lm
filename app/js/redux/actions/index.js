@@ -150,83 +150,6 @@ function GetPackageList(data){
     }
 }
 
-function remote(options) {
-    return (dispatch, getState) => {
-        options = {
-            type: 'post',
-            data: {},
-            // 
-            ...options
-        };
-
-        let fetchOptions = {
-                credentials:'include'
-            },
-            store = getState();
-        options.data = {
-            asn: 9024405, // 随机数
-            aot: 9024391, //失效时间
-            acd: "cac0efdbe794f04edd15b8085f4d7f27", //验证码， md5
-            appno: 2801000,
-            // dbg: 2,
-            // sno: '', // 服务编号
-            // phone:18980709669,  
-            // passw:"123456",
-            ...options.data,
-
-        }
-
-        if ( options.type.toUpperCase() === 'GET' && options.data) {
-            let concatStr = '?';
-
-            if ( options.url.indexOf(concatStr) > -1 ) {
-                concatStr = '&'
-            }
-
-            options.url += (concatStr + param(options.data));
-        } else {
-            fetchOptions.method = options.type;
-            // fetchOptions.body = options.data;
-            fetchOptions.headers = {
-                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-            };
-            fetchOptions.body = param(options.data);
-            delete fetchOptions.credentials;
-        }
-
-        dispatch(toggleLoading(true));
-        let nowTiem = new Date().getTime();
-        return fetch(`${CONSTS.URL.SERVER_URl}?t=${nowTiem}`, fetchOptions)
-            .then(res =>res.json())
-            .then(json => {
-                dispatch(toggleLoading(false));
-                alert(json.sid)
-                if ( json.err == '0' ) {
-                    return json || {};
-                } else if (json.err == 1) {
-                    hashHistory.push('/bind');
-                }else {
-                    if(json.err == '908'){
-                        dispatch(toast('网络繁忙，服务端未知错误'))
-                        hashHistory.push('/error-page');
-                    }
-                    if ( json.msg != '') {
-                        dispatch(toast(json.msg))
-                    } else {
-                        dispatch(toast(json.msg || '网络繁忙，服务端未知错误'))
-                    }
-                }
-
-            })
-            .catch( e => {
-                dispatch(toggleLoading(false));
-                dispatch(toast('网络异常：' + e));
-                // hashHistory.push('/error-page');
-            });
-
-    }
-}
-
 function param (obj) {
     var str = [];
 
@@ -316,7 +239,6 @@ function paramToFormData (obj) {
 export {
     Ajax,
     toast,
-    remote,
     setRuntime,
     toggleDataLoading,
     toggleLoading,
