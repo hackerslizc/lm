@@ -124,39 +124,29 @@ function toast(msg){
 function GetAddressList(data){
     return (dispatch,  getState) => {
         const store = getState();
-        dispatch(
-            remote({
-                type: 'post',
-                data: {
-                    ...data
-                }
-            })
-        ).then((json)=>{
-            if (json) {
-                dispatch(getaddressList(json.data));
-            } else {
+        dispatch(Ajax({
+            data: {
+                ...data
+            },
+            success: (r) => {
+                dispatch(getaddressList(r.data));
             }
-        })
+        }))
     }
 }
 
 /*获取收件列表*/
 function GetPackageList(data){
     return dispatch => {
-        dispatch(
-            remote({
-                type: 'post',
-                data: {
-                    sno:10201,
-                    ...data
-                }
-            })
-        ).then((json)=>{
-            if (json) {
-                dispatch(getpackageList(json.data));
-            } else {
+        dispatch(Ajax({
+            data: {
+                sno:10201,
+                ...data
+            },
+            success: (r) => {
+                dispatch(getpackageList(r.data));
             }
-        })
+        }))
     }
 }
 
@@ -245,8 +235,68 @@ function param (obj) {
             str.push(encodeURIComponent(p) + '=' + encodeURIComponent(obj[p]));
         }
     }
-
     return str.join('&');
+}
+
+
+/* 封装ajax函数
+ * @param {string}opt.type http连接的方式，包括POST和GET两种方式
+ * @param {string}opt.url 发送请求的url
+ * @param {boolean}opt.async 是否为异步请求，true为异步的，false为同步的
+ * @param {object}opt.data 发送的参数，格式为对象类型
+ * @param {function}opt.success ajax发送并接收成功调用的回调函数
+ */
+function Ajax(opt){
+    return (dispatch, getState) => {
+        dispatch(toggleLoading(true));
+        opt = opt || {};
+        opt.method = 'POST';
+        opt.url = `${CONSTS.URL.SERVER_URl}?t=${new Date().getTime()}`;
+        opt.async = opt.async || true;
+        var tempdata = {
+            asn: 9024405, // 随机数
+            aot: 9024391, //失效时间
+            acd: "cac0efdbe794f04edd15b8085f4d7f27", //验证码， md5
+            appno: 2801000,
+        };
+        opt.data = Object.assign(tempdata, opt.data);
+        opt.success = opt.success || function () {};
+        var xmlHttp = null;
+        if (XMLHttpRequest) {
+            xmlHttp = new XMLHttpRequest();
+        }else {
+            xmlHttp = new ActiveXObject('Microsoft.XMLHTTP');
+        }
+        var params = [];
+        for (var key in opt.data){
+            params.push(key + '=' + opt.data[key]);
+        }
+        var postData = params.join('&');
+        if (opt.method.toUpperCase() === 'POST') {
+            xmlHttp.open(opt.method, opt.url, opt.async);
+            xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
+            xmlHttp.send(postData);
+        } else if (opt.method.toUpperCase() === 'GET') {
+            xmlHttp.open(opt.method, opt.url + '?' + postData, opt.async);
+            xmlHttp.send(null);
+        } 
+        xmlHttp.onreadystatechange = function () {
+            if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                var r = JSON.parse(xmlHttp.responseText);
+                dispatch(toggleLoading(false));
+                console.log(r);
+                if(r.err === 0){
+                    return opt.success(r)
+                } else {
+                    if (!opt.error) {
+                        return dispatch(toast(r.msg || '网络繁忙，服务端未知错误'))
+                    } else {
+                        return opt.error(r)
+                    }
+                }
+            }
+        };
+    }
 }
 
 function paramToFormData (obj) {
@@ -264,6 +314,7 @@ function paramToFormData (obj) {
 
 
 export {
+    Ajax,
     toast,
     remote,
     setRuntime,

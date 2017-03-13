@@ -10,7 +10,7 @@ import LocationSelect from '../common/location-select';
 import {returnAddr} from '../../common/Util';
 import {
     toast,
-    remote
+    Ajax
 } from '../../redux/actions/';
 /**
  *
@@ -154,10 +154,9 @@ class ExpressForm extends Component{
             sno: type ? 10304 : 10305
         });
 
-        dispatch(remote({
-            data: targetdata
-        })).then((r) => {
-            if (r.err === 0) {
+        dispatch(Ajax({
+            data: targetdata,
+            success: (r) => {
                 hashHistory.push({
                     pathname: '/express-result',
                     state: {
@@ -166,11 +165,11 @@ class ExpressForm extends Component{
                         address
                     }
                 });
-            } else {
+            },
+            error: (r) => {
                 dispatch(toast(r.msg || "提交失败，请重试")) 
             }
-            
-        })
+        }))
     }
 
     render(){

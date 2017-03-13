@@ -11,7 +11,7 @@ import ListItem from '../common/addItem';
 import LocationSelect from '../common/location-select';
 import {
     toast,
-    remote
+    Ajax
 } from '../../redux/actions/';
 /**
  *
@@ -122,16 +122,16 @@ class AddAddress extends Component{
             sno: location.state.type === 'edit' ? 10086 : 10085,
         });
 
-        dispatch(remote({
-            data: targetdata
-        })).then((r) => {
-            if(r.err === 0){
+        dispatch(Ajax({
+            data: targetdata,
+            success: (r) => {
                 dispatch(toast("地址"+type+r.msg));
                 window.location.reload()
-            } else {
+            },
+            error: (r) => {
                 dispatch(toast(r.msg));
             }
-        })
+        }))
     }
 
     callbackFn(data) {

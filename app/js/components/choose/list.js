@@ -9,7 +9,6 @@ import Header from '../common/header';
 import ListItem from '../common/chooseItem';
 import {
     toast,
-    remote,
     toggleLoading,
     GetAddressList,
     getAddressee,

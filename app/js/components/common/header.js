@@ -44,20 +44,19 @@ class Header extends Component{
         const {dispatch, opt} = this.props;
         //         _this = this;
         // if(opt.name != 'bind'){
-        //     dispatch(remote({
-        //         type: 'post',
-        //         data: {
-        //             sno:10000   //10000
-        //         }
-        //     })).then((r)=>{
-        //         if( r && r.data ){
-        //             dispatch(getAccountInfo(r.data));
-        //             this.setState({
-        //                 token: r.data.token
-        //             })
-        //             callbackFn && callbackFn(r);
-        //         }
-        //     })
+            // dispatch(Ajax({
+            //     type: 'post',
+            //     data: {
+            //         sno:10000   //10000
+            //     },
+            //     success: (r) => {
+            //         dispatch(getAccountInfo(r.data));
+            //         this.setState({
+            //             token: r.data.token
+            //         })
+            //         callbackFn && callbackFn(r);
+            //     }
+            // }))
         // } else {
         //     dispatch(toggleLoading(false));
         // }

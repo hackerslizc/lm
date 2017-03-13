@@ -9,7 +9,7 @@ import Header from '../common/header';
 import ListItem from '../common/addItem';
 import {
     toast,
-    remote,
+    Ajax,
     toggleLoading,
     GetAddressList
 } from '../../redux/actions';
@@ -77,7 +77,7 @@ class List extends Component{
         // 调用服务端删除接口
         const {dispatch} = this.props;
         dispatch(toggleLoading(false));
-        dispatch(remote({
+        dispatch(Ajax({
             data: {
                 // token: this.state.token,
                 addnr: data.id,
@@ -87,11 +87,12 @@ class List extends Component{
                 aot:9034107,
                 acd:'',
                 dbg:2
+            },
+            success: (r) => {
+                dispatch(toast(r.msg));
+                window.location.reload()
             }
-        })).then((r) => {
-            dispatch(toast(r.msg));
-            window.location.reload()
-        })
+        }))
     }
 
     ItemRender(){
@@ -127,7 +128,7 @@ class List extends Component{
             isdefault: id
         })
         const {dispatch} = this.props;
-        dispatch(remote({
+        dispatch(Ajax({
             data: {
                 // token: this.state.token,
                 addnr: id,
@@ -136,27 +137,25 @@ class List extends Component{
                 appno:2801000,
                 asn:9034087,
                 aot:9034087
+            },
+            success:(r) => {
+                dispatch(toast(`设置${r.msg}`))
+                window.location.reload();
             }
-        })).then( r => {
-            dispatch(toast(`设置${r.msg}`))
-            window.location.reload();
-        })
+        }))
     }
 
     render(){
         let _this = this, 
-            {dispatch, location} = this.props,
-            headerOpt = {
-                title:'地址列表',
-                name:"address",
-                pathname:'alist',
-                getUserInfo: true
-             };
+            {dispatch, location} = this.props ;
 
         return (
             <div className="clearfix">
-                <Header 
-                    opt={headerOpt}
+                <Header opt={{
+                    title:'地址列表',
+                    name:"address",
+                    pathname:'alist',
+                    getUserInfo: true }}
                     callbackFn={this.callbackFn}>
                 </Header>
                 <div className="clearfix main">

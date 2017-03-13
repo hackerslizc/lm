@@ -8,7 +8,7 @@ import Tappable from 'react-tappable';
 import Header from '../common/header';
 import ListItem from '../common/expresslistItem';
 import {
-    remote,
+    Ajax,
     GetPackageList
 } from '../../redux/actions';
 
@@ -50,22 +50,20 @@ class List extends Component{
         const {dispatch, accountinfo, location} = this.props,
             {token} = this.state;
         
-        dispatch(remote({
+        dispatch(Ajax({
             data:{
                 // token,
                 barna: type, //byOut
                 sno: 10301
-            }
-        })).then((r)=>{
-            console.log(r)
-            if(r.err === 0){
+            },
+            success: (r) => {
                 if( r.data.length != 0){
                     _this.setState({
                         listArr: r.data
                     })
                 }
             }
-        })
+        }))
     }
 
     ItemRender(){

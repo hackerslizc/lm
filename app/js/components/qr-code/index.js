@@ -5,7 +5,7 @@ import {Promise} from 'es6-promise';
 import Tappable from 'react-tappable';
 import Header from '../common/header';
 import {
-    remote
+    Ajax
 } from '../../redux/actions';
 
 /**
@@ -38,22 +38,20 @@ class QRcode extends Component{
             token: token
         });
 
-        dispatch(remote({
+        dispatch(Ajax({
             data:{
                 // token,
                 barna: 'byNew ', //byOut
                 sno: 10301
-            }
-        })).then((r)=>{
-            console.log(r)
-            if(r.err === 0){
+            },
+            success: (r) => {
                 if( r.data.length != 0){
                     _this.setState({
                         listArr: r.data
                     })
                 }
             }
-        })
+        }))
     }
 
     render(){

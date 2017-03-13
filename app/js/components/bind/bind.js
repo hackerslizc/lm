@@ -7,9 +7,11 @@ import Header from '../common/header';
 import Input from '../common/input';
 import CountDownBtn from '../common/countdown-btn';
 
+// import {Ajax} from '../../common/Util'
+
 import {
-    toast,
-    remote
+    Ajax,
+    toast
 } from '../../redux/actions';
 /**
  *
@@ -33,7 +35,6 @@ class BindUser extends Component{
         this.submitHandler = this.submitHandler.bind(this);
     }
     componentDidMount(){
-        alert(window.location.href)
         document.getElementsByTagName('body')[0].style.backgroundColor = '#fff'
     }
 
@@ -55,7 +56,7 @@ class BindUser extends Component{
     }
 
     headerCallbackFn(r) {
-        alert(r);
+        // alert(r);
     }
 
     beforeCountDownStart() {
@@ -67,18 +68,20 @@ class BindUser extends Component{
             dispatch(toast('手机号错误，请重新填写'));
             return false;
         }
-        dispatch(remote({
-            data: {
+        dispatch(Ajax({
+            method : 'post',
+            data : {
                 sno: 10021,
                 phone
-            }
-        })).then((r) => {
-            if (r && r.err == 0) {
+            },
+            success: (r) => {
                 dispatch(toast('短信验证码发送成功'))
-            } else {
+            },
+            error: (r) =>{
+                dispatch(toast(r.msg))
                 me.refs.countDown.reset();
             }
-        })
+        }))
     }
 
     validform(){
@@ -98,20 +101,21 @@ class BindUser extends Component{
     submitHandler(){
         const {dispatch} = this.props;
         const {smsvc, phone} = this.state;
-        dispatch(remote({
-            data: {
+        dispatch(Ajax({
+            method : 'post',
+            data : {
                 sno: 10022,
                 smsvc,
                 phone,
                 sigip: 0
-            }
-        })).then((r) => {
-            if (r && r.err == 0) {
+            },
+            success: (r) => {
                 hashHistory.push('/bind-result');
-            } else {
+            },
+            error: (r) =>{
                 dispatch(toast(r.msg));
             }
-        })
+        }))
     }
 
     render(){
