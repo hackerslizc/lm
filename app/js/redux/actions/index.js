@@ -13,7 +13,6 @@ export const GET_ADDRESSEE= 'GET_ADDRESSEE';  //获取用户信息
 export const GET_SENDER= 'GET_SENDER';  //获取用户信息
 
 
-
 /**
  * @param  {data} 传递用户信息
  * @return {Object} action 对象
@@ -124,6 +123,7 @@ function toast(msg){
 function GetAddressList(data){
     return (dispatch,  getState) => {
         const store = getState();
+        console.log(1)
         dispatch(Ajax({
             data: {
                 ...data
@@ -169,6 +169,58 @@ function param (obj) {
  * @param {object}opt.data 发送的参数，格式为对象类型
  * @param {function}opt.success ajax发送并接收成功调用的回调函数
  */
+// function Ajax(opt){
+//     return (dispatch, getState) => {
+//         dispatch(toggleLoading(true));
+//         opt = opt || {};
+//         opt.method = 'POST';
+//         opt.url = `${CONSTS.URL.SERVER_URl}?t=${new Date().getTime()}`;
+//         opt.async = opt.async || true;
+//         var tempdata = {
+//             asn: 9024405, // 随机数
+//             aot: 9024391, //失效时间
+//             acd: "cac0efdbe794f04edd15b8085f4d7f27", //验证码， md5
+//             appno: 2801000,
+//         };
+//         opt.data = Object.assign(tempdata, opt.data);
+//         opt.success = opt.success || function () {};
+//         var xmlHttp = null;
+//         if (XMLHttpRequest) {
+//             xmlHttp = new XMLHttpRequest();
+//         }else {
+//             xmlHttp = new ActiveXObject('Microsoft.XMLHTTP');
+//         }
+//         var params = [];
+//         for (var key in opt.data){
+//             params.push(key + '=' + opt.data[key]);
+//         }
+//         var postData = params.join('&');
+//         if (opt.method.toUpperCase() === 'POST') {
+//             xmlHttp.open(opt.method, opt.url, opt.async);
+//             xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
+//             xmlHttp.send(postData);
+//         } else if (opt.method.toUpperCase() === 'GET') {
+//             xmlHttp.open(opt.method, opt.url + '?' + postData, opt.async);
+//             xmlHttp.send(null);
+//         } 
+//         xmlHttp.onreadystatechange = function () {
+//             if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+//                 var r = JSON.parse(xmlHttp.responseText);
+//                 dispatch(toggleLoading(false));
+//                 console.log(r);
+//                 if(r.err === 0){
+//                     return opt.success(r)
+//                 } else {
+//                     if (!opt.error) {
+//                         return dispatch(toast(r.msg || '网络繁忙，服务端未知错误'))
+//                     } else {
+//                         return opt.error(r)
+//                     }
+//                 }
+//             }
+//         };
+//     }
+// }
 function Ajax(opt){
     return (dispatch, getState) => {
         dispatch(toggleLoading(true));
@@ -182,6 +234,7 @@ function Ajax(opt){
             acd: "cac0efdbe794f04edd15b8085f4d7f27", //验证码， md5
             appno: 2801000,
         };
+
         opt.data = Object.assign(tempdata, opt.data);
         opt.success = opt.success || function () {};
         var xmlHttp = null;
@@ -198,17 +251,18 @@ function Ajax(opt){
         if (opt.method.toUpperCase() === 'POST') {
             xmlHttp.open(opt.method, opt.url, opt.async);
             xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
+            // xmlHttp.setRequestHeader('Content-Type', 'application/json;charset=utf-8');
             xmlHttp.send(postData);
         } else if (opt.method.toUpperCase() === 'GET') {
             xmlHttp.open(opt.method, opt.url + '?' + postData, opt.async);
             xmlHttp.send(null);
         } 
+
         xmlHttp.onreadystatechange = function () {
             if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
                 var r = JSON.parse(xmlHttp.responseText);
                 dispatch(toggleLoading(false));
-                console.log(r);
-                if(r.err === 0){
+                if(r.err == 0){
                     return opt.success(r)
                 } else {
                     if (!opt.error) {

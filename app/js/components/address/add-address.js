@@ -116,22 +116,40 @@ class AddAddress extends Component{
             };
         }
 
+        // let dosql =`"agena: ''${name}'' ,ageph: ''${mobile}'', provn: ''${provn}'', cityn: ''${cityn}'', distn: ''${distn}'', stren : 0, builn: 0, unitn: 0, housn: 0, zonen: ''${address}''"`;
+
         const type = (location.state.type === 'edit' ? '修改' : '新增');
 
         targetdata = Object.assign(targetdata, sourcesdata, {
             sno: location.state.type === 'edit' ? 10086 : 10085,
         });
 
-        dispatch(Ajax({
-            data: targetdata,
-            success: (r) => {
-                dispatch(toast("地址"+type+r.msg));
-                window.location.reload()
-            },
-            error: (r) => {
-                dispatch(toast(r.msg));
-            }
-        }))
+        // targetdata = Object.assign({
+        //     dosql: `provn=''${provn}'',cityn=''${cityn}'',distn=''${distn}'',zonen=''${address}'',builn=''0'',unitn=''0'',housn=''0'',agena=''${name}'',ageph=''${mobile}''`
+        // }, sourcesdata, {
+        //     // sno: location.state.type === 'edit' ? 10086 : 10085,
+        //     sno: location.state.type === 'edit' ? 10076 : 10075,
+        // });
+
+        alert(JSON.stringify(targetdata))
+
+        try {
+            dispatch(Ajax({
+                data: targetdata,
+                success: (r) => {
+                    dispatch(toast("地址"+type+r.msg));
+                    setTimeout(() => {
+                        hashHistory.goBack();
+                    }, 1000)
+                },
+                error: (r) => {
+                    dispatch(toast(r.msg));
+                }
+            }))
+        } catch(ex) {
+            alert(ex)
+        }
+        
     }
 
     callbackFn(data) {

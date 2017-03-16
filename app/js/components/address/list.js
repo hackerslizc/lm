@@ -147,7 +147,7 @@ class List extends Component{
 
     render(){
         let _this = this, 
-            {dispatch, location} = this.props ;
+            {dispatch, list} = this.props ;
 
         return (
             <div className="clearfix">
@@ -160,7 +160,7 @@ class List extends Component{
                 </Header>
                 <div className="clearfix main">
                     {
-                        this.ItemRender()
+                        list.length !== 0 && this.ItemRender()
                     }
                 </div>
                 <div className="clearfix fixed flex-box">
