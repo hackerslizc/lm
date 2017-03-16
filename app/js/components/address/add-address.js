@@ -131,8 +131,6 @@ class AddAddress extends Component{
         //     sno: location.state.type === 'edit' ? 10076 : 10075,
         // });
 
-        alert(JSON.stringify(targetdata))
-
         try {
             dispatch(Ajax({
                 data: targetdata,

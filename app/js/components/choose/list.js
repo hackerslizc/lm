@@ -41,7 +41,7 @@ class List extends Component{
         body.style.paddingBottom = '40px';
         dispatch(GetAddressList({
             // token: r.data.token,
-            atype: type, // 1是本地地址 2 是收件人
+            atype: 1, // 1是本地地址 2 是收件人
             sno: 10071
         }));
     }
