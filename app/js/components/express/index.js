@@ -129,14 +129,16 @@ class ExpressForm extends Component{
         const {sender} = this.props;
         const {dispatch, location} = this.props;
 
+        // alert(JSON.stringify(sender))
+
         let sourcesdata = {},
             targetdata = {
                 // token,
                 sname: sender.name,
-                sphon: sender.sphon ,
-                sprov: sender.sprov,
-                scity: sender.scity ,
-                sdist: sender.sdist ,
+                sphon: sender.mobile ,
+                sprov: sender.provn,
+                scity: sender.cityn ,
+                sdist: sender.distn ,
                 saddr: sender.address ,
                 gname: name ,
                 gphon: mobile,
@@ -150,7 +152,7 @@ class ExpressForm extends Component{
                 savev : 0
             };
         const type = true;
-        targetdata = Object.assign(targetdata, sourcesdata, {
+        targetdata = Object.assign(sourcesdata, targetdata, {
             sno: type ? 10304 : 10305
         });
 
