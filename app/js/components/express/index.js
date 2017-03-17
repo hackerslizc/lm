@@ -154,6 +154,8 @@ class ExpressForm extends Component{
             sno: type ? 10304 : 10305
         });
 
+        // alert(JSON.stringify(targetdata));
+
         dispatch(Ajax({
             data: targetdata,
             success: (r) => {
