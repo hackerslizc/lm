@@ -1,41 +1,23 @@
 import React, { Component, PropTypes } from 'react';
 import {hashHistory,Link} from 'react-router';
-import { connect } from 'react-redux';
-import {Promise} from 'es6-promise';
-
-import CONSTS from '../../const.js';
-
 import Tappable from 'react-tappable';
-
 import Header from '../common/header';
-
-import {
-    // AccountInfoFn
-} from '../../redux/actions';
 /**
  *
- * @param  {会员中心}
+ * @param  {结果页面}
  *
  **/
 class MailingResult extends Component{
-
-    constructor (props) {
-        super(props);
-        this.state = {
-        }
-    }
-
     componentWillMount(){
         document.getElementsByTagName('body')[0].style.backgroundColor = '#fff'
     }
-
-    componentDidMount(){
-        console.log();
+    componentWillUnmount (){
+        localStorage.clear()
     }
-    
     render(){
-        const {location: {state}} = this.props;
-        if(!state || !state.name || !state.mobile) return null;
+        const data= localStorage;
+        // alert(JSON.stringify(data.getItem('name')))
+        if(!data.getItem('name') || !data.getItem('mobile') || !data.getItem('address')) return null;
         return (
             <div className="clearfix">
                 <Header opt={{
@@ -49,15 +31,15 @@ class MailingResult extends Component{
                     <div className="clearfix mt40 l30">
                         <div className="flex-box">
                             <div className="flex-3 tr">收件人：</div>
-                            <div className="flex-4">申通快递物流</div>
+                            <div className="flex-4">{data.getItem('name')}</div>
                         </div>
                         <div className="flex-box">
                             <div className="flex-3 tr">电       话：</div>
-                             <div className="flex-4">15982316112</div>
+                             <div className="flex-4">{data.getItem('mobile')}</div>
                         </div>
                         <div className="flex-box">
                             <div className="flex-3 tr">取件地址：</div>
-                             <div className="flex-4">申通快递物流申通快递物流</div>
+                             <div className="flex-4">{data.getItem('address')}</div>
                         </div>
                     </div>
                     <div className="tc l24 yellocol clearfix mt40"><i className="local-icon"></i>系统正在为您安排小哥上门，请耐心等待！</div>
@@ -65,19 +47,5 @@ class MailingResult extends Component{
          </div>
         )
     }
-};
-
-
-const mapStateToProps = (state) => {
-    // console.log(state.indexConfig)
-    return { 
-        loginstatus:{
-            // ...state.setLoginStatus
-        },
-        accountinfo:{
-            // ...state.setAccountInfo
-        }
-    }
-};
-
-export default connect(mapStateToProps)(MailingResult);
+}
+export default MailingResult;

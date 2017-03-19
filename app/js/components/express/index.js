@@ -30,6 +30,7 @@ class ExpressForm extends Component{
             cityn: cityn ? cityn : '',
             distn: distn ? distn : '',
             locan: address ? address : '',
+            address: address ? address : '',
             zonen: address ? address : '',
             count: 1,
             prewn: 0,
@@ -157,18 +158,13 @@ class ExpressForm extends Component{
         });
 
         // alert(JSON.stringify(targetdata));
-
         dispatch(Ajax({
             data: targetdata,
             success: (r) => {
-                hashHistory.push({
-                    pathname: '/express-result',
-                    state: {
-                        mobile,
-                        mobile,
-                        address
-                    }
-                });
+                localStorage.setItem('name', name);
+                localStorage.setItem('mobile', mobile);
+                localStorage.setItem('address', address);
+                hashHistory.push('/express-result');
             },
             error: (r) => {
                 dispatch(toast(r.msg || "提交失败，请重试")) 
