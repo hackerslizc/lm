@@ -36,7 +36,7 @@ class List extends Component{
         const {dispatch, location} = this.props;
         const body = document.getElementsByTagName('body')[0] ;
         let type = (location.state.type === 'addressee' ? 2 : 1);
-        body.style.height = 'auto';
+        body.style.minHeight = '100%';
         body.style.backgroundColor = '#ececec';
         body.style.paddingBottom = '40px';
         dispatch(GetAddressList({
@@ -108,7 +108,7 @@ class List extends Component{
             {dispatch, location} = this.props,
             title = location.state.type === 'sender' ? '寄件人' : '收件人';
         return (
-            <div className="clearfix">
+            <div className="clearfix" style={{'min-height': '100%', position: 'relative'}}>
                 <Header 
                     opt={{
                         title:'选择'+title+'地址',
