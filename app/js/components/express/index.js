@@ -251,6 +251,16 @@ class ExpressForm extends Component{
                     </div>
                     <div className="clearfix express-form-item">
                         <div className="flex-box clearfix">
+                            <label className="clearfix flex-1 justify">快递公司：<span></span></label>
+                            <p className="clearfix flex-2">
+                                <select name="" id="" className="select">
+                                    <option value="">无</option>
+                                </select>
+                            </p>
+                        </div>
+                    </div>
+                    <div className="clearfix express-form-item">
+                        <div className="flex-box clearfix">
                             <label className="clearfix flex-1 justify">下单数量：<span></span></label>
                             <p className="clearfix flex-2">
                                 <Tappable
