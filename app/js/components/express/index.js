@@ -68,7 +68,7 @@ class ExpressForm extends Component{
                 sno: 10315
             },
             success: (r) => {
-                alert(JSON.stringify(r))
+                // alert(JSON.stringify(r))
                 this.sendoption(r.data)
             },
             error: (r) => {
