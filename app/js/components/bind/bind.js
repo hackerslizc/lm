@@ -49,10 +49,9 @@ class BindUser extends Component{
     }
 
     callbackFn(e){
-        const {value} = e.currentTarget;
-        this.setState({
-            smsvc: value
-        })
+        let data = {};
+        data[e.currentTarget.id] = e.currentTarget.value
+        this.setState(data)
     }
 
     headerCallbackFn(r) {
