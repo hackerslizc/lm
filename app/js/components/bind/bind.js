@@ -49,10 +49,9 @@ class BindUser extends Component{
     }
 
     callbackFn(e){
-        const {value} = e.currentTarget;
-        this.setState({
-            smsvc: value
-        })
+        const data = {};
+        data[e.currentTarget.id] = e.currentTarget.value
+        this.setState(data)
     }
 
     headerCallbackFn(r) {
@@ -134,17 +133,13 @@ class BindUser extends Component{
                         callbackFn={this.headerCallbackFn}>
                 </Header>
                 <div className="clearfix main">
-                    <Input opt={{
-                        id:'mobile',
-                        margint: true,
-                        pagename:'bind',
-                        type: 'mobile',
-                        label: '手机号码',
-                        callbackFn:_this.inputcallbackFn}}>
-                    </Input>
-                    <div className="captcha-warp mt20 clearfix ">
+                    <div className="input-warp mt20 clearfix">
+                        <i className="mobile-img"></i>
+                        <input type="tel" maxLength="11" id="phone"  placeholder="请填写手机号"  onChange={_this.callbackFn}/> 
+                    </div>
+                    <div className="input-warp mt20 clearfix ">
                         <i className="captcha-img"></i>
-                        <input type="tel" maxLength="6" id="smsvc" onChange={_this.callbackFn}/> 
+                        <input type="tel" maxLength="6" className="captcha"  id="smsvc" placeholder="短信验证码" onChange={_this.callbackFn}/> 
                         <CountDownBtn className="captcha-btn" options={countOptions} ref="countDown"/>
                     </div>
                     <Tappable
