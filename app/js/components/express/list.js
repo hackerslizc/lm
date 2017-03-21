@@ -32,7 +32,6 @@ class List extends Component{
     }
     componentDidMount(){
         const body = document.getElementsByTagName('body')[0];
-        body.style.height = 'auto';
         body.style.backgroundColor = '#ececec';
         body.style.paddingBottom = '40px';
         this.getList();

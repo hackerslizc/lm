@@ -25,7 +25,6 @@ class QRcode extends Component{
     }
     componentDidMount(){
         const body = document.getElementsByTagName('body')[0];
-        body.style.height = 'auto';
         body.style.backgroundColor = '#f2f1f1';
         body.style.paddingBottom = '40px';
     }

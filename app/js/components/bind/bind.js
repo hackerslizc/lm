@@ -85,17 +85,18 @@ class BindUser extends Component{
     }
 
     validform(){
-        const {dispatch} = this.props;
-        const regex = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
-        const {phone, smsvc} = this.state;
-        let status = '';
-        if (!regex.test(phone)) {
-            dispatch(toast('手机号码错误，请重新填写'));
-        } else if (smsvc ==='' || smsvc.length != 6) {
-            dispatch(toast('短信验证码错误，请重新填写'));
-        } else {
-            this.submitHandler()
-        }
+        hashHistory.push('/bind-result');
+        // const {dispatch} = this.props;
+        // const regex = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+        // const {phone, smsvc} = this.state;
+        // let status = '';
+        // if (!regex.test(phone)) {
+        //     dispatch(toast('手机号码错误，请重新填写'));
+        // } else if (smsvc ==='' || smsvc.length != 6) {
+        //     dispatch(toast('短信验证码错误，请重新填写'));
+        // } else {
+        //     this.submitHandler()
+        // }
     }
 
     submitHandler(){

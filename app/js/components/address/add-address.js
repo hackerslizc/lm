@@ -50,7 +50,6 @@ class AddAddress extends Component{
     }
     componentDidMount(){
         let body = document.getElementsByTagName('body')[0];
-        body.style.height = 'auto';
         body.style.backgroundColor = '#fff';
         document.getElementsByClassName('main')[0].style.paddingTop = '0px';
     }
@@ -79,12 +78,12 @@ class AddAddress extends Component{
         } else if(!(/^1[3578]\d{9}$/.test(mobile))){
             valid = false;
             dispatch(toast("手机号错误，请重新填写"))
-        } else if(place == ''){
-            valid = true;
-            // dispatch(toast("所在地区错误，请重新填写"))
         } else if(address == ''){
             valid = false;
             dispatch(toast("详细地址错误，请重新填写"))
+        } else if(place == ''){
+            valid = true;
+            // dispatch(toast("所在地区错误，请重新填写"))
         } else {
             valid = true;
         } 

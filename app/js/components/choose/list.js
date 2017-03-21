@@ -36,7 +36,6 @@ class List extends Component{
         const {dispatch, location} = this.props;
         const body = document.getElementsByTagName('body')[0] ;
         let type = (location.state.type === 'addressee' ? 2 : 1);
-        body.style.height = 'auto';
         body.style.backgroundColor = '#ececec';
         body.style.paddingBottom = '40px';
         dispatch(GetAddressList({

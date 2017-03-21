@@ -18,9 +18,8 @@ class BindResult extends Component{
     }
     componentDidMount(){
         const body = document.getElementsByTagName('body')[0];
-        body.style.height = 'auto';
+        body.style.height = '100%';
         body.style.backgroundColor = '#ececec';
-        body.style.paddingBottom = '40px';
     }
     callbackFn(opt){
         // this.getList()
