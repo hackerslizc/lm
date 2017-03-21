@@ -85,18 +85,18 @@ class BindUser extends Component{
     }
 
     validform(){
-        hashHistory.push('/bind-result');
-        // const {dispatch} = this.props;
-        // const regex = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
-        // const {phone, smsvc} = this.state;
-        // let status = '';
-        // if (!regex.test(phone)) {
-        //     dispatch(toast('手机号码错误，请重新填写'));
-        // } else if (smsvc ==='' || smsvc.length != 6) {
-        //     dispatch(toast('短信验证码错误，请重新填写'));
-        // } else {
-        //     this.submitHandler()
-        // }
+        // hashHistory.push('/bind-result');
+        const {dispatch} = this.props;
+        const regex = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+        const {phone, smsvc} = this.state;
+        let status = '';
+        if (!regex.test(phone)) {
+            dispatch(toast('手机号码错误，请重新填写'));
+        } else if (smsvc ==='' || smsvc.length != 6) {
+            dispatch(toast('短信验证码错误，请重新填写'));
+        } else {
+            this.submitHandler()
+        }
     }
 
     submitHandler(){
@@ -135,17 +135,13 @@ class BindUser extends Component{
                         callbackFn={this.headerCallbackFn}>
                 </Header>
                 <div className="clearfix main">
-                    <Input opt={{
-                        id:'mobile',
-                        margint: true,
-                        pagename:'bind',
-                        type: 'mobile',
-                        label: '手机号码',
-                        callbackFn:_this.inputcallbackFn}}>
-                    </Input>
+                    <div className="captcha-warp mt20 clearfix ">
+                        <i className="mobile-img"></i>
+                        <input type="tel" maxLength="11" id="phone"  placeholder="请填写手机号" onChange={_this.callbackFn}/> 
+                    </div>
                     <div className="captcha-warp mt20 clearfix ">
                         <i className="captcha-img"></i>
-                        <input type="tel" maxLength="6" id="smsvc" onChange={_this.callbackFn}/> 
+                        <input type="tel" maxLength="6" id="smsvc" placeholder="短信验证码" onChange={_this.callbackFn}/> 
                         <CountDownBtn className="captcha-btn" options={countOptions} ref="countDown"/>
                     </div>
                     <Tappable

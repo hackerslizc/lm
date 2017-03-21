@@ -52,6 +52,7 @@ class AddAddress extends Component{
         let body = document.getElementsByTagName('body')[0];
         body.style.backgroundColor = '#fff';
         body.style.minHeight = '100%';
+        body.style.paddingBottom = '80px';
         document.getElementsByClassName('main')[0].style.paddingTop = '0px';
     }
 

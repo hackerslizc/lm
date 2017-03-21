@@ -32,7 +32,7 @@ class BindResult extends Component{
 
     render(){
         return (
-            <div className="clearfix">
+            <div className="clearfix" style={{height: '100%'}}>
                 <Header 
                     opt={{
                         title:'邻米',
