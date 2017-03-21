@@ -51,6 +51,7 @@ class AddAddress extends Component{
     componentDidMount(){
         let body = document.getElementsByTagName('body')[0];
         body.style.backgroundColor = '#fff';
+        body.style.minHeight = '100%';
         document.getElementsByClassName('main')[0].style.paddingTop = '0px';
     }
 
@@ -168,7 +169,7 @@ class AddAddress extends Component{
             {name, mobile, address, cityn, provn, distn } = this.state;
         // console.log(this.props)
         return (
-            <div className="clearfix">
+            <div className="clearfix" style={{position: 'relative', height: '100%'}}>
                 <Header 
                     opt={{
                         title:_this.props.location.state.type === 'edit' ? '编辑地址' : '新增地址',

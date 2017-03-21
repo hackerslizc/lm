@@ -41,18 +41,18 @@ class App extends Component {
 
         content =
             <ReactCSSTransitionGroup
-                component="div" transitionName="example"
+                component="div" className="clearfix" style={{'min-height': '100%'}} transitionName="example"
                 transitionEnterTimeout={200} transitionLeaveTimeout={50}>
                 {
                     React.cloneElement(this.props.children || <div />, { key: key })
                 }
             </ReactCSSTransitionGroup>;
         return (
-            <div>
+            <div className="clearfix" style={{height: '100%'}}>
                 {
                     // false && <Home/>
                 }
-                {content}
+                {this.props.children}
                 <Loading />
                 {!!this.props.dataloading &&
                     <LoadingBottom />
