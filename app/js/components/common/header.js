@@ -30,13 +30,14 @@ class Header extends Component{
 
         this.state={
             getdata:true,
-            showList: false
+            showList: false,
+            type: ''
         }
 
         this.backHandleFn = this.backHandleFn.bind(this);
         this.showList = this.showList.bind(this);
         this.renderHeader = this.renderHeader.bind(this);
-        this.clickHancler = this.clickHancler.bind(this)
+        this.clickHandler = this.clickHandler.bind(this)
     }
 
     componentDidMount(){
@@ -74,7 +75,7 @@ class Header extends Component{
     }
 
     renderHeader() {
-        const {showList} = this.state;
+        const {showList, type} = this.state;
         const {opt} = this.props;
         let ele = '';
 
@@ -85,10 +86,18 @@ class Header extends Component{
                             showList && (<div className="header-list">
                                 <div className="arrow-up"></div>
                                 <ul>
-                                    <li id="byGet" onClick={this.clickHancler}>已取件</li>
-                                    <li id="byHis" onClick={this.clickHancler}>已送件</li>
-                                    <li id="byNew" onClick={this.clickHancler}>待取件</li>
-                                    <li id="byOut" onClick={this.clickHancler}>待送件</li>
+                                    <li id="byGet" className={classnames({
+                                        active: type === 'byGet'
+                                    })} onClick={this.clickHandler}>已取件</li>
+                                    <li id="byHis" className={classnames({
+                                        active: type === 'byHis'
+                                    })} onClick={this.clickHandler}>已送件</li>
+                                    <li id="byNew" className={classnames({
+                                        active: type === 'byNew'
+                                    })} onClick={this.clickHandler}>待取件</li>
+                                    <li id="byOut" className={classnames({
+                                        active: type === 'byOut'
+                                    })} onClick={this.clickHandler}>待送件</li>
                                 </ul>
                             </div>)
                         }
@@ -100,8 +109,12 @@ class Header extends Component{
                             showList && (<div className="header-list">
                                 <div className="arrow-up"></div>
                                 <ul>
-                                    <li id="byNew" onClick={this.clickHancler}>新建列表</li>
-                                    <li id="byOut" onClick={this.clickHancler}>已付列表</li>
+                                    <li id="byNew" className={classnames({
+                                        active: type === 'byNew'
+                                    })} onClick={this.clickHandler}>新建列表</li>
+                                    <li id="byOut" className={classnames({
+                                        active: type === 'byOut'
+                                    })} onClick={this.clickHandler}>已付列表</li>
                                 </ul>
                             </div>)
                         }
@@ -115,14 +128,16 @@ class Header extends Component{
         return ele;
     }
 
-    clickHancler(e) {
+    clickHandler(e) {
         const {showList} = this.state;
         const {requestHandler} = this.props;
         const id = e.currentTarget.id;
         this.setState({
-            showList: !showList
+            showList: !showList,
+            type: id
         })
-
+        
+        if (e.currentTarget.classList.contains('active')) return false;
         requestHandler && requestHandler(id)
 
     }
@@ -150,18 +165,6 @@ class Header extends Component{
                     <div className="nav-title-wrap">
                         {this.renderHeader()}
                     </div>
-                    {
-                        false && (<div className="nav-more">
-                            <Tappable
-                                onTap={this.clickHancler}
-                                className="header-trade-record white-col"
-                                component="a">
-                                <i className="header-trade-record-icon"></i>
-                                <label>账单1</label>
-                            </Tappable>
-                        </div>)
-                    }
-                    
                 </div>
             </header>
         )

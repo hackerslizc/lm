@@ -34,7 +34,9 @@ class ExpressForm extends Component{
             zonen: address ? address : '',
             count: 1,
             prewn: 0,
-            paktn: ''
+            paktn: '',
+            company: '',
+            option: []
         };
         this.headercallbackFn = this.headercallbackFn.bind(this);
         this.callbackFn = this.callbackFn.bind(this);
@@ -46,11 +48,45 @@ class ExpressForm extends Component{
         this.onVerificationFn = this.onVerificationFn.bind(this);
         this.changeWeight = this.changeWeight.bind(this);
     }
+
+    componentWillMount() {
+        this.fetchCompany()
+    }
+
     componentDidMount(){
         const body = document.getElementsByTagName('body')[0];
         body.style.backgroundColor = '#fff';
         body.style.paddingBottom = '0px';
     }
+
+    fetchCompany() {
+        const {dispatch, location} = this.props;
+
+        dispatch(Ajax({
+            data: {
+                isall: 0,
+                sno: 10315
+            },
+            success: (r) => {
+                // alert(JSON.stringify(r))
+                this.sendoption(r.data)
+            },
+            error: (r) => {
+                dispatch(toast(r.msg || "提交失败，请重试")) 
+            }
+        }))
+    }
+
+    sendoption(data) {
+        const ele = [];
+        data.forEach((item, idx) => {
+            ele.push(<option value={item.posnr}>{item.posnt}</option>)
+        })
+        this.setState({
+            option: ele
+        })
+    }
+
     reduceFn(){
         const {count} = this.state;
         if(count === 1) return false;
@@ -174,7 +210,7 @@ class ExpressForm extends Component{
 
     render(){
         let _this = this,
-            {name, mobile, provn, cityn, distn, zonen, prewn, paktn } = this.state,
+            {name, mobile, provn, cityn, distn, zonen, prewn, paktn, option} = this.state,
             sendername = this.props.sender.name;
 
         return (
@@ -246,6 +282,18 @@ class ExpressForm extends Component{
                             <label className="clearfix flex-1 justify">详细地址：<span></span></label>
                             <p className="clearfix flex-2">
                                 <input type="text" id="address" className="flex-1" defaultValue={zonen} onChange={this.changeHandler}/>
+                            </p>
+                        </div>
+                    </div>
+                    <div className="clearfix express-form-item">
+                        <div className="flex-box clearfix">
+                            <label className="clearfix flex-1 justify">快递公司：<span></span></label>
+                            <p className="clearfix flex-2">
+                                <select name="" id="" className="select">
+                                {
+                                    option.length !== 0 ? option : <option value="0">无</option>
+                                }
+                                </select>
                             </p>
                         </div>
                     </div>

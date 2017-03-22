@@ -190,23 +190,42 @@ html,body{
     .mobile-img{
         width: 10px;
         height: 15px;
+<<<<<<< HEAD
         margin-left: 15px;
+=======
+        margin-left:15px;
+>>>>>>> dev
         display: inline-block;
+        margin-bottom: -2px;
+    }
+    .captcha-img{
         background: url('../img/lock.png') no-repeat;
         background-size: 10px 15px;
     }
+<<<<<<< HEAD
     .mobile-img {
         background: url('../img/mobile.png') no-repeat;
         background-size: 10px 15px;
     }
     input.captcha {
+=======
+    .mobile-img{
+        background: url('../img/mobile.png') no-repeat;
+        background-size: 10px 15px;
+    }
+    input {
+>>>>>>> dev
         height: 24px;
         line-height: 24px;
-        margin-top: 7px;
+        // margin-top: 7px;
         max-width: 150px;
         display: inline-block;
     }
+<<<<<<< HEAD
     input.captcha {
+=======
+    input#smsvc{
+>>>>>>> dev
         max-width: 100px;
     }
     .captcha-btn{
@@ -301,16 +320,16 @@ a.formItem p{
     background-size: 100% 100%;
 }
 .header-list{
-    width: 150px;
+    width: 100px;
     height: auto;
     background: #fff;
     position: absolute;
     border:#f2f1f1 1px solid;
-    border-radius: 8px;
+    border-radius: 3px;
     top: 40px;
     z-index: 3;
     left: 50%;
-    margin-left: -75px;
+    margin-left: -25px;
     box-shadow: 0px 0px 10px #999;
     .arrow-up{
         position: absolute;
@@ -331,6 +350,9 @@ a.formItem p{
     text-align: right;
     padding-right: 10px;
     border-bottom: #eee 1px solid;
+}
+.header-list li.active{
+    background-color: #fae2d3;
 }
 .header-list li:last-child{
     border-bottom:0px;
@@ -612,6 +634,11 @@ a.formItem p{
         border-radius: 5px;
         height: 30px;
         line-height: 30px;
+    }
+    select{
+        height: 30px;
+        line-height: 30px;
+        width: 120px;
     }
     .calculation-btn,
     .other-input{

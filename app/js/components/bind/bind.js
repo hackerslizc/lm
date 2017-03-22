@@ -49,7 +49,11 @@ class BindUser extends Component{
     }
 
     callbackFn(e){
+<<<<<<< HEAD
         const data = {};
+=======
+        let data = {};
+>>>>>>> dev
         data[e.currentTarget.id] = e.currentTarget.value
         this.setState(data)
     }
@@ -134,6 +138,7 @@ class BindUser extends Component{
                         callbackFn={this.headerCallbackFn}>
                 </Header>
                 <div className="clearfix main">
+<<<<<<< HEAD
                     <div className="input-warp mt20 clearfix">
                         <i className="mobile-img"></i>
                         <input type="tel" maxLength="11" id="phone"  placeholder="请填写手机号"  onChange={_this.callbackFn}/> 
@@ -141,6 +146,15 @@ class BindUser extends Component{
                     <div className="input-warp mt20 clearfix ">
                         <i className="captcha-img"></i>
                         <input type="tel" maxLength="6" className="captcha"  id="smsvc" placeholder="短信验证码" onChange={_this.callbackFn}/> 
+=======
+                    <div className="captcha-warp mt20 clearfix ">
+                        <i className="mobile-img"></i>
+                        <input type="tel" maxLength="11" id="phone"  placeholder="请填写手机号" onChange={_this.callbackFn}/> 
+                    </div>
+                    <div className="captcha-warp mt20 clearfix ">
+                        <i className="captcha-img"></i>
+                        <input type="tel" maxLength="6" id="smsvc" placeholder="短信验证码" onChange={_this.callbackFn}/> 
+>>>>>>> dev
                         <CountDownBtn className="captcha-btn" options={countOptions} ref="countDown"/>
                     </div>
                     <Tappable
