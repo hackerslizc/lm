@@ -103,8 +103,8 @@ class List extends Component{
 
     ItemRender(){
         const _this = this,
-            {listArr} = this.state,
-            eleArr = [];
+            {listArr} = this.state;
+        let eleArr = [];
         // const listArr = [{
         //     "ordnr": 201702010002,
         //     "posnt": "圆通快递",
