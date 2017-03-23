@@ -30,7 +30,7 @@ class ListItem extends Component{
     }
 
     deleteFn(e){
-        const {deleteFn} = this.deleteFn;
+        const {deleteFn} = this.props;
         deleteFn && deleteFn({
             id: e.target.id
         })
