@@ -126,7 +126,7 @@ class List extends Component{
             {dispatch, location} = this.props,
             title = location.state.type === 'sender' ? '寄件人' : '收件人';
         return (
-            <div className="clearfix" style={{'min-height': '100%', position: 'relative'}}>
+            <div className="clearfix" style={{'minHeight': '100%', position: 'relative'}}>
                 <Header 
                     opt={{
                         title:'选择'+title+'地址',

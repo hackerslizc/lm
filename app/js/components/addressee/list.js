@@ -26,6 +26,7 @@ class List extends Component{
             listArr:[],
             token:''
         }
+        this.ItemRender =  this.ItemRender.bind(this);
         this.callbackFn = this.callbackFn.bind(this);
         this.selectFn = this.selectFn.bind(this);
         this.deleteFn = this.deleteFn.bind(this);
@@ -103,7 +104,6 @@ class List extends Component{
     ItemRender(){
         let _this = this,
             {listArr} = this.state,
-            Ele = '',
             eleArr = [];
         if(listArr.length > 0){
             for (var i = 0; i < listArr.length; i++){

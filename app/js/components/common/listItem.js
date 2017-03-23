@@ -19,17 +19,19 @@ class ListItem extends Component{
     }
 
     selectFn(e){
+        const { selectFn} = this.props;
         this.setState({
             isSelect: !(e.target.classList.contains('on'))
         })
-        this.props.selectFn({
+        selectFn && selectFn({
             id: e.target.id,
             select: !e.target.classList.contains('on')
         })
     }
 
     deleteFn(e){
-        this.props.deleteFn({
+        const {deleteFn} = this.deleteFn;
+        deleteFn && deleteFn({
             id: e.target.id
         })
     }

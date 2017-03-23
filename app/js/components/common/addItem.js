@@ -18,13 +18,18 @@ class ListItem extends Component{
     }
     
     setDefaultFn(e){
+        const {defaultFn} = this.props;
         this.setState({
             isSelect: !(e.currentTarget.classList.contains('on'))
         })
-        // console.log(e.currentTarget.id);
-        this.props.defaultFn(e.currentTarget.id)
+        defaultFn && defaultFn(e.currentTarget.id)
     }
-
+    deleteFn(e) {
+        const {deleteFn} = this.props;
+        deleteFn && deleteFn({
+            id: e.currentTarget.id
+        })
+    }
     render(){
         const {opt} = this.props,
               id = opt.id,

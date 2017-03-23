@@ -94,7 +94,7 @@ class AddAddress extends Component{
     }
 
     onSubmitFn(){
-        const {name, mobile, place, address, provn, cityn, distn} = this.state;
+        const {name, mobile, place, address, provn, cityn, distn, isdefault} = this.state;
         const {dispatch, location} = this.props;
 
         let sourcesdata = {},
@@ -102,6 +102,7 @@ class AddAddress extends Component{
                 // token,
                 agena: name ,
                 ageph: mobile,
+                isdef: isdefault,
                 provn,
                 cityn,
                 distn,
