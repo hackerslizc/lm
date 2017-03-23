@@ -111,7 +111,31 @@ class ExpressDetail extends Component{
                             <div className="flex-3 tr">包裹类型：</div>
                              <div className="flex-4">{paktn}</div>
                         </div>
+                        <div className="flex-box">
+                            <div className="flex-3 tr">包裹状态：</div>
+                             <div className="flex-4 yellocol">{state}</div>
+                        </div>
                     </div>
+                    <p className="clearfix tc yellocol l20 mt50 f16"> 温馨提示：本店主营业务互联网快递业务，
+我们可以快递到您家！</p>
+                    {
+                        ostat === 999 && (<div className="clearfix mt50">
+                            <Tappable
+                                id=""
+                                onTap={this.onStoreFn}
+                                className="round-btn flex-1"
+                                component="a">
+                                到店自提
+                            </Tappable>
+                            <Tappable
+                                id=""
+                                onTap={this.deliverytoHomeFn}
+                                className="round-btn flex-1"
+                                component="a">
+                                2元送货上门
+                            </Tappable>
+                        </div>)
+                    }
                 </div>
             </div>
         )
