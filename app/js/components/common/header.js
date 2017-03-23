@@ -9,6 +9,7 @@ import Tappable from 'react-tappable';
 import {
     toast,
     toggleLoading,
+    getpackageList,
     getAccountInfo
 } from '../../redux/actions';
 /**
@@ -130,16 +131,15 @@ class Header extends Component{
 
     clickHandler(e) {
         const {showList} = this.state;
-        const {requestHandler} = this.props;
+        const {requestHandler, dispatch} = this.props;
         const id = e.currentTarget.id;
         this.setState({
             showList: !showList,
             type: id
-        })
-        
+        })  
         if (e.currentTarget.classList.contains('active')) return false;
+        dispatch(getpackageList([]))
         requestHandler && requestHandler(id)
-
     }
 
     render(){

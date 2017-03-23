@@ -73,7 +73,7 @@ class ListItem extends Component{
                     to={{
                         pathname:'/express-detail',
                         state:{
-                            ...opt
+                            ordnr: opt.ordnr
                         }
                     }}>
                     <div className="list-express-icon">

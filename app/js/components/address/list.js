@@ -81,12 +81,7 @@ class List extends Component{
             data: {
                 // token: this.state.token,
                 addnr: data.id,
-                appno:2801000,
                 sno:10077,
-                asn:9034107,
-                aot:9034107,
-                acd:'',
-                dbg:2
             },
             success: (r) => {
                 dispatch(toast(r.msg));
@@ -134,9 +129,6 @@ class List extends Component{
                 addnr: id,
                 atype:1,
                 sno: 10078,
-                appno:2801000,
-                asn:9034087,
-                aot:9034087
             },
             success:(r) => {
                 dispatch(toast(`设置${r.msg}`))

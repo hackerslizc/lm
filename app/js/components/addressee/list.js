@@ -54,11 +54,28 @@ class List extends Component{
     }
 
     getList(type = 'byNew'){
+        const _this = this;
         const {dispatch, accountinfo, location} = this.props,
             {token} = this.state;
-        dispatch(GetPackageList({
-            barna: type,
-            // token: token
+        _this.setState({
+            listArr: []
+        })
+        // dispatch(GetPackageList({
+        //     barna: type,
+        //     // token: token
+        // }))
+        dispatch(Ajax({
+            data:{
+                barna: type, //byOut
+                sno: 10201
+            },
+            success: (r) => {
+                if( r.data.length != 0){
+                    _this.setState({
+                        listArr: r.data
+                    })
+                }
+            }
         }))
     }
 
@@ -85,13 +102,13 @@ class List extends Component{
 
     ItemRender(){
         let _this = this,
-            {list} = this.props,
+            {listArr} = this.state,
             Ele = '',
             eleArr = [];
-        if(list.length > 0){
-            for (var i = 0; i < list.length; i++){
+        if(listArr.length > 0){
+            for (var i = 0; i < listArr.length; i++){
                 const opt = {
-                    ...list[i]
+                    ...listArr[i]
                 };
                 eleArr.push(<ListItem opt={opt} key={i} selectFn={_this.selectFn} deleteFn={_this.deleteFn}></ListItem>)
             }   
@@ -132,37 +149,18 @@ class List extends Component{
                 response = r.data
             }
         }))
-        // if(istype !== 32 && !response.ordam) return false;
-        // wx.ready(function(){
-        //     // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
-        //     wx.chooseWXPay({
-        //         timestamp: 0, // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
-        //         nonceStr: '', // 支付签名随机串，不长于 32 位
-        //         package: '', // 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=***）
-        //         signType: '', // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
-        //         paySign: '', // 支付签名
-        //         success: function (res) {
-        //             // 支付成功后的回调函数
-        //         }
-        //     });
-        // });
-
-        // wx.error(function(res){
-        //     console.log(res)
-        // });
     }
 
     render(){
-        let _this = this,
-            headerOpt = {
-                title:'邻米',
-                name:"addresseelist",
-                pathname:'addresseelist',
-                getUserInfo: true
-             };
+        let _this = this;
+        const {listArr} = this.state; 
         return (
             <div className="clearfix">
-                <Header opt={headerOpt}
+                <Header opt={{
+                    title:'收件列表',
+                    name:"addresseelist",
+                    pathname:'addresseelist',
+                    getUserInfo: true}}
                     callbackFn={this.callbackFn}
                     requestHandler={this.getList}>
                 </Header>
@@ -172,7 +170,7 @@ class List extends Component{
                     }
                 </div>
                 {
-                    this.props.list.length !== 0 && <div className="clearfix fixed flex-box">
+                    listArr.length !== 0 && <div className="clearfix fixed flex-box">
                         <Tappable
                             id=""
                             onTap={this.deliverytoHomeFn}

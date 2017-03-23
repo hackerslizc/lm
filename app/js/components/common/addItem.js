@@ -16,13 +16,7 @@ class ListItem extends Component{
         this.setDefaultFn = this.setDefaultFn.bind(this);
         this.deleteFn = this.deleteFn.bind(this);
     }
-
-    deleteFn(e){
-        this.props.deleteFn({
-            id: e.currentTarget.id
-        })
-    }
-
+    
     setDefaultFn(e){
         this.setState({
             isSelect: !(e.currentTarget.classList.contains('on'))

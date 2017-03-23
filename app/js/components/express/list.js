@@ -48,7 +48,9 @@ class List extends Component{
         const _this = this;
         const {dispatch, accountinfo, location} = this.props,
             {token} = this.state;
-        
+        _this.setState({
+            listArr: []
+        })
         dispatch(Ajax({
             data:{
                 barna: type, //byOut

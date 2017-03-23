@@ -36,7 +36,8 @@ class ExpressForm extends Component{
             prewn: 0,
             paktn: '',
             company: '',
-            option: []
+            option: [],
+            posnr: ''
         };
         this.headercallbackFn = this.headercallbackFn.bind(this);
         this.callbackFn = this.callbackFn.bind(this);
@@ -47,6 +48,7 @@ class ExpressForm extends Component{
         this.onSubmitFn = this.onSubmitFn.bind(this);
         this.onVerificationFn = this.onVerificationFn.bind(this);
         this.changeWeight = this.changeWeight.bind(this);
+        this.selectChange = this.selectChange.bind(this);
     }
 
     componentWillMount() {
@@ -137,7 +139,7 @@ class ExpressForm extends Component{
         const {dispatch} = this.props;
         
         const { name, mobile, place, address, 
-            provn, cityn, distn, prewn, paktn} = this.state;
+            provn, cityn, distn, prewn, paktn, posnr} = this.state;
         let valid = false;
         if (name == ''){
             valid = false;
@@ -154,6 +156,9 @@ class ExpressForm extends Component{
         }  else if(paktn == ''){
             valid = false;
             dispatch(toast("请选择文件类型"))
+        }  else if(posnr == '' || posnr == '0'){
+            valid = false;
+            dispatch(toast("请选择快递公司"))
         } else {
             valid = true;
         } 
@@ -162,7 +167,7 @@ class ExpressForm extends Component{
     }
 
     onSubmitFn(){
-        const {name, mobile, place, address, provn, cityn, distn, paktn, prewn, count} = this.state;
+        const {name, mobile, place, address, provn, cityn, distn, paktn, prewn, count, posnr} = this.state;
         const {sender} = this.props;
         const {dispatch, location} = this.props;
 
@@ -171,21 +176,22 @@ class ExpressForm extends Component{
         let sourcesdata = {},
             targetdata = {
                 // token,
-                sname: sender.name,
-                sphon: sender.mobile ,
+                senna: sender.name,
+                senph: sender.mobile ,
                 sprov: sender.provn,
                 scity: sender.cityn ,
                 sdist: sender.distn ,
-                saddr: sender.address ,
-                gname: name ,
-                gphon: mobile,
+                senad: sender.address ,
+                getna: name ,
+                getph: mobile,
                 gprov: provn,
                 gcity: cityn,
                 gdist: distn,
-                gaddr: address,
+                getad: address,
                 pakns: count,
-                paktn: paktn,
-                prewn: prewn,
+                paktn,
+                prewn,
+                posnr,
                 savev : 0
             };
         const type = true;
@@ -206,6 +212,14 @@ class ExpressForm extends Component{
                 dispatch(toast(r.msg || "提交失败，请重试")) 
             }
         }))
+    }
+
+    selectChange(e) {
+        //posnr
+        this.setState({
+            posnr: e.currentTarget.value
+        })
+        // alert(e.currentTarget.value);
     }
 
     render(){
@@ -289,10 +303,11 @@ class ExpressForm extends Component{
                         <div className="flex-box clearfix">
                             <label className="clearfix flex-1 justify">快递公司：<span></span></label>
                             <p className="clearfix flex-2">
-                                <select name="" id="" className="select">
-                                {
-                                    option.length !== 0 ? option : <option value="0">无</option>
-                                }
+                                <select name="" id="" className="select" onChange={this.selectChange}>
+                                    <option value="0">请选择快递公司</option>
+                                    {
+                                        option.length !== 0 ? option : <option value="0">请选择快递公司</option>
+                                    }
                                 </select>
                             </p>
                         </div>

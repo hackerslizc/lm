@@ -18,10 +18,30 @@ class ExpressDetail extends Component{
 
     constructor (props) {
         super(props);
+        this.state = {
+            data: {}
+        };
         this.onStoreFn = this.onStoreFn.bind(this)
     }
+
+    componentWillMount(){
+        const {dispatch, location: {state: {ordnr}}} = this.props;
+        dispatch(Ajax({
+            data: {
+                sno: 10303,
+                ordnr
+            },
+            success: (r) => {
+                // alert(JSON.stringify(r))
+                this.setState({
+                    data: r.data
+                })
+            }
+        }))
+    }
+
     componentDidMount(){
-        document.getElementsByTagName('body')[0].style.paddingBottom = '80px;'
+        document.getElementsByTagName('body')[0].style.paddingBottom = '40px;'
     }
     
     getState(status) {
@@ -50,7 +70,7 @@ class ExpressDetail extends Component{
     }
 
     render(){
-        const {location: { state: { posnt, ordnr, smsvc, ordda, ostat, paktn, getna, getph, getad }}} = this.props,
+        const {data: { posnt, ordnr, smsvc, creda, ostat, paktn, getna, getph, getad }} = this.state,
                  state = this.getState(ostat);
         console.log(this.props.location.state);
         return (
@@ -81,7 +101,7 @@ class ExpressDetail extends Component{
                         </div>
                         <div className="flex-box">
                             <div className="flex-3 tr">寄件时间：</div>
-                            <div className="flex-4">{ordda}</div>
+                            <div className="flex-4">{creda}</div>
                         </div>
                         <div className="flex-box">
                             <div className="flex-3 tr">物流公司：</div>
