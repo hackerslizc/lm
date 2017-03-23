@@ -69,7 +69,6 @@ class List extends Component{
     ItemRender(){
         let _this = this,
             {listArr} = this.state,
-            Ele = '',
             eleArr = [];
         if(listArr.length > 0){
             for (var i = 0; i < listArr.length; i++){

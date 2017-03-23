@@ -35,14 +35,14 @@ class List extends Component{
         this.changeStatus = this.changeStatus.bind(this);
         this.deliverytoHomeFn = this.deliverytoHomeFn.bind(this);
         // alert(window.location.href);
-        wx.config({
-            debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-            appId: 'wxdcec8f2268c37b0c', // 必填，公众号的唯一标识
-            timestamp: '', // 必填，生成签名的时间戳
-            nonceStr: '', // 必填，生成签名的随机串
-            signature: '',// 必填，签名，见附录1
-            jsApiList: ['chooseWXPay'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
-        });
+        // wx.config({
+        //     debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+        //     appId: 'wxdcec8f2268c37b0c', // 必填，公众号的唯一标识
+        //     timestamp: '', // 必填，生成签名的时间戳
+        //     nonceStr: '', // 必填，生成签名的随机串
+        //     signature: '',// 必填，签名，见附录1
+        //     jsApiList: ['chooseWXPay'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+        // });
     }
     componentWillMount(){
         const body = document.getElementsByTagName('body')[0];
@@ -102,14 +102,27 @@ class List extends Component{
     }
 
     ItemRender(){
-        let _this = this,
+        const _this = this,
             {listArr} = this.state,
             eleArr = [];
+        // const listArr = [{
+        //     "ordnr": 201702010002,
+        //     "posnt": "圆通快递",
+        //     "coder": 6459842679248567,
+        //     "inpda": "2017/3/19 15:20:13",
+        //     "ostat": 0,
+        //     "subna": "睿知生活南城都汇四期店",
+        //     "posur": "http://zj365.org/wxrzsh/print/posnr_12.png",
+        //     "chgbn": 1703221806395430309,
+        //     "tracs": 1,
+        //     "smsvc": 56719012
+        // }];
         if(listArr.length > 0){
             for (var i = 0; i < listArr.length; i++){
                 const opt = {
                     ...listArr[i]
                 };
+                console.log(opt);
                 eleArr.push(<ListItem opt={opt} key={i} selectFn={_this.selectFn} deleteFn={_this.deleteFn}></ListItem>)
             }   
         } else {
@@ -152,7 +165,6 @@ class List extends Component{
     }
 
     render(){
-        let _this = this;
         const {listArr} = this.state; 
         return (
             <div className="clearfix">
@@ -166,11 +178,11 @@ class List extends Component{
                 </Header>
                 <div className="clearfix main list">
                     {
-                        this.ItemRender()
+                        listArr && listArr.length !== 0 && this.ItemRender()
                     }
                 </div>
                 {
-                    listArr.length !== 0 && <div className="clearfix fixed flex-box">
+                    listArr && listArr.length !== 0 && <div className="clearfix fixed flex-box">
                         <Tappable
                             id=""
                             onTap={this.deliverytoHomeFn}
