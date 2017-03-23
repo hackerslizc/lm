@@ -30,10 +30,10 @@ class List extends Component{
         this.clickHandler = this.clickHandler.bind(this);
         this.getList = this.getList.bind(this);
     }
-    componentDidMount(){
+    componentWillMount(){
         const body = document.getElementsByTagName('body')[0];
         body.style.backgroundColor = '#ececec';
-        body.style.paddingBottom = '40px';
+        body.style.paddingBottom = '80px';
         this.getList();
     }
     callbackFn(opt){
@@ -44,14 +44,13 @@ class List extends Component{
         // token && 
     }
     
-    getList(type = 'byOut'){
+    getList(type = 'byNew'){
         const _this = this;
         const {dispatch, accountinfo, location} = this.props,
             {token} = this.state;
         
         dispatch(Ajax({
             data:{
-                // token,
                 barna: type, //byOut
                 sno: 10301
             },
@@ -107,7 +106,7 @@ class List extends Component{
                     callbackFn={this.callbackFn}
                     requestHandler={this.getList}>
                 </Header>
-                <div className="clearfix main">
+                <div className="clearfix main list">
                     {
                         this.ItemRender()
                     }

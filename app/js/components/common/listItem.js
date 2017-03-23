@@ -62,7 +62,7 @@ class ListItem extends Component{
         const opt = this.props.opt,
               isSelect = this.state.isSelect ? 'list-order-select on' : 'list-order-select',
 
-              takeDelivery = opt.smsvc, //提货码
+              smsvc = opt.smsvc, //提货码
               count = opt.count,
 
               orderId = opt.ordnr, //订单编号
@@ -102,7 +102,7 @@ class ListItem extends Component{
                     </div>
                     <div className="list-order-info">
                         <p>订单编号：{orderId}</p>
-                        <p>提  货  号：{takeDelivery}</p>
+                        <p>提 货 码：{smsvc}</p>
                         <p>到站日期：{inpda}</p>
                     </div>
                 </Link>

@@ -56,11 +56,11 @@ class ListItem extends Component{
               orderId = opt.ordnr, //订单编号
               posur = opt.posur, //物流公司
               senna = opt.senna, //物流单号
-              ordda = opt.ordda, //到店时间
+              ordda = opt.ordda, //寄件时间
               status = this.getState(opt.ostat),
               iconsrc = opt.posur, //ICON
-              paktn = opt.paktn,
-              tracs = opt.tracs; //件数
+              paktn = opt.paktn, //类型
+              pakns = opt.pakns; //件数
               
         return (
             <div className="list-order-warp clear">
@@ -82,12 +82,12 @@ class ListItem extends Component{
                     <div className="list-order-info">
                         <p>收件人：{senna}</p>
                         <p>快件类型：{paktn}</p>
-                        <p>到站日期：{ordda}</p>
+                        <p>寄件时间：{ordda}</p>
                     </div>
                 </Link>
                 <div className="list-order-foot clearfix">
                     <label className="list-order-status">{status}</label>
-                    <label className="list-order-length">共 {tracs} 件包裹  </label>
+                    <label className="list-order-length">共 {pakns} 件包裹  </label>
                 </div>
             </div>
         )

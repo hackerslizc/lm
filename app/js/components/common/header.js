@@ -81,7 +81,7 @@ class Header extends Component{
 
         if (opt && opt.name === 'addresseelist') {
             ele = (<h1 className="nav-title">
-                        <label className={classnames("listheader",{on: showList})} onClick={this.showList}>我的包裹</label>
+                        <label className={classnames("listheader",{on: showList})} onClick={this.showList}>收件列表</label>
                         {
                             showList && (<div className="header-list">
                                 <div className="arrow-up"></div>
@@ -104,7 +104,7 @@ class Header extends Component{
                     </h1>)
         } else if (opt && opt.name === 'expresslist') {
             ele = (<h1 className="nav-title">
-                        <label className={classnames("listheader",{on: showList})} onClick={this.showList}>我的包裹</label>
+                        <label className={classnames("listheader",{on: showList})} onClick={this.showList}>寄件列表</label>
                         {
                             showList && (<div className="header-list">
                                 <div className="arrow-up"></div>

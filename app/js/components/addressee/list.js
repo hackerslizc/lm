@@ -43,16 +43,17 @@ class List extends Component{
             jsApiList: ['chooseWXPay'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
         });
     }
-    componentDidMount(){
+    componentWillMount(){
         const body = document.getElementsByTagName('body')[0];
         body.style.backgroundColor = '#ececec';
         body.style.paddingBottom = '40px';
+        this.getList()
     }
     callbackFn(opt){
-        // this.getList()
+        // 
     }
 
-    getList(type = 'byHis'){
+    getList(type = 'byNew'){
         const {dispatch, accountinfo, location} = this.props,
             {token} = this.state;
         dispatch(GetPackageList({
@@ -161,12 +162,11 @@ class List extends Component{
              };
         return (
             <div className="clearfix">
-                <Header 
-                    opt={headerOpt}
+                <Header opt={headerOpt}
                     callbackFn={this.callbackFn}
                     requestHandler={this.getList}>
                 </Header>
-                <div className="clearfix main">
+                <div className="clearfix main list">
                     {
                         this.ItemRender()
                     }
