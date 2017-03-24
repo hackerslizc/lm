@@ -43,24 +43,6 @@ class Header extends Component{
 
     componentDidMount(){
         const {dispatch, opt} = this.props;
-        //         _this = this;
-        // if(opt.name != 'bind'){
-            // dispatch(Ajax({
-            //     type: 'post',
-            //     data: {
-            //         sno:10000   //10000
-            //     },
-            //     success: (r) => {
-            //         dispatch(getAccountInfo(r.data));
-            //         this.setState({
-            //             token: r.data.token
-            //         })
-            //         callbackFn && callbackFn(r);
-            //     }
-            // }))
-        // } else {
-        //     dispatch(toggleLoading(false));
-        // }
         dispatch(toggleLoading(false));
     }
 
@@ -78,27 +60,39 @@ class Header extends Component{
     renderHeader() {
         const {showList, type} = this.state;
         const {opt} = this.props;
-        let ele = '';
+        let ele = '', title = '';
+
+        if (type === 'byNew') {
+            title = '待取件列表'
+        } else if (type === 'byGet') {
+            title = '已取件列表'
+        } else if (type === 'byOut') {
+            title = '待送件列表'
+        }  else if (type === 'byHis') {
+            title = '已送件列表'
+        }  else {
+            title = '收件列表'
+        }
 
         if (opt && opt.name === 'addresseelist') {
             ele = (<h1 className="nav-title">
-                        <label className={classnames("listheader",{on: showList})} onClick={this.showList}>收件列表</label>
+                        <label className={classnames("listheader",{on: showList})} onClick={this.showList}>{title}</label>
                         {
                             showList && (<div className="header-list">
                                 <div className="arrow-up"></div>
                                 <ul>
-                                    <li id="byGet" className={classnames({
-                                        active: type === 'byGet'
-                                    })} onClick={this.clickHandler}>已取件</li>
-                                    <li id="byHis" className={classnames({
-                                        active: type === 'byHis'
-                                    })} onClick={this.clickHandler}>已送件</li>
                                     <li id="byNew" className={classnames({
                                         active: type === 'byNew'
                                     })} onClick={this.clickHandler}>待取件</li>
                                     <li id="byOut" className={classnames({
                                         active: type === 'byOut'
                                     })} onClick={this.clickHandler}>待送件</li>
+                                    <li id="byGet" className={classnames({
+                                        active: type === 'byGet'
+                                    })} onClick={this.clickHandler}>已取件</li>
+                                    <li id="byHis" className={classnames({
+                                        active: type === 'byHis'
+                                    })} onClick={this.clickHandler}>已送件</li>
                                 </ul>
                             </div>)
                         }

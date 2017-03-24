@@ -1,6 +1,7 @@
 import {Promise} from 'es6-promise';
 import fetch from 'isomorphic-fetch';
 import { hashHistory } from 'react-router';
+import $ from 'webpack-zepto'
 import CONSTS from '../../const';
 export const TOGGLE_LOADING = 'TOGGLE_LOADING';
 export const TOGGLE_DATA_LOADING = 'TOGGLE_DATA_LOADING';
@@ -171,6 +172,7 @@ function param (obj) {
  */
 // function Ajax(opt){
 //     return (dispatch, getState) => {
+
 //         dispatch(toggleLoading(true));
 //         opt = opt || {};
 //         opt.method = 'POST';
@@ -182,6 +184,7 @@ function param (obj) {
 //             acd: "cac0efdbe794f04edd15b8085f4d7f27", //验证码， md5
 //             appno: 2801000,
 //         };
+
 //         opt.data = Object.assign(tempdata, opt.data);
 //         opt.success = opt.success || function () {};
 //         var xmlHttp = null;
@@ -198,17 +201,18 @@ function param (obj) {
 //         if (opt.method.toUpperCase() === 'POST') {
 //             xmlHttp.open(opt.method, opt.url, opt.async);
 //             xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
+//             // xmlHttp.setRequestHeader('Content-Type', 'application/json;charset=utf-8');
 //             xmlHttp.send(postData);
 //         } else if (opt.method.toUpperCase() === 'GET') {
 //             xmlHttp.open(opt.method, opt.url + '?' + postData, opt.async);
 //             xmlHttp.send(null);
 //         } 
+
 //         xmlHttp.onreadystatechange = function () {
 //             if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
 //                 var r = JSON.parse(xmlHttp.responseText);
 //                 dispatch(toggleLoading(false));
-//                 console.log(r);
-//                 if(r.err === 0){
+//                 if(r.err == 0){
 //                     return opt.success(r)
 //                 } else {
 //                     if (!opt.error) {
@@ -223,6 +227,7 @@ function param (obj) {
 // }
 function Ajax(opt){
     return (dispatch, getState) => {
+
         dispatch(toggleLoading(true));
         opt = opt || {};
         opt.method = 'POST';
@@ -237,30 +242,33 @@ function Ajax(opt){
 
         opt.data = Object.assign(tempdata, opt.data);
         opt.success = opt.success || function () {};
-        var xmlHttp = null;
-        if (XMLHttpRequest) {
-            xmlHttp = new XMLHttpRequest();
-        }else {
-            xmlHttp = new ActiveXObject('Microsoft.XMLHTTP');
-        }
+        // var xmlHttp = null;
+        // if (XMLHttpRequest) {
+        //     xmlHttp = new XMLHttpRequest();
+        // }else {
+        //     xmlHttp = new ActiveXObject('Microsoft.XMLHTTP');
+        // }
         var params = [];
         for (var key in opt.data){
             params.push(key + '=' + opt.data[key]);
         }
         var postData = params.join('&');
-        if (opt.method.toUpperCase() === 'POST') {
-            xmlHttp.open(opt.method, opt.url, opt.async);
-            xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
-            // xmlHttp.setRequestHeader('Content-Type', 'application/json;charset=utf-8');
-            xmlHttp.send(postData);
-        } else if (opt.method.toUpperCase() === 'GET') {
-            xmlHttp.open(opt.method, opt.url + '?' + postData, opt.async);
-            xmlHttp.send(null);
-        } 
+        // if (opt.method.toUpperCase() === 'POST') {
+        //     xmlHttp.open(opt.method, opt.url, opt.async);
+        //     xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
+        //     // xmlHttp.setRequestHeader('Content-Type', 'application/json;charset=utf-8');
+        //     xmlHttp.send(postData);
+        // } else if (opt.method.toUpperCase() === 'GET') {
+        //     xmlHttp.open(opt.method, opt.url + '?' + postData, opt.async);
+        //     xmlHttp.send(null);
+        // } 
 
-        xmlHttp.onreadystatechange = function () {
-            if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-                var r = JSON.parse(xmlHttp.responseText);
+        $.ajax({
+            url: opt.url,
+            type: 'post',
+            data: postData,
+            dataType: 'json',
+            success: (r) => {
                 dispatch(toggleLoading(false));
                 if(r.err == 0){
                     return opt.success(r)
@@ -271,8 +279,27 @@ function Ajax(opt){
                         return opt.error(r)
                     }
                 }
+            }, 
+            error: (r) => {
+
             }
-        };
+        })
+
+        // xmlHttp.onreadystatechange = function () {
+        //     if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+        //         var r = JSON.parse(xmlHttp.responseText);
+        //         dispatch(toggleLoading(false));
+        //         if(r.err == 0){
+        //             return opt.success(r)
+        //         } else {
+        //             if (!opt.error) {
+        //                 return dispatch(toast(r.msg || '网络繁忙，服务端未知错误'))
+        //             } else {
+        //                 return opt.error(r)
+        //             }
+        //         }
+        //     }
+        // };
     }
 }
 

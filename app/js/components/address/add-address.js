@@ -102,7 +102,7 @@ class AddAddress extends Component{
                 // token,
                 agena: name ,
                 ageph: mobile,
-                isdef: isdefault,
+                isdef: isdefault ? 1 : 0,
                 provn,
                 cityn,
                 distn,

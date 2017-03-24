@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import {hashHistory,Link} from 'react-router';
 import { connect } from 'react-redux';
 import {Promise} from 'es6-promise';
-import wx from 'weixin-js-sdk'
 import Tappable from 'react-tappable';
 
 import Header from '../common/header';
@@ -34,15 +33,6 @@ class List extends Component{
         this.onStoreFn = this.onStoreFn.bind(this);
         this.changeStatus = this.changeStatus.bind(this);
         this.deliverytoHomeFn = this.deliverytoHomeFn.bind(this);
-        // alert(window.location.href);
-        // wx.config({
-        //     debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-        //     appId: 'wxdcec8f2268c37b0c', // 必填，公众号的唯一标识
-        //     timestamp: '', // 必填，生成签名的时间戳
-        //     nonceStr: '', // 必填，生成签名的随机串
-        //     signature: '',// 必填，签名，见附录1
-        //     jsApiList: ['chooseWXPay'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
-        // });
     }
     componentWillMount(){
         const body = document.getElementsByTagName('body')[0];
