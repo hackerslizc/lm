@@ -124,7 +124,7 @@ class List extends Component{
                 </div>
             )
         }
-        return (eleArr)
+        return eleArr
     }
 
     onStoreFn(){
@@ -181,7 +181,7 @@ class List extends Component{
                 </Header>
                 <div className="clearfix main list">
                     {
-                        listArr && listArr.length !== 0 && this.ItemRender()
+                        this.ItemRender()
                     }
                 </div>
                 {
