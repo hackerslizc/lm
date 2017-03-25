@@ -8,6 +8,7 @@ import Header from '../common/header';
 import ListItem from '../common/listItem';
 import {
     Ajax,
+    toast,
     GetPackageList
 } from '../../redux/actions';
 
@@ -25,7 +26,6 @@ class List extends Component{
             listArr:[],
             token:''
         }
-        this.ItemRender =  this.ItemRender.bind(this);
         this.callbackFn = this.callbackFn.bind(this);
         this.selectFn = this.selectFn.bind(this);
         this.deleteFn = this.deleteFn.bind(this);
@@ -139,6 +139,17 @@ class List extends Component{
         const {dispatch, location} = this.props;
         const {token, selectArr} = this.state;
         let response = {};
+        let text = '';
+        this.ItemRender =  this.ItemRender.bind(this);
+        if (istype === 32) {
+            text = '送货上门';
+        } else {
+            text = '自提';
+        }
+        if (selectArr === '') {
+            dispatch(toast(`请选择需要${text}的订单`));
+            return false;
+        }
         dispatch(Ajax({
             data: {
                 sno: istype === 32 ? 10233 : 10231,
@@ -148,8 +159,10 @@ class List extends Component{
             success: (r) => {
                 if(istype === 0){
                     window.location.reload()
+                } else {
+                    window.location.href = r.data.url;
                 }
-                response = r.data
+                response = r.data;
             }
         }))
     }

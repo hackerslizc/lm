@@ -43,9 +43,22 @@ class List extends Component{
         //     atype:1, // 1是本地地址 2 是收件人
         //     sno:10071
         // }));
+        // dispatch(Ajax({
+        //     data: {
+        //         sno:10006
+        //     },
+        //     success:(r) => {
+        //         this.getaddresslist(r.data.token)
+        //     }
+        // }))
+        this.getaddresslist()
+    }
+
+    getaddresslist() {
+        const _this = this;
+        const {dispatch} = this.props;
         dispatch(Ajax({
             data: {
-                // token: this.state.token,
                 atype:1, // 1是本地地址 2 是收件人
                 sno:10071
             },

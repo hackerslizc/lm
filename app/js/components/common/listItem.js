@@ -83,12 +83,14 @@ class ListItem extends Component{
             <div className="list-order-warp clear">
                 <div className="list-order-top flex-box">
                     <div className="list-lm-icon gray flex-1"></div>
-                    <Tappable
-                        id={orderId}
-                        onTap={this.deleteFn}
-                        className="list-order-delet"
-                        component="a">
-                    </Tappable>
+                    {
+                        // return (<Tappable
+                        //     id={orderId}
+                        //     onTap={this.deleteFn}
+                        //     className="list-order-delet"
+                        //     component="a">
+                        // </Tappable>)
+                    }
                 </div>
                 <Link
                     id={orderId}

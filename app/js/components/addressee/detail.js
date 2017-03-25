@@ -85,7 +85,7 @@ class Detail extends Component{
     }
 
     render(){
-        const {posnt, ordnr, smsvc, inpda, ostat } = this.props.location.state,
+        const {posnt, coder, smsvc, inpda, ostat } = this.props.location.state,
             state = this.getState(ostat);
         // console.log(this.props.location.state)
         return (
@@ -106,7 +106,7 @@ class Detail extends Component{
                         </div>
                         <div className="flex-box">
                             <div className="flex-3 tr">单       号：</div>
-                             <div className="flex-4">{ordnr}</div>
+                             <div className="flex-4">{coder}</div>
                         </div>
                         <div className="flex-box">
                             <div className="flex-3 tr">取  件 码：</div>
