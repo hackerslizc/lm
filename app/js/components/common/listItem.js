@@ -56,6 +56,10 @@ class ListItem extends Component{
             ostat = '本人签收'
         } else if (status === 128) {
             ostat = '他人代签'
+        } else if (status=== 256) {
+            ostat = '已签收'
+        } else {
+            ostat = '其他'
         }
         return ostat
     }

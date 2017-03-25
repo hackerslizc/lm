@@ -146,7 +146,7 @@ class List extends Component{
         } else {
             text = '自提';
         }
-        if (selectArr === '') {
+        if (selectArr.length === 0 ) {
             dispatch(toast(`请选择需要${text}的订单`));
             return false;
         }
@@ -160,7 +160,7 @@ class List extends Component{
                 if(istype === 0){
                     window.location.reload()
                 } else {
-                    window.location.href = r.data.url;
+                    window.location.href = r.data.tourl;
                 }
                 response = r.data;
             }

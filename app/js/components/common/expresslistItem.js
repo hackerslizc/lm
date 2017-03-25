@@ -25,23 +25,21 @@ class ListItem extends Component{
     getState(status) {
         let ostat = '';
         if(status === 0){
-            ostat = '自提'
+            ostat = '已取消'
         } else if (status === 1) {
-            ostat = '待付款'
+            ostat = '新建'
         } else if (status === 2) {
-            ostat = '已付款'
+            ostat = '待取件'
         } else if (status === 4) {
-            ostat = '已派单'
+            ostat = '核价中'
         } else if (status === 8) {
-            ostat = '已出库'
+            ostat = '已核价（待付款）'
         } else if (status === 16) {
-            ostat = '多次派送'
+            ostat = '已付款（待发件）'
         } else if (status === 32) {
-            ostat = '电子签收'
-        } else if (status === 64) {
-            ostat = '本人签收'
+            ostat = '已发件'
         } else if (status === 128) {
-            ostat = '他人代签'
+            ostat = '已完成'
         }
         return ostat
     }
