@@ -8,6 +8,7 @@ import Tappable from 'react-tappable';
 import Header from '../common/header';
 import ListItem from '../common/chooseItem';
 import {
+    Ajax,
     toast,
     toggleLoading,
     GetAddressList,
@@ -30,7 +31,8 @@ class List extends Component{
         }
         this.callbackFn = this.callbackFn.bind(this);
         this.clickcallbackFn = this.clickcallbackFn.bind(this);
-        this.ItemRender = this.ItemRender.bind(this)
+        this.ItemRender = this.ItemRender.bind(this);
+        this.deleteFn = this.deleteFn.bind(this);
     }
     componentDidMount(){
         const {dispatch, location} = this.props;
@@ -56,6 +58,21 @@ class List extends Component{
             atype:1, // 1是本地地址 2 是收件人
             sno:10071
         }));
+    }
+
+    deleteFn(data){
+        const  {dispatch} = this.props;
+        if (!data.id) return false;
+        dispatch(Ajax({
+            data:{
+                addnr: data.id, //byOut
+                sno: 10077
+            },
+            success: (r) => {
+                dispatch(toast('删除地址成功'));
+                window.location.reload()
+            }
+        }))
     }
 
     clickcallbackFn(data){
@@ -96,7 +113,8 @@ class List extends Component{
             };
             eleArr.push(<ListItem opt={opt} 
                 key={i} 
-                clickcallbackFn={_this.clickcallbackFn} >
+                clickcallbackFn={_this.clickcallbackFn}
+                deleteFn={this.deleteFn} >
             </ListItem>)
         }
 
@@ -108,7 +126,7 @@ class List extends Component{
             {dispatch, location} = this.props,
             title = location.state.type === 'sender' ? '寄件人' : '收件人';
         return (
-            <div className="clearfix" style={{'min-height': '100%', position: 'relative'}}>
+            <div className="clearfix" style={{'minHeight': '100%', position: 'relative'}}>
                 <Header 
                     opt={{
                         title:'选择'+title+'地址',

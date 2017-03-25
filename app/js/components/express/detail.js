@@ -18,10 +18,30 @@ class ExpressDetail extends Component{
 
     constructor (props) {
         super(props);
+        this.state = {
+            data: {}
+        };
         this.onStoreFn = this.onStoreFn.bind(this)
     }
+
+    componentWillMount(){
+        const {dispatch, location: {state: {ordnr}}} = this.props;
+        dispatch(Ajax({
+            data: {
+                sno: 10303,
+                ordnr
+            },
+            success: (r) => {
+                // alert(JSON.stringify(r))
+                this.setState({
+                    data: r.data
+                })
+            }
+        }))
+    }
+
     componentDidMount(){
-        document.getElementsByTagName('body')[0].style.paddingBottom = '80px;'
+        document.getElementsByTagName('body')[0].style.paddingBottom = '40px;'
     }
     
     getState(status) {
@@ -50,46 +70,56 @@ class ExpressDetail extends Component{
     }
 
     render(){
-        const {posnt, ordnr, smsvc, ordda, ostat, paktn } = this.props.location.state,
+        const {data: { posnt, ordnr, smsvc, creda, ostat, paktn, getna, getph, getad }} = this.state,
                  state = this.getState(ostat);
         console.log(this.props.location.state);
         return (
             <div className="clearfix">
-                <Header 
-                    opt={{
-                        title:'邻米',
-                        name:"detail",
-                        pathname:'detail'
-                     }}>
+                <Header opt={{
+                    title:'寄件详情',
+                    name:"detail",
+                    pathname:'detail'}}>
                 </Header>
                 <div className="clearfix main">
                     <div className="detail-bg"></div>
                     <div className="clearfix l30 f14 mt50">
                         <div className="flex-box">
+                            <div className="flex-3 tr">收件人：</div>
+                            <div className="flex-4">{getna}</div>
+                        </div>
+                        <div className="flex-box">
+                            <div className="flex-3 tr">收件人电话：</div>
+                            <div className="flex-4">{getph}</div>
+                        </div>
+                        <div className="flex-box">
+                            <div className="flex-3 tr">单号：</div>
+                             <div className="flex-4">{ordnr}</div>
+                        </div>
+                        <div className="flex-box">
+                            <div className="flex-3 tr">收件人地址：</div>
+                             <div className="flex-4">{getad}</div>
+                        </div>
+                        <div className="flex-box">
+                            <div className="flex-3 tr">寄件时间：</div>
+                            <div className="flex-4">{creda}</div>
+                        </div>
+                        <div className="flex-box">
                             <div className="flex-3 tr">物流公司：</div>
                             <div className="flex-4">{posnt}</div>
                         </div>
                         <div className="flex-box">
-                            <div className="flex-3 tr">单       号：</div>
-                             <div className="flex-4">{ordnr}</div>
-                        </div>
-                        <div className="flex-box">
-                            <div className="flex-3 tr">文件类型：</div>
+                            <div className="flex-3 tr">包裹类型：</div>
                              <div className="flex-4">{paktn}</div>
                         </div>
                         <div className="flex-box">
-                            <div className="flex-3 tr">到店时间：</div>
-                            <div className="flex-4">{ordda}</div>
-                        </div>
-                        <div className="flex-box yellocol">
-                            <div className="flex-3 tr"><i className="detail-package-icon"></i>包裹状态：</div>
-                            <div className="flex-4">{state}</div>
+                            <div className="flex-3 tr">包裹状态：</div>
+                             <div className="flex-4 yellocol">{state}</div>
                         </div>
                     </div>
                     <p className="clearfix tc yellocol l20 mt50 f16"> 温馨提示：本店主营业务互联网快递业务，
 我们可以快递到您家！</p>
                     {
-                        ostat === 1 && (<div className="clearfix mt50">
+                        ostat === 999 && (<div className="clearfix mt50">
                             <Tappable
                                 id=""
                                 onTap={this.onStoreFn}
@@ -99,14 +129,13 @@ class ExpressDetail extends Component{
                             </Tappable>
                             <Tappable
                                 id=""
-                                onTap={this.onStoreFn}
+                                onTap={this.deliverytoHomeFn}
                                 className="round-btn flex-1"
                                 component="a">
                                 2元送货上门
                             </Tappable>
                         </div>)
                     }
-                    
                 </div>
             </div>
         )

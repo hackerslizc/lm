@@ -11,31 +11,30 @@ class ListItem extends Component{
     constructor (props) {
         super(props);
         this.state = {
-            isSelect: this.props.opt.isDefault ?  this.props.opt.isDefault : false
+            isSelect: this.props.opt.isDefault === 1 ?  1 : 0
         }
         this.setDefaultFn = this.setDefaultFn.bind(this);
         this.deleteFn = this.deleteFn.bind(this);
     }
-
-    deleteFn(e){
-        this.props.deleteFn({
+    
+    setDefaultFn(e){
+        const {defaultFn} = this.props;
+        this.setState({
+            isSelect: (e.currentTarget.classList.contains('on') ? 0 : 1)
+        })
+        defaultFn && defaultFn(e.currentTarget.id)
+    }
+    deleteFn(e) {
+        const {deleteFn} = this.props;
+        deleteFn && deleteFn({
             id: e.currentTarget.id
         })
     }
-
-    setDefaultFn(e){
-        this.setState({
-            isSelect: !(e.currentTarget.classList.contains('on'))
-        })
-        // console.log(e.currentTarget.id);
-        this.props.defaultFn(e.currentTarget.id)
-    }
-
     render(){
         const {opt} = this.props,
               id = opt.id,
-              isSelect = this.state.isSelect ? 'address-icon default on' : 'address-icon default';
-        // console.log(this.state.isSelect);
+              isSelect = this.state.isSelect === 1 ? 'address-icon default on' : 'address-icon default';
+        console.log(this.state.isSelect);
         return (
             <div className="list-order-warp clear">
                 <div className="list-order-top flex-box">

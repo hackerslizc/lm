@@ -19,17 +19,19 @@ class ListItem extends Component{
     }
 
     selectFn(e){
+        const { selectFn} = this.props;
         this.setState({
             isSelect: !(e.target.classList.contains('on'))
         })
-        this.props.selectFn({
+        selectFn && selectFn({
             id: e.target.id,
             select: !e.target.classList.contains('on')
         })
     }
 
     deleteFn(e){
-        this.props.deleteFn({
+        const {deleteFn} = this.props;
+        deleteFn && deleteFn({
             id: e.target.id
         })
     }
@@ -54,6 +56,10 @@ class ListItem extends Component{
             ostat = '本人签收'
         } else if (status === 128) {
             ostat = '他人代签'
+        } else if (status=== 256) {
+            ostat = '已签收'
+        } else {
+            ostat = '其他'
         }
         return ostat
     }
@@ -62,7 +68,7 @@ class ListItem extends Component{
         const opt = this.props.opt,
               isSelect = this.state.isSelect ? 'list-order-select on' : 'list-order-select',
 
-              takeDelivery = opt.smsvc, //提货码
+              smsvc = opt.smsvc, //提货码
               count = opt.count,
 
               orderId = opt.ordnr, //订单编号
@@ -81,12 +87,14 @@ class ListItem extends Component{
             <div className="list-order-warp clear">
                 <div className="list-order-top flex-box">
                     <div className="list-lm-icon gray flex-1"></div>
-                    <Tappable
-                        id={orderId}
-                        onTap={this.deleteFn}
-                        className="list-order-delet"
-                        component="a">
-                    </Tappable>
+                    {
+                        // return (<Tappable
+                        //     id={orderId}
+                        //     onTap={this.deleteFn}
+                        //     className="list-order-delet"
+                        //     component="a">
+                        // </Tappable>)
+                    }
                 </div>
                 <Link
                     id={orderId}
@@ -102,7 +110,7 @@ class ListItem extends Component{
                     </div>
                     <div className="list-order-info">
                         <p>订单编号：{orderId}</p>
-                        <p>提  货  号：{takeDelivery}</p>
+                        <p>提 货 码：{smsvc}</p>
                         <p>到站日期：{inpda}</p>
                     </div>
                 </Link>

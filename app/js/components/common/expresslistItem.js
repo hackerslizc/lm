@@ -25,23 +25,21 @@ class ListItem extends Component{
     getState(status) {
         let ostat = '';
         if(status === 0){
-            ostat = '自提'
+            ostat = '已取消'
         } else if (status === 1) {
-            ostat = '待付款'
+            ostat = '新建'
         } else if (status === 2) {
-            ostat = '已付款'
+            ostat = '待取件'
         } else if (status === 4) {
-            ostat = '已派单'
+            ostat = '核价中'
         } else if (status === 8) {
-            ostat = '已出库'
+            ostat = '已核价（待付款）'
         } else if (status === 16) {
-            ostat = '多次派送'
+            ostat = '已付款（待发件）'
         } else if (status === 32) {
-            ostat = '电子签收'
-        } else if (status === 64) {
-            ostat = '本人签收'
+            ostat = '已发件'
         } else if (status === 128) {
-            ostat = '他人代签'
+            ostat = '已完成'
         }
         return ostat
     }
@@ -56,11 +54,11 @@ class ListItem extends Component{
               orderId = opt.ordnr, //订单编号
               posur = opt.posur, //物流公司
               senna = opt.senna, //物流单号
-              ordda = opt.ordda, //到店时间
+              ordda = opt.ordda, //寄件时间
               status = this.getState(opt.ostat),
               iconsrc = opt.posur, //ICON
-              paktn = opt.paktn,
-              tracs = opt.tracs; //件数
+              paktn = opt.paktn, //类型
+              pakns = opt.pakns; //件数
               
         return (
             <div className="list-order-warp clear">
@@ -73,7 +71,7 @@ class ListItem extends Component{
                     to={{
                         pathname:'/express-detail',
                         state:{
-                            ...opt
+                            ordnr: opt.ordnr
                         }
                     }}>
                     <div className="list-express-icon">
@@ -82,12 +80,12 @@ class ListItem extends Component{
                     <div className="list-order-info">
                         <p>收件人：{senna}</p>
                         <p>快件类型：{paktn}</p>
-                        <p>到站日期：{ordda}</p>
+                        <p>寄件时间：{ordda}</p>
                     </div>
                 </Link>
                 <div className="list-order-foot clearfix">
                     <label className="list-order-status">{status}</label>
-                    <label className="list-order-length">共 {tracs} 件包裹  </label>
+                    <label className="list-order-length">共 {pakns} 件包裹  </label>
                 </div>
             </div>
         )

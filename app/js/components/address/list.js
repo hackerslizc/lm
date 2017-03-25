@@ -27,20 +27,47 @@ class List extends Component{
             count: 0,
             // token:''
         }
+        this.ItemRender = this.ItemRender.bind(this);
         this.defaultFn = this.defaultFn.bind(this);
         this.deleteFn = this.deleteFn.bind(this);
         this.callbackFn = this.callbackFn.bind(this)
     }
     componentDidMount(){
+        const _this = this;
         const {dispatch} = this.props;
         const body = document.getElementsByTagName('body')[0] ;
         body.style.height = 'auto';
         body.style.backgroundColor = '#ececec';
         body.style.paddingBottom = '40px';
-        dispatch(GetAddressList({
-            atype:1, // 1是本地地址 2 是收件人
-            sno:10071
-        }));
+        // dispatch(GetAddressList({
+        //     atype:1, // 1是本地地址 2 是收件人
+        //     sno:10071
+        // }));
+        // dispatch(Ajax({
+        //     data: {
+        //         sno:10006
+        //     },
+        //     success:(r) => {
+        //         this.getaddresslist(r.data.token)
+        //     }
+        // }))
+        this.getaddresslist()
+    }
+
+    getaddresslist() {
+        const _this = this;
+        const {dispatch} = this.props;
+        dispatch(Ajax({
+            data: {
+                atype:1, // 1是本地地址 2 是收件人
+                sno:10071
+            },
+            success:(r) => {
+                _this.setState({
+                    listArr: r.data
+                })
+            }
+        }))
     }
 
     callbackFn(r){
@@ -81,12 +108,7 @@ class List extends Component{
             data: {
                 // token: this.state.token,
                 addnr: data.id,
-                appno:2801000,
                 sno:10077,
-                asn:9034107,
-                aot:9034107,
-                acd:'',
-                dbg:2
             },
             success: (r) => {
                 dispatch(toast(r.msg));
@@ -97,21 +119,20 @@ class List extends Component{
 
     ItemRender(){
         let _this = this,
-            {list, location} = _this.props,
-            Ele = '',
+            {listArr} = _this.state,
             eleArr = [];
-        for (var i = 0; i < list.length; i++){
+        for (var i = 0; i < listArr.length; i++){
             const opt = {
                 // token: this.state.token,
-                id: list[i].addnr,
-                name: list[i].agena,
-                mobile: list[i].ageph,
-                place:`${list[i].provn}${list[i].cityn}${list[i].distn}`,
-                address: list[i].zonen,
-                isDefault: list[i].isdef,
-                provn: list[i].provn,
-                cityn: list[i].cityn,
-                distn: list[i].distn
+                id: listArr[i].addnr,
+                name: listArr[i].agena,
+                mobile: listArr[i].ageph,
+                place:`${listArr[i].provn}${listArr[i].cityn}${listArr[i].distn}`,
+                address: listArr[i].zonen,
+                isDefault: listArr[i].isdef,
+                provn: listArr[i].provn,
+                cityn: listArr[i].cityn,
+                distn: listArr[i].distn
             };
             eleArr.push(<ListItem opt={opt} 
                 key={i} 
@@ -119,7 +140,6 @@ class List extends Component{
                 deleteFn={_this.deleteFn}>
             </ListItem>)
         }
-
         return (eleArr)
     }
 
@@ -134,9 +154,6 @@ class List extends Component{
                 addnr: id,
                 atype:1,
                 sno: 10078,
-                appno:2801000,
-                asn:9034087,
-                aot:9034087
             },
             success:(r) => {
                 dispatch(toast(`设置${r.msg}`))
@@ -147,7 +164,7 @@ class List extends Component{
 
     render(){
         let _this = this, 
-            {dispatch, list} = this.props ;
+            {listArr} = this.state ;
 
         return (
             <div className="clearfix">
@@ -160,7 +177,7 @@ class List extends Component{
                 </Header>
                 <div className="clearfix main">
                     {
-                        list.length !== 0 && this.ItemRender()
+                        listArr.length !== 0 && this.ItemRender()
                     }
                 </div>
                 <div className="clearfix fixed flex-box">

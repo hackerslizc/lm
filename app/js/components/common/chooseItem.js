@@ -10,12 +10,21 @@ import Tappable from 'react-tappable';
 class ChooseItem extends Component {
     constructor (props) {
         super(props);
+        this.deleteFn = this.deleteFn.bind(this);
         this.clickHandler = this.clickHandler.bind(this);
     }
     clickHandler() {
         const {clickcallbackFn} = this.props;
-        clickcallbackFn(this.props.opt)
+        clickcallbackFn && clickcallbackFn(this.props.opt)
     }
+
+    deleteFn(e){
+        const {deleteFn} = this.props;
+        deleteFn && deleteFn({
+            id: e.currentTarget.id
+        })
+    }
+
     render(){
         const {opt} = this.props,
               id = opt.id;
@@ -48,6 +57,14 @@ class ChooseItem extends Component {
                         <i className="address-icon edit"></i>
                         编辑
                     </Link>
+                    <Tappable
+                        id={id}
+                        onTap={this.deleteFn}
+                        className="list-address-delete"
+                        component="a">
+                        <i className="list-order-delet"></i>
+                        删除
+                    </Tappable>
                 </div>
             </div>
         )
